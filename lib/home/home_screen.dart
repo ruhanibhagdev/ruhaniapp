@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ruhaniapp/timer/timer_screen.dart';
 
+import '../circularTimer/circular_timer_screen.dart';
+
 class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,13 @@ class HomeScreen extends StatelessWidget{
           Text("Hello Ruhani today is december 2, 2022"),
           ElevatedButton(onPressed:(){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>TimerScreen()));
-          }, child: Text("Start timer"))
+          }, child: Text("Start Timer")),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CircularTimerScreen()));
+                },
+                child: Text("Start Circle Timer")
+            )
         ],
         )
       ),
