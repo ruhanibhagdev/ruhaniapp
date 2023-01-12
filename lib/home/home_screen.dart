@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:ruhaniapp/timer/timer_screen.dart';
 
 import '../circularTimer/circular_timer_screen.dart';
@@ -23,6 +24,11 @@ class HomeScreen extends StatelessWidget{
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>CircularTimerScreen()));
                 },
                 child: Text("Start Circle Timer")
+            ),
+            Container(
+              width: 200,
+              height: 200,
+              child: Lottie.asset("assets/lottiefiles/microphone.json")
             )
         ],
         )
