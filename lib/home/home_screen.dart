@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ruhaniapp/permission/permission_utils.dart';
 import 'package:ruhaniapp/timer/timer_screen.dart';
 
 import '../circularTimer/circular_timer_screen.dart';
@@ -29,6 +30,13 @@ class HomeScreen extends StatelessWidget{
               width: 200,
               height: 200,
               child: Lottie.asset("assets/lottiefiles/microphone.json")
+            ),
+            ElevatedButton(
+                onPressed: (){
+                  PermissionUtils permissionUtils = PermissionUtils();
+                  permissionUtils.getMicrophonePermission();
+                },
+                child: Text("Ask")
             )
         ],
         )

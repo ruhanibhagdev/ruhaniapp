@@ -43,6 +43,9 @@ dependencies:
   #implementing lottie jason
   lottie: ^2.2.0
 
+  # Asking permission in apps
+  permission_handler: ^10.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
