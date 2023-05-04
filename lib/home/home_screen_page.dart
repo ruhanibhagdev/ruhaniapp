@@ -1,11 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
 import 'package:ruhaniapp/timer/timer_screen.dart';
 
 import '../circularTimer/circular_timer_screen.dart';
+import '../splash/splash_screen_page.dart';
 
-class HomeScreen extends StatelessWidget{
+// Ui link - https://snipboard.io/FTucEO.jpg
+// lap design - https://snipboard.io/5UJLZo.jpg
+// https://snipboard.io/ghfRQb.jpg
+
+class HomeScreenPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +45,19 @@ class HomeScreen extends StatelessWidget{
                   permissionUtils.getMicrophonePermission();
                 },
                 child: Text("Ask")
+            ),
+            ElevatedButton(
+                onPressed:(){
+                  LoggerUtils loggerUtils = LoggerUtils();
+                  loggerUtils.log("Homescreen", "Hello eggplant pizza");
+                },
+                child: Text("Debug")
+            ),
+            ElevatedButton(
+                onPressed:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreenPage()));
+                },
+                child: Text("Debug")
             )
         ],
         )
