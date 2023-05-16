@@ -64,6 +64,9 @@ dependencies:
   #Permission asking in app
   permission_handler: ^10.2.0
 
+  #creating states in app
+  equatable: ^2.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
