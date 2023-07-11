@@ -1,81 +1,59 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i4;
+part of 'app_router.dart';
 
-import '../home/home_screen_page.dart' as _i2;
-import '../splash/splash_screen_page.dart' as _i1;
-
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    SplashScreenRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
+  final Map<String, PageFactory> pagesMap = {
+    HomeRouteRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i1.SplashScreenPage(),
+        child: HomeScreenPage(),
       );
     },
-    HomeScreenRoute.name: (routeData) {
-      return _i3.MaterialPageX<dynamic>(
+    SplashRouteRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.HomeScreenPage(),
+        child: SplashScreenPage(),
       );
     },
   };
-
-  @override
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(
-          '/#redirect',
-          path: '/',
-          redirectTo: '/splash',
-          fullMatch: true,
-        ),
-        _i3.RouteConfig(
-          SplashScreenRoute.name,
-          path: '/splash',
-        ),
-        _i3.RouteConfig(
-          HomeScreenRoute.name,
-          path: '/home',
-        ),
-      ];
 }
 
 /// generated route for
-/// [_i1.SplashScreenPage]
-class SplashScreenRoute extends _i3.PageRouteInfo<void> {
-  const SplashScreenRoute()
+/// [HomeScreenPage]
+class HomeRouteRoute extends PageRouteInfo<void> {
+  const HomeRouteRoute({List<PageRouteInfo>? children})
       : super(
-          SplashScreenRoute.name,
-          path: '/splash',
+          HomeRouteRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'SplashScreenRoute';
+  static const String name = 'HomeRouteRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.HomeScreenPage]
-class HomeScreenRoute extends _i3.PageRouteInfo<void> {
-  const HomeScreenRoute()
+/// [SplashScreenPage]
+class SplashRouteRoute extends PageRouteInfo<void> {
+  const SplashRouteRoute({List<PageRouteInfo>? children})
       : super(
-          HomeScreenRoute.name,
-          path: '/home',
+          SplashRouteRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'HomeScreenRoute';
+  static const String name = 'SplashRouteRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

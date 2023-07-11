@@ -1,11 +1,11 @@
 import 'dart:math';
-
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
+import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
 import 'package:ruhaniapp/timer/timer_screen.dart';
-
 import '../circularTimer/circular_timer_screen.dart';
 import '../splash/splash_screen_page.dart';
 
@@ -13,6 +13,7 @@ import '../splash/splash_screen_page.dart';
 // lap design - https://snipboard.io/5UJLZo.jpg
 // https://snipboard.io/ghfRQb.jpg
 
+@RoutePage()
 class HomeScreenPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class HomeScreenPage extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          Text("Hello Ruhani today is december 2, 2022"),
+          Text("The app started on December 2, 2022"),
           ElevatedButton(onPressed:(){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>TimerScreen()));
           }, child: Text("Start Timer")),
@@ -46,19 +47,48 @@ class HomeScreenPage extends StatelessWidget{
                 },
                 child: Text("Ask")
             ),
-            ElevatedButton(
-                onPressed:(){
-                  LoggerUtils loggerUtils = LoggerUtils();
-                  loggerUtils.log("Homescreen", "Hello eggplant pizza");
-                },
-                child: Text("Debug")
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                AppIconWidget(
+                  buttonText: "Start",
+                  iconToDisplay: Icons.play_arrow,
+                ),
+                AppIconWidget(
+                  buttonText: "Stop",
+                  iconToDisplay: Icons.stop,
+                ),
+              ],
             ),
-            ElevatedButton(
-                onPressed:(){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreenPage()));
-                },
-                child: Text("Debug")
-            )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "00:00",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                AppIconWidget(
+                  buttonText: "Restart",
+                  iconToDisplay: Icons.replay,
+                ),
+                AppIconWidget(
+                  buttonText: "Lap",
+                  iconToDisplay: Icons.list_alt_outlined,
+                ),
+              ],
+            ),
         ],
         )
       ),

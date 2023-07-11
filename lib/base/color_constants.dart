@@ -6,4 +6,6 @@ class ColorConstants{
   static const Color klogoOrangeColor = const Color(0xFFed5b2d);
 
   static const Color klogoBlackColor = const Color(0xFF291b25);
+
+  static const Color kWhiteColor = const Color(0xFFFFFFFF);
 }

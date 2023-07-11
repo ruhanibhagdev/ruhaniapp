@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:ruhaniapp/base/logger_utils.dart' as _i4;
 import 'package:ruhaniapp/main.dart' as _i5;
-import 'package:ruhaniapp/router/app_router.gr.dart' as _i3;
+import 'package:ruhaniapp/router/app_router.dart' as _i3;
 
 import '../base/register_module.dart' as _i6;
 

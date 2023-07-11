@@ -1,5 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:ruhaniapp/router/app_router.gr.dart';
+
+import '../router/app_router.dart';
+
 @module
 abstract class RegisterModule{
 
