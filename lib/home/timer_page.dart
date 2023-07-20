@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/home/states/timer_screen_event.dart';
 import 'package:ruhaniapp/home/states/timer_screen_state.dart';
 import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
+
 import '../base/tick_tock.dart';
-import '../timer/timer_screen.dart';
 
 @RoutePage()
 class TimerPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class TimerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => TimerBloc(ticker: const TickTock()),
+      create: (_) => TimerBloc(ticker: const Ticker()),
       child: const TimerView(),
     );
   }
@@ -54,13 +54,9 @@ class TimerText extends StatelessWidget {
     final duration = context.select((TimerBloc bloc) => bloc.state.duration);
     final minutesStr =
     ((duration / 60) % 60).floor().toString().padLeft(2, '0');
-    final secondsStr = (duration % 1000).toString().padLeft(2, '0');
-    /*return Text(
-      '$minutesStr:$secondsStr',
-      style: Theme.of(context).textTheme.displayLarge,
-    );*/
+    final secondsStr = (duration % 60).toString().padLeft(2, '0');
     return Text(
-      '$duration',
+      '$minutesStr:$secondsStr',
       style: Theme.of(context).textTheme.displayLarge,
     );
   }
@@ -71,39 +67,15 @@ class Actions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TimerBloc, TimerScreenState>(
+    return BlocBuilder<TimerBloc, TimerState>(
       buildWhen: (prev, state) => prev.runtimeType != state.runtimeType,
       builder: (context, state) {
-        if(state is TimerInitialState){
-          return FloatingActionButton(
-            child: const Icon(Icons.play_arrow),
-            onPressed: () => context
-                .read<TimerBloc>()
-                .add(StartTimerEvent(duration: state.duration)),
-          );
-        }
-        else if(state is TimerRunState){
-          return Row(
-            children: [
-              FloatingActionButton(
-                child: const Icon(Icons.pause),
-                onPressed: () => context.read<TimerBloc>().add(PauseTimerEvent()),
-              ),
-              FloatingActionButton(
-                  child: const Icon(Icons.replay),
-                  onPressed: (){
-
-                  }
-              )
-            ],
-          );
-        }
-        else if(state is TimerPausingState){
-          return Text("Inside pause state");
-        }
-        else{
-          return Text("Inside Timer running");
-        }
+        return FloatingActionButton(
+          child: const Icon(Icons.play_arrow),
+          onPressed: () => context
+              .read<TimerBloc>()
+              .add(TimerStarted(duration: state.duration)),
+        );
       },
     );
   }

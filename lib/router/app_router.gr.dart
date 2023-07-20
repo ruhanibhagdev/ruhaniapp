@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SplashScreenPage(),
       );
     },
+    TimerRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TimerPage(),
+      );
+    },
   };
 }
 
@@ -54,6 +60,20 @@ class SplashRouteRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRouteRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TimerPage]
+class TimerRoute extends PageRouteInfo<void> {
+  const TimerRoute({List<PageRouteInfo>? children})
+      : super(
+          TimerRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TimerRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -1,31 +1,34 @@
 import 'package:equatable/equatable.dart';
 
-//the parent
-class TimerScreenState extends Equatable{
-
+abstract class TimerState extends Equatable {
+  const TimerState(this.duration);
   final int duration;
-  TimerScreenState(this.duration);
 
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [duration];
 }
 
-//first child
-class TimerInitialState extends TimerScreenState{
-  TimerInitialState(super.duration);
+class TimerInitial extends TimerState {
+const TimerInitial(super.duration);
+
+@override
+String toString() => 'TimerInitial { duration: $duration }';
 }
 
-//second child
-class TimerRunState extends TimerScreenState{
-  TimerRunState(super.duration);
+class TimerRunPause extends TimerState {
+const TimerRunPause(super.duration);
+
+@override
+String toString() => 'TimerRunPause { duration: $duration }';
 }
 
-//third child
-class TimerPausingState extends TimerScreenState{
-  TimerPausingState(super.duration);
+class TimerRunInProgress extends TimerState {
+const TimerRunInProgress(super.duration);
+
+@override
+String toString() => 'TimerRunInProgress { duration: $duration }';
 }
 
-//fourth child
-class TimerIsCompleteState extends TimerScreenState{
-  TimerIsCompleteState():super(0);
+class TimerRunComplete extends TimerState {
+const TimerRunComplete() : super(0);
 }

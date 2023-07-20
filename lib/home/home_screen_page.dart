@@ -5,7 +5,6 @@ import 'package:lottie/lottie.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
-import 'package:ruhaniapp/timer/timer_screen.dart';
 import '../circularTimer/circular_timer_screen.dart';
 import '../splash/splash_screen_page.dart';
 
@@ -26,9 +25,6 @@ class HomeScreenPage extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
           Text("The app started on December 2, 2022"),
-          ElevatedButton(onPressed:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>TimerScreen()));
-          }, child: Text("Start Timer")),
             ElevatedButton(
                 onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>CircularTimerScreen()));

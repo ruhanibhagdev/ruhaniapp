@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
+import 'package:ruhaniapp/home/timer_page.dart';
 import 'package:ruhaniapp/router/app_router.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_event.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_state.dart';
@@ -40,7 +41,7 @@ class _SplashScreenState extends State<SplashScreenPage>{
       body: BlocConsumer<SplashBloc, SplashScreenState>(
         listener: (BuildContext context, SplashScreenState state){
           if (state is SplashNextScreenState){
-            context.router.replace(const HomeRouteRoute());
+            context.router.replace(const TimerRoute());
           }
         },
         builder: (BuildContext context, SplashScreenState state){

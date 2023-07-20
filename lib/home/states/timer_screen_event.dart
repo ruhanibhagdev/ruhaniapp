@@ -1,25 +1,49 @@
+
+
 import 'package:equatable/equatable.dart';
 
-abstract class TimerScreenEvent extends Equatable{}
+abstract class TimerEvent extends Equatable {
+  const TimerEvent();
+}
 
-class StartTimerEvent extends TimerScreenEvent{
-  final int duration;
-
-  StartTimerEvent({required this.duration});
+class TimerStarted extends TimerEvent {
+const TimerStarted({required this.duration});
+final int duration;
 
   @override
+  // TODO: implement props
   List<Object?> get props => [];
 }
 
-class PauseTimerEvent extends TimerScreenEvent{
+class TimerPaused extends TimerEvent {
+const TimerPaused();
+
   @override
+  // TODO: implement props
   List<Object?> get props => [];
 }
 
-class TimerTickingEvent extends TimerScreenEvent{
-  final int duration;
-  TimerTickingEvent({required this.duration});
+class TimerResumed extends TimerEvent {
+const TimerResumed();
 
   @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}
+
+class TimerReset extends TimerEvent {
+  const TimerReset();
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [];
+}
+
+class TimerTicked extends TimerEvent {
+const TimerTicked({required this.duration});
+final int duration;
+
+  @override
+  // TODO: implement props
   List<Object?> get props => [];
 }
