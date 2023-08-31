@@ -1,24 +1,28 @@
 import 'dart:async';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ruhaniapp/base/duration_calculator.dart';
+import 'package:ruhaniapp/base/duration_model.dart';
 import '../../base/tick_tock.dart';
 import '../states/timer_screen_event.dart';
 import '../states/timer_screen_state.dart';
 
-class TimerBloc extends Bloc<TimerEvent, TimerState> {
-  TimerBloc({required Ticker ticker})
-      : _ticker = ticker,
-        super(const TimerInitial(_duration)) {
-    on<TimerStarted>(_onStarted);
-    on<TimerPaused>(_onPaused);
-    on<TimerResumed>(_onResumed);
-    on<TimerReset>(_onReset);
-    on<TimerTicked>(_onTicked);
+class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
+  TimerBloc({required TickTock ticker}): _ticker = ticker, super(const TimerScreenState.TimerInitialState()){
+    on<TimerScreenEvent>((event, emit) async{
+      await event.map(
+          TimerStartedEvent: (event) async => _onStarted(event, emit),
+          TimerPausedEvent: (event) async => _onPaused(event, emit),
+          TimerResumedEvent: (event) async => _onResumed(event, emit),
+          TimerResetEvent: (event) async => _onReset(event, emit),
+          TimerTickedEvent: (event) async => _onTicked(event, emit)
+      );
+    });
   }
 
-  final Ticker _ticker;
-  static const int _duration = 60;
+  final TickTock _ticker;
+  static const int _duration = 0;
 
+  DurationModel currentDurationModel = DurationModel(minutesStr: "00", secondsStr: "00", milliSecondsStr: "00");
   StreamSubscription<int>? _tickerSubscription;
 
   @override
@@ -27,38 +31,44 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     return super.close();
   }
 
-  void _onStarted(TimerStarted event, Emitter<TimerState> emit) {
-    emit(TimerRunInProgress(event.duration));
+  Future <void> _onStarted(TimerStartedEvent event, Emitter<TimerScreenState> emit) async{
+    currentDurationModel = DurationCalculator(0).calculateDuration();
+    emit(TimerScreenState.TimerRunningState(currentDurationModel));
     _tickerSubscription?.cancel();
     _tickerSubscription = _ticker
         .tick(ticks: event.duration)
-        .listen((duration) => add(TimerTicked(duration: duration)));
+        .listen((duration){
+          currentDurationModel = DurationCalculator(duration).calculateDuration();
+          return add(TimerTickedEvent(currentDurationModel));
+          }
+        );
   }
 
-  void _onPaused(TimerPaused event, Emitter<TimerState> emit) {
-    if (state is TimerRunInProgress) {
+
+  Future<void> _onPaused(TimerPausedEvent event, Emitter<TimerScreenState> emit) async{
+
       _tickerSubscription?.pause();
-      emit(TimerRunPause(state.duration));
-    }
+      emit(TimerScreenState.TimerRunPauseState(currentDurationModel));
+
   }
 
-  void _onResumed(TimerResumed resume, Emitter<TimerState> emit) {
-    if (state is TimerRunPause) {
+  Future<void> _onResumed(TimerResumedEvent resume, Emitter<TimerScreenState> emit) async{
+
       _tickerSubscription?.resume();
-      emit(TimerRunInProgress(state.duration));
-    }
+      emit(TimerScreenState.TimerRunningState(currentDurationModel));
+
   }
 
-  void _onReset(TimerReset event, Emitter<TimerState> emit) {
+  Future<void> _onReset(TimerResetEvent event, Emitter<TimerScreenState> emit) async{
+
     _tickerSubscription?.cancel();
-    emit(const TimerInitial(_duration));
+    emit(const TimerScreenState.TimerInitialState());
+
   }
 
-  void _onTicked(TimerTicked event, Emitter<TimerState> emit) {
-    emit(
-      event.duration > 0
-          ? TimerRunInProgress(event.duration)
-          : const TimerRunComplete(),
-    );
+  Future<void> _onTicked(TimerTickedEvent event, Emitter<TimerScreenState> emit) async{
+
+    emit(TimerScreenState.TimerRunningState(event.durationModel));
+
   }
 }

@@ -1,13 +1,8 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'splash_screen_state.freezed.dart';
 
-abstract class SplashScreenState extends Equatable{}
-/// Example netflix logo and animation does the sound and transformation
-class SplashInitialState extends SplashScreenState{
-  @override
-  List<Object?> get props => [];
-}
-/// Example netflix then after the cool part it goes to the profile page
-class SplashNextScreenState extends SplashScreenState{
-  @override
-  List<Object?> get props => [];
+@freezed
+class SplashScreenState with _$SplashScreenState{
+  const factory SplashScreenState.SplashInitialState() = _SplashInitialState;
+  const factory SplashScreenState.SplashNextScreenState() = _SplashNextScreenState;
 }

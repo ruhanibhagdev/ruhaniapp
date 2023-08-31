@@ -21,10 +21,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: HomeScreenPage(),
       );
     },
-    SplashRouteRoute.name: (routeData) {
+    SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: SplashScreenPage(),
+        child: SplashScreen(),
       );
     },
     TimerRoute.name: (routeData) {
@@ -51,15 +51,15 @@ class HomeRouteRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SplashScreenPage]
-class SplashRouteRoute extends PageRouteInfo<void> {
-  const SplashRouteRoute({List<PageRouteInfo>? children})
+/// [SplashScreen]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
       : super(
-          SplashRouteRoute.name,
+          SplashRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'SplashRouteRoute';
+  static const String name = 'SplashRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

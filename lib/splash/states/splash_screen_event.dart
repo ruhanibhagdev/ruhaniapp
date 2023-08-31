@@ -1,8 +1,8 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-abstract class SplashScreenEvent extends Equatable{}
-//Event: Anything the user does on the screen
-class FirstSplashEvent extends SplashScreenEvent{
-  @override
-  List<Object?> get props => [];
+part 'splash_screen_event.freezed.dart';
+
+@freezed
+class SplashScreenEvent with _$SplashScreenEvent{
+  const factory SplashScreenEvent.InitSplashEvent() = InitSplashView;
 }

@@ -1,8 +1,8 @@
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/injector/injection.dart';
 
-class Ticker {
-  const Ticker();
+class TickTock {
+  const TickTock();
   Stream<int> tick({required int ticks}) {
     final _logger = locator<LoggerUtils>();
     final _TAG = "Ticker";
@@ -12,6 +12,6 @@ class Ticker {
       //_logger.log(_TAG, "Ticks $value");
       return value;
     }
-    ).take(1000);
+    ).take(21212);
   }
 }
