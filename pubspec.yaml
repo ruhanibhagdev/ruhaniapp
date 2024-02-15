@@ -67,6 +67,9 @@ dependencies:
   #creating states in app
   equatable: ^2.0.5
 
+  #glow animation
+  avatar_glow: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

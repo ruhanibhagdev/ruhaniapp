@@ -12,6 +12,7 @@ class PermissionUtils{
         Permission.microphone,
       ].request();
     }
+    isPermissionGranted = await Permission.microphone.status.isGranted;
     return Future.value(isPermissionGranted);
 
   }

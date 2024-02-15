@@ -5,15 +5,17 @@ import 'package:lottie/lottie.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
+import 'package:speech_to_text/speech_to_text.dart';
 import '../circularTimer/circular_timer_screen.dart';
-import '../splash/splash_screen_page.dart';
+import '../speechToText/speech_to_text_screen.dart';
+import '../splash/splash_screen.dart';
 
 // Ui link - https://snipboard.io/FTucEO.jpg
 // lap design - https://snipboard.io/5UJLZo.jpg
 // https://snipboard.io/ghfRQb.jpg
 
 @RoutePage()
-class HomeScreenPage extends StatelessWidget{
+class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +32,21 @@ class HomeScreenPage extends StatelessWidget{
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>CircularTimerScreen()));
                 },
                 child: Text("Start Circle Timer")
+            ),
+            FilledButton(
+                onPressed: (){
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context){
+                        return Container(
+                          height: 400,
+                          color: Colors.red,
+                          child: SpeechToTextWidget()
+                        );
+                      }
+                  );
+                },
+                child: Text("Show Bottom Sheet")
             ),
             Container(
               width: 200,
@@ -88,10 +105,6 @@ class HomeScreenPage extends StatelessWidget{
         ],
         )
       ),
-
     );
   }
-
-
-
 }

@@ -15,10 +15,10 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRouteRoute.name: (routeData) {
+    HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: HomeScreenPage(),
+        child: HomeScreen(),
       );
     },
     SplashRoute.name: (routeData) {
@@ -30,22 +30,22 @@ abstract class _$AppRouter extends RootStackRouter {
     TimerRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const TimerPage(),
+        child: TimerPage(),
       );
     },
   };
 }
 
 /// generated route for
-/// [HomeScreenPage]
-class HomeRouteRoute extends PageRouteInfo<void> {
-  const HomeRouteRoute({List<PageRouteInfo>? children})
+/// [HomeScreen]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
       : super(
-          HomeRouteRoute.name,
+          HomeRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeRouteRoute';
+  static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

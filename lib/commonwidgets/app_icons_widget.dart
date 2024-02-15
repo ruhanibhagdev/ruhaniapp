@@ -23,7 +23,7 @@ class _AppIconState extends State<AppIconWidget> with SingleTickerProviderStateM
     super.initState();
     _controller = AnimationController(
         vsync: this,
-      duration: Duration(milliseconds: 150)
+      duration: Duration(milliseconds: 5)
     );
   }
 

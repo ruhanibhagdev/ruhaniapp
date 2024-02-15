@@ -15,4 +15,6 @@ class DurationCalculator{
     DurationModel durationModel = DurationModel(minutesStr: minutesStr, secondsStr: secondsStr, milliSecondsStr: milliSecondsStr);
     return durationModel;
   }
+
+
 }

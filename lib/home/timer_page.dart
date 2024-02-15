@@ -10,25 +10,23 @@ import '../base/tick_tock.dart';
 
 @RoutePage()
 class TimerPage extends StatelessWidget {
-  const TimerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => TimerBloc(ticker: const TickTock()),
-      child: const TimerView(),
+      child: TimerView(),
     );
   }
 }
 
 class TimerView extends StatelessWidget {
-  const TimerView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Flutter Timer')),
-      body: const Stack(
+      body: Stack(
         children: [
           Background(),
           Column(
@@ -36,7 +34,7 @@ class TimerView extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 100),
-                child: Center(child: TimerText())
+                child: Center(child: TimerText(),)
               ),
               Actions(),
             ],
@@ -89,7 +87,6 @@ class TimerText extends StatelessWidget {
 }
 
 class Actions extends StatelessWidget {
-  const Actions({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +133,6 @@ class Actions extends StatelessWidget {
 }
 
 class Background extends StatelessWidget {
-  const Background({super.key});
 
   @override
   Widget build(BuildContext context) {
