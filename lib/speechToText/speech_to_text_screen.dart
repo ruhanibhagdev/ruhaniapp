@@ -5,10 +5,14 @@ import 'package:ruhaniapp/base/color_constants.dart';
 import 'package:ruhaniapp/base/duration_calculator.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/base/time_regex.dart';
+import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 class SpeechToTextWidget extends StatefulWidget{
+
+  TimerBloc timerBloc;
+  SpeechToTextWidget({required this.timerBloc});
 
   @override
   State<StatefulWidget> createState() {
@@ -72,6 +76,7 @@ class SpeechToTextWidgetState extends State<SpeechToTextWidget>{
                   listenFor: Duration(days: 1),
                   onResult: (result){
                     detectedText = result.recognizedWords;
+
                     setState(() {});
                   }
                 );
@@ -79,6 +84,7 @@ class SpeechToTextWidgetState extends State<SpeechToTextWidget>{
             }
             else{
               isListening = false;
+              detectedText = "";
               await speechToText.stop();
               setState(() {});
             }
@@ -95,13 +101,17 @@ class SpeechToTextWidgetState extends State<SpeechToTextWidget>{
       ),
       bottomNavigationBar: FilledButton(
         onPressed: (){
+          String textwithdigits = detectedText;
+          _logger.log(_TAG, "textwithdigits $textwithdigits");
+          //detectedText = TimeRegex().extractDigits(textwithdigits);
           var duration = timeRegex.extractTime(detectedText);
           if(duration != null){
             String formattedDuration = timeRegex.formatDuration(duration);
             _logger.log(_TAG, "Formatted duration $formattedDuration");
           }
+          Navigator.pop(context);
         },
-        child: Text("Extract time"),
+        child: Text("Set Timer"),
       ),
     );
   }

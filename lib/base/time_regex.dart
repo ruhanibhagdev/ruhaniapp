@@ -24,6 +24,11 @@ class TimeRegex{
     // Create a Duration object with the extracted hours, minutes, and seconds
     return Duration(hours: hours, minutes: minutes, seconds: seconds);
   }
+  
+  String extractDigits(String input) {
+    String output = input.replaceAll(RegExp(r'[^0-9]'), '');
+    return output;
+  }
 
   String formatDuration(Duration duration) {
     return '${duration.inHours} hours, ${duration.inMinutes.remainder(60)} minutes, ${duration.inSeconds.remainder(60)} seconds';
