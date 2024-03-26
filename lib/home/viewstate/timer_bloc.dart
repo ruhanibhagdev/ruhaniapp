@@ -36,7 +36,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
     emit(TimerScreenState.TimerRunningState(currentDurationModel));
     _tickerSubscription?.cancel();
     _tickerSubscription = _ticker
-        .tick(ticks: event.duration)
+        .tick(ticks: 0)
         .listen((duration){
           currentDurationModel = DurationCalculator(duration).calculateDuration();
           return add(TimerTickedEvent(currentDurationModel));

@@ -5,7 +5,7 @@ part 'timer_screen_event.freezed.dart';
 
 @freezed
 class TimerScreenEvent with _$TimerScreenEvent{
-  const factory TimerScreenEvent.TimerStartedEvent(int duration) = TimerStartedEvent;
+  const factory TimerScreenEvent.TimerStartedEvent(DurationModel durationModel) = TimerStartedEvent;
   const factory TimerScreenEvent.TimerPausedEvent() = TimerPausedEvent;
   const factory TimerScreenEvent.TimerResumedEvent() = TimerResumedEvent;
   const factory TimerScreenEvent.TimerResetEvent() = TimerResetEvent;

@@ -95,11 +95,16 @@ class Actions extends StatelessWidget {
       builder: (BuildContext context, TimerScreenState state) {
         return state.when(
             TimerInitialState: (){
+              DurationModel startDuration = DurationModel(
+                  minutesStr: "0",
+                  secondsStr: "0",
+                  milliSecondsStr: "0"
+              );
               return FloatingActionButton(
                   child: const Icon(Icons.play_arrow),
                   onPressed: () => context
                       .read<TimerBloc>()
-                      .add(const TimerScreenEvent.TimerStartedEvent(0))
+                      .add(TimerScreenEvent.TimerStartedEvent(startDuration))
               );
             },
             TimerRunPauseState: (DurationModel durationModel){
@@ -122,7 +127,7 @@ class Actions extends StatelessWidget {
               return FloatingActionButton(
                 child: const Icon(Icons.play_arrow),
                 onPressed: (){
-                  context.read<TimerBloc>().add(const TimerScreenEvent.TimerStartedEvent(0));
+                  context.read<TimerBloc>().add(TimerScreenEvent.TimerStartedEvent(durationModel));
                 },
               );
             }

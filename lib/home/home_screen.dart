@@ -8,7 +8,9 @@ import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/base/tick_tock.dart';
 import 'package:ruhaniapp/base/time_regex.dart';
 import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
+import 'package:ruhaniapp/home/home_screen_action_view.dart';
 import 'package:ruhaniapp/home/states/timer_screen_state.dart';
+import 'package:ruhaniapp/home/timer_page.dart';
 import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -35,12 +37,6 @@ class HomeScreen extends StatelessWidget{
         },
         builder: (BuildContext context, TimerScreenState state){
           var timerbloc = context.read<TimerBloc>();
-          /*state.when(
-              TimerInitialState: TimerInitialState,
-              TimerRunPauseState: TimerRunPauseState,
-              TimerRunningState: TimerRunningState,
-              TimerRunComplete: TimerRunComplete
-          );*/
           return Scaffold(
             appBar: AppBar(
               title: Text("Ruhani app"),
@@ -85,58 +81,8 @@ class HomeScreen extends StatelessWidget{
                         },
                         child: Text("Ask")
                     ),
-                    FilledButton(
-                        onPressed: (){
-                          TimeRegex pizzaObject = TimeRegex();
-                          String digits = pizzaObject.extractDigits("574,xyz");
-                          String seconddigit = pizzaObject.extractDigits("some number 922");
-                          print("ruhani was here $digits");
-                          print("ruhani was here x2 $seconddigit");
-                        },
-                        child: Text("test digits pizza")
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        AppIconWidget(
-                          buttonText: "Start",
-                          iconToDisplay: Icons.play_arrow,
-                        ),
-                        AppIconWidget(
-                          buttonText: "Stop",
-                          iconToDisplay: Icons.stop,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        CircleAvatar(
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "00:00",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        AppIconWidget(
-                          buttonText: "Restart",
-                          iconToDisplay: Icons.replay,
-                        ),
-                        AppIconWidget(
-                          buttonText: "Lap",
-                          iconToDisplay: Icons.list_alt_outlined,
-                        ),
-                      ],
-                    ),
+                    TimerText(),
+                    HomeScreenActionView()
                   ],
                 )
             ),

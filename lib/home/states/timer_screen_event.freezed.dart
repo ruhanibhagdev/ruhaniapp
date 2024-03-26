@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TimerScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int duration) TimerStartedEvent,
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
     required TResult Function() TimerPausedEvent,
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
@@ -27,7 +27,7 @@ mixin _$TimerScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int duration)? TimerStartedEvent,
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
     TResult? Function()? TimerPausedEvent,
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
@@ -36,7 +36,7 @@ mixin _$TimerScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int duration)? TimerStartedEvent,
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
     TResult Function()? TimerPausedEvent,
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
@@ -98,7 +98,7 @@ abstract class _$$TimerStartedEventCopyWith<$Res> {
           _$TimerStartedEvent value, $Res Function(_$TimerStartedEvent) then) =
       __$$TimerStartedEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({int duration});
+  $Res call({DurationModel durationModel});
 }
 
 /// @nodoc
@@ -112,13 +112,13 @@ class __$$TimerStartedEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? duration = null,
+    Object? durationModel = null,
   }) {
     return _then(_$TimerStartedEvent(
-      null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as int,
+      null == durationModel
+          ? _value.durationModel
+          : durationModel // ignore: cast_nullable_to_non_nullable
+              as DurationModel,
     ));
   }
 }
@@ -126,14 +126,14 @@ class __$$TimerStartedEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TimerStartedEvent implements TimerStartedEvent {
-  const _$TimerStartedEvent(this.duration);
+  const _$TimerStartedEvent(this.durationModel);
 
   @override
-  final int duration;
+  final DurationModel durationModel;
 
   @override
   String toString() {
-    return 'TimerScreenEvent.TimerStartedEvent(duration: $duration)';
+    return 'TimerScreenEvent.TimerStartedEvent(durationModel: $durationModel)';
   }
 
   @override
@@ -141,12 +141,12 @@ class _$TimerStartedEvent implements TimerStartedEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TimerStartedEvent &&
-            (identical(other.duration, duration) ||
-                other.duration == duration));
+            (identical(other.durationModel, durationModel) ||
+                other.durationModel == durationModel));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, duration);
+  int get hashCode => Object.hash(runtimeType, durationModel);
 
   @JsonKey(ignore: true)
   @override
@@ -157,31 +157,31 @@ class _$TimerStartedEvent implements TimerStartedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int duration) TimerStartedEvent,
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
     required TResult Function() TimerPausedEvent,
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
   }) {
-    return TimerStartedEvent(duration);
+    return TimerStartedEvent(durationModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int duration)? TimerStartedEvent,
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
     TResult? Function()? TimerPausedEvent,
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
   }) {
-    return TimerStartedEvent?.call(duration);
+    return TimerStartedEvent?.call(durationModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int duration)? TimerStartedEvent,
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
     TResult Function()? TimerPausedEvent,
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
@@ -189,7 +189,7 @@ class _$TimerStartedEvent implements TimerStartedEvent {
     required TResult orElse(),
   }) {
     if (TimerStartedEvent != null) {
-      return TimerStartedEvent(duration);
+      return TimerStartedEvent(durationModel);
     }
     return orElse();
   }
@@ -236,9 +236,10 @@ class _$TimerStartedEvent implements TimerStartedEvent {
 }
 
 abstract class TimerStartedEvent implements TimerScreenEvent {
-  const factory TimerStartedEvent(final int duration) = _$TimerStartedEvent;
+  const factory TimerStartedEvent(final DurationModel durationModel) =
+      _$TimerStartedEvent;
 
-  int get duration;
+  DurationModel get durationModel;
   @JsonKey(ignore: true)
   _$$TimerStartedEventCopyWith<_$TimerStartedEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -282,7 +283,7 @@ class _$TimerPausedEvent implements TimerPausedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int duration) TimerStartedEvent,
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
     required TResult Function() TimerPausedEvent,
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
@@ -294,7 +295,7 @@ class _$TimerPausedEvent implements TimerPausedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int duration)? TimerStartedEvent,
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
     TResult? Function()? TimerPausedEvent,
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
@@ -306,7 +307,7 @@ class _$TimerPausedEvent implements TimerPausedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int duration)? TimerStartedEvent,
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
     TResult Function()? TimerPausedEvent,
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
@@ -402,7 +403,7 @@ class _$TimerResumedEvent implements TimerResumedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int duration) TimerStartedEvent,
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
     required TResult Function() TimerPausedEvent,
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
@@ -414,7 +415,7 @@ class _$TimerResumedEvent implements TimerResumedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int duration)? TimerStartedEvent,
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
     TResult? Function()? TimerPausedEvent,
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
@@ -426,7 +427,7 @@ class _$TimerResumedEvent implements TimerResumedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int duration)? TimerStartedEvent,
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
     TResult Function()? TimerPausedEvent,
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
@@ -522,7 +523,7 @@ class _$TimerResetEvent implements TimerResetEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int duration) TimerStartedEvent,
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
     required TResult Function() TimerPausedEvent,
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
@@ -534,7 +535,7 @@ class _$TimerResetEvent implements TimerResetEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int duration)? TimerStartedEvent,
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
     TResult? Function()? TimerPausedEvent,
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
@@ -546,7 +547,7 @@ class _$TimerResetEvent implements TimerResetEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int duration)? TimerStartedEvent,
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
     TResult Function()? TimerPausedEvent,
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
@@ -669,7 +670,7 @@ class _$TimerTickedEvent implements TimerTickedEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int duration) TimerStartedEvent,
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
     required TResult Function() TimerPausedEvent,
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
@@ -681,7 +682,7 @@ class _$TimerTickedEvent implements TimerTickedEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int duration)? TimerStartedEvent,
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
     TResult? Function()? TimerPausedEvent,
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
@@ -693,7 +694,7 @@ class _$TimerTickedEvent implements TimerTickedEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int duration)? TimerStartedEvent,
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
     TResult Function()? TimerPausedEvent,
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,

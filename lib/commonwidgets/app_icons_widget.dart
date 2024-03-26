@@ -5,7 +5,9 @@ class AppIconWidget extends StatefulWidget{
   String buttonText;
   IconData iconToDisplay;
 
-  AppIconWidget({required this.buttonText, required this.iconToDisplay});
+  VoidCallback? onButtonPress;
+
+  AppIconWidget({required this.buttonText, required this.iconToDisplay, this.onButtonPress});
 
   @override
   State<StatefulWidget> createState() {
@@ -31,6 +33,9 @@ class _AppIconState extends State<AppIconWidget> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
+        if(widget.onButtonPress != null){
+          widget.onButtonPress!();
+        }
         _controller.forward();
         Future.delayed(Duration(milliseconds: 200), () {
           _controller.reverse();
