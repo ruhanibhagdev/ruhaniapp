@@ -22,7 +22,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   final TickTock _ticker;
   static const int _duration = 0;
 
-  DurationModel currentDurationModel = DurationModel(minutesStr: "00", secondsStr: "00", milliSecondsStr: "00");
+  DurationModel currentDurationModel = DurationModel(hoursStr: "00", minutesStr: "00", secondsStr: "00");
   StreamSubscription<int>? _tickerSubscription;
 
   @override
@@ -33,7 +33,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
 
   Future <void> _onStarted(TimerStartedEvent event, Emitter<TimerScreenState> emit) async{
     currentDurationModel = DurationCalculator(0).calculateDuration();
-    emit(TimerScreenState.TimerRunningState(currentDurationModel));
+    emit(TimerScreenState.TimerRunningState(currentDurationModel, false));
     _tickerSubscription?.cancel();
     _tickerSubscription = _ticker
         .tick(ticks: 0)
@@ -55,7 +55,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   Future<void> _onResumed(TimerResumedEvent resume, Emitter<TimerScreenState> emit) async{
 
       _tickerSubscription?.resume();
-      emit(TimerScreenState.TimerRunningState(currentDurationModel));
+      emit(TimerScreenState.TimerRunningState(currentDurationModel, false));
 
   }
 
@@ -68,7 +68,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
 
   Future<void> _onTicked(TimerTickedEvent event, Emitter<TimerScreenState> emit) async{
 
-    emit(TimerScreenState.TimerRunningState(event.durationModel));
+    emit(TimerScreenState.TimerRunningState(event.durationModel, false));
 
   }
 }

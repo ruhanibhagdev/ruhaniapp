@@ -16,9 +16,9 @@ class HomeScreenActionView extends StatelessWidget{
           return state.when(
               TimerInitialState: (){
                 DurationModel startDuration = DurationModel(
+                    hoursStr: "0",
                     minutesStr: "0",
-                    secondsStr: "0",
-                    milliSecondsStr: "0"
+                    secondsStr: "0"
                 );
                 return AppIconWidget(
                     buttonText: "Start",
@@ -30,15 +30,17 @@ class HomeScreenActionView extends StatelessWidget{
               },
               TimerRunPauseState: (DurationModel durationModel){
                 return AppIconWidget(
-                    buttonText: "Resume",
+                    buttonText: "Replay",
+
                     iconToDisplay: Icons.restart_alt_rounded,
                     onButtonPress: (){
                       context.read<TimerBloc>().add(const TimerScreenEvent.TimerResumedEvent());
                     },
                 );
               },
-              TimerRunningState: (DurationModel durationModel){
+              TimerRunningState: (DurationModel durationModel, bool isGoalReached){
                 return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AppIconWidget(
                       iconToDisplay: Icons.square_rounded,
@@ -46,6 +48,9 @@ class HomeScreenActionView extends StatelessWidget{
                       onButtonPress: (){
                         context.read<TimerBloc>().add(const TimerScreenEvent.TimerResetEvent());
                       },
+                    ),
+                    SizedBox(
+                      width: 20,
                     ),
                     AppIconWidget(
                       buttonText: "Pause",

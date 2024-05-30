@@ -12,7 +12,7 @@ part of 'timer_screen_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TimerScreenState {
@@ -20,7 +20,8 @@ mixin _$TimerScreenState {
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
     required TResult Function(DurationModel durationModel) TimerRunPauseState,
-    required TResult Function(DurationModel durationModel) TimerRunningState,
+    required TResult Function(DurationModel durationModel, bool isGoalReached)
+        TimerRunningState,
     required TResult Function(DurationModel durationModel) TimerRunComplete,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,8 @@ mixin _$TimerScreenState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
     TResult? Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult? Function(DurationModel durationModel)? TimerRunningState,
+    TResult? Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult? Function(DurationModel durationModel)? TimerRunComplete,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +38,8 @@ mixin _$TimerScreenState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
     TResult Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult Function(DurationModel durationModel)? TimerRunningState,
+    TResult Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult Function(DurationModel durationModel)? TimerRunComplete,
     required TResult orElse(),
   }) =>
@@ -87,25 +90,25 @@ class _$TimerScreenStateCopyWithImpl<$Res, $Val extends TimerScreenState>
 }
 
 /// @nodoc
-abstract class _$$_TimerInitialCopyWith<$Res> {
-  factory _$$_TimerInitialCopyWith(
-          _$_TimerInitial value, $Res Function(_$_TimerInitial) then) =
-      __$$_TimerInitialCopyWithImpl<$Res>;
+abstract class _$$TimerInitialImplCopyWith<$Res> {
+  factory _$$TimerInitialImplCopyWith(
+          _$TimerInitialImpl value, $Res Function(_$TimerInitialImpl) then) =
+      __$$TimerInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_TimerInitialCopyWithImpl<$Res>
-    extends _$TimerScreenStateCopyWithImpl<$Res, _$_TimerInitial>
-    implements _$$_TimerInitialCopyWith<$Res> {
-  __$$_TimerInitialCopyWithImpl(
-      _$_TimerInitial _value, $Res Function(_$_TimerInitial) _then)
+class __$$TimerInitialImplCopyWithImpl<$Res>
+    extends _$TimerScreenStateCopyWithImpl<$Res, _$TimerInitialImpl>
+    implements _$$TimerInitialImplCopyWith<$Res> {
+  __$$TimerInitialImplCopyWithImpl(
+      _$TimerInitialImpl _value, $Res Function(_$TimerInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_TimerInitial implements _TimerInitial {
-  const _$_TimerInitial();
+class _$TimerInitialImpl implements _TimerInitial {
+  const _$TimerInitialImpl();
 
   @override
   String toString() {
@@ -113,9 +116,9 @@ class _$_TimerInitial implements _TimerInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TimerInitial);
+        (other.runtimeType == runtimeType && other is _$TimerInitialImpl);
   }
 
   @override
@@ -126,7 +129,8 @@ class _$_TimerInitial implements _TimerInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
     required TResult Function(DurationModel durationModel) TimerRunPauseState,
-    required TResult Function(DurationModel durationModel) TimerRunningState,
+    required TResult Function(DurationModel durationModel, bool isGoalReached)
+        TimerRunningState,
     required TResult Function(DurationModel durationModel) TimerRunComplete,
   }) {
     return TimerInitialState();
@@ -137,7 +141,8 @@ class _$_TimerInitial implements _TimerInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
     TResult? Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult? Function(DurationModel durationModel)? TimerRunningState,
+    TResult? Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult? Function(DurationModel durationModel)? TimerRunComplete,
   }) {
     return TimerInitialState?.call();
@@ -148,7 +153,8 @@ class _$_TimerInitial implements _TimerInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
     TResult Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult Function(DurationModel durationModel)? TimerRunningState,
+    TResult Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult Function(DurationModel durationModel)? TimerRunComplete,
     required TResult orElse(),
   }) {
@@ -197,24 +203,24 @@ class _$_TimerInitial implements _TimerInitial {
 }
 
 abstract class _TimerInitial implements TimerScreenState {
-  const factory _TimerInitial() = _$_TimerInitial;
+  const factory _TimerInitial() = _$TimerInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_TimerRunPauseCopyWith<$Res> {
-  factory _$$_TimerRunPauseCopyWith(
-          _$_TimerRunPause value, $Res Function(_$_TimerRunPause) then) =
-      __$$_TimerRunPauseCopyWithImpl<$Res>;
+abstract class _$$TimerRunPauseImplCopyWith<$Res> {
+  factory _$$TimerRunPauseImplCopyWith(
+          _$TimerRunPauseImpl value, $Res Function(_$TimerRunPauseImpl) then) =
+      __$$TimerRunPauseImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DurationModel durationModel});
 }
 
 /// @nodoc
-class __$$_TimerRunPauseCopyWithImpl<$Res>
-    extends _$TimerScreenStateCopyWithImpl<$Res, _$_TimerRunPause>
-    implements _$$_TimerRunPauseCopyWith<$Res> {
-  __$$_TimerRunPauseCopyWithImpl(
-      _$_TimerRunPause _value, $Res Function(_$_TimerRunPause) _then)
+class __$$TimerRunPauseImplCopyWithImpl<$Res>
+    extends _$TimerScreenStateCopyWithImpl<$Res, _$TimerRunPauseImpl>
+    implements _$$TimerRunPauseImplCopyWith<$Res> {
+  __$$TimerRunPauseImplCopyWithImpl(
+      _$TimerRunPauseImpl _value, $Res Function(_$TimerRunPauseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -222,7 +228,7 @@ class __$$_TimerRunPauseCopyWithImpl<$Res>
   $Res call({
     Object? durationModel = null,
   }) {
-    return _then(_$_TimerRunPause(
+    return _then(_$TimerRunPauseImpl(
       null == durationModel
           ? _value.durationModel
           : durationModel // ignore: cast_nullable_to_non_nullable
@@ -233,8 +239,8 @@ class __$$_TimerRunPauseCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimerRunPause implements _TimerRunPause {
-  const _$_TimerRunPause(this.durationModel);
+class _$TimerRunPauseImpl implements _TimerRunPause {
+  const _$TimerRunPauseImpl(this.durationModel);
 
   @override
   final DurationModel durationModel;
@@ -245,10 +251,10 @@ class _$_TimerRunPause implements _TimerRunPause {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimerRunPause &&
+            other is _$TimerRunPauseImpl &&
             (identical(other.durationModel, durationModel) ||
                 other.durationModel == durationModel));
   }
@@ -259,15 +265,16 @@ class _$_TimerRunPause implements _TimerRunPause {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimerRunPauseCopyWith<_$_TimerRunPause> get copyWith =>
-      __$$_TimerRunPauseCopyWithImpl<_$_TimerRunPause>(this, _$identity);
+  _$$TimerRunPauseImplCopyWith<_$TimerRunPauseImpl> get copyWith =>
+      __$$TimerRunPauseImplCopyWithImpl<_$TimerRunPauseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
     required TResult Function(DurationModel durationModel) TimerRunPauseState,
-    required TResult Function(DurationModel durationModel) TimerRunningState,
+    required TResult Function(DurationModel durationModel, bool isGoalReached)
+        TimerRunningState,
     required TResult Function(DurationModel durationModel) TimerRunComplete,
   }) {
     return TimerRunPauseState(durationModel);
@@ -278,7 +285,8 @@ class _$_TimerRunPause implements _TimerRunPause {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
     TResult? Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult? Function(DurationModel durationModel)? TimerRunningState,
+    TResult? Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult? Function(DurationModel durationModel)? TimerRunComplete,
   }) {
     return TimerRunPauseState?.call(durationModel);
@@ -289,7 +297,8 @@ class _$_TimerRunPause implements _TimerRunPause {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
     TResult Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult Function(DurationModel durationModel)? TimerRunningState,
+    TResult Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult Function(DurationModel durationModel)? TimerRunComplete,
     required TResult orElse(),
   }) {
@@ -339,75 +348,84 @@ class _$_TimerRunPause implements _TimerRunPause {
 
 abstract class _TimerRunPause implements TimerScreenState {
   const factory _TimerRunPause(final DurationModel durationModel) =
-      _$_TimerRunPause;
+      _$TimerRunPauseImpl;
 
   DurationModel get durationModel;
   @JsonKey(ignore: true)
-  _$$_TimerRunPauseCopyWith<_$_TimerRunPause> get copyWith =>
+  _$$TimerRunPauseImplCopyWith<_$TimerRunPauseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimerRunningStateCopyWith<$Res> {
-  factory _$$_TimerRunningStateCopyWith(_$_TimerRunningState value,
-          $Res Function(_$_TimerRunningState) then) =
-      __$$_TimerRunningStateCopyWithImpl<$Res>;
+abstract class _$$TimerRunningStateImplCopyWith<$Res> {
+  factory _$$TimerRunningStateImplCopyWith(_$TimerRunningStateImpl value,
+          $Res Function(_$TimerRunningStateImpl) then) =
+      __$$TimerRunningStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DurationModel durationModel});
+  $Res call({DurationModel durationModel, bool isGoalReached});
 }
 
 /// @nodoc
-class __$$_TimerRunningStateCopyWithImpl<$Res>
-    extends _$TimerScreenStateCopyWithImpl<$Res, _$_TimerRunningState>
-    implements _$$_TimerRunningStateCopyWith<$Res> {
-  __$$_TimerRunningStateCopyWithImpl(
-      _$_TimerRunningState _value, $Res Function(_$_TimerRunningState) _then)
+class __$$TimerRunningStateImplCopyWithImpl<$Res>
+    extends _$TimerScreenStateCopyWithImpl<$Res, _$TimerRunningStateImpl>
+    implements _$$TimerRunningStateImplCopyWith<$Res> {
+  __$$TimerRunningStateImplCopyWithImpl(_$TimerRunningStateImpl _value,
+      $Res Function(_$TimerRunningStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? durationModel = null,
+    Object? isGoalReached = null,
   }) {
-    return _then(_$_TimerRunningState(
+    return _then(_$TimerRunningStateImpl(
       null == durationModel
           ? _value.durationModel
           : durationModel // ignore: cast_nullable_to_non_nullable
               as DurationModel,
+      null == isGoalReached
+          ? _value.isGoalReached
+          : isGoalReached // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_TimerRunningState implements _TimerRunningState {
-  const _$_TimerRunningState(this.durationModel);
+class _$TimerRunningStateImpl implements _TimerRunningState {
+  const _$TimerRunningStateImpl(this.durationModel, this.isGoalReached);
 
   @override
   final DurationModel durationModel;
+  @override
+  final bool isGoalReached;
 
   @override
   String toString() {
-    return 'TimerScreenState.TimerRunningState(durationModel: $durationModel)';
+    return 'TimerScreenState.TimerRunningState(durationModel: $durationModel, isGoalReached: $isGoalReached)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimerRunningState &&
+            other is _$TimerRunningStateImpl &&
             (identical(other.durationModel, durationModel) ||
-                other.durationModel == durationModel));
+                other.durationModel == durationModel) &&
+            (identical(other.isGoalReached, isGoalReached) ||
+                other.isGoalReached == isGoalReached));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, durationModel);
+  int get hashCode => Object.hash(runtimeType, durationModel, isGoalReached);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimerRunningStateCopyWith<_$_TimerRunningState> get copyWith =>
-      __$$_TimerRunningStateCopyWithImpl<_$_TimerRunningState>(
+  _$$TimerRunningStateImplCopyWith<_$TimerRunningStateImpl> get copyWith =>
+      __$$TimerRunningStateImplCopyWithImpl<_$TimerRunningStateImpl>(
           this, _$identity);
 
   @override
@@ -415,10 +433,11 @@ class _$_TimerRunningState implements _TimerRunningState {
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
     required TResult Function(DurationModel durationModel) TimerRunPauseState,
-    required TResult Function(DurationModel durationModel) TimerRunningState,
+    required TResult Function(DurationModel durationModel, bool isGoalReached)
+        TimerRunningState,
     required TResult Function(DurationModel durationModel) TimerRunComplete,
   }) {
-    return TimerRunningState(durationModel);
+    return TimerRunningState(durationModel, isGoalReached);
   }
 
   @override
@@ -426,10 +445,11 @@ class _$_TimerRunningState implements _TimerRunningState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
     TResult? Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult? Function(DurationModel durationModel)? TimerRunningState,
+    TResult? Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult? Function(DurationModel durationModel)? TimerRunComplete,
   }) {
-    return TimerRunningState?.call(durationModel);
+    return TimerRunningState?.call(durationModel, isGoalReached);
   }
 
   @override
@@ -437,12 +457,13 @@ class _$_TimerRunningState implements _TimerRunningState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
     TResult Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult Function(DurationModel durationModel)? TimerRunningState,
+    TResult Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult Function(DurationModel durationModel)? TimerRunComplete,
     required TResult orElse(),
   }) {
     if (TimerRunningState != null) {
-      return TimerRunningState(durationModel);
+      return TimerRunningState(durationModel, isGoalReached);
     }
     return orElse();
   }
@@ -486,30 +507,32 @@ class _$_TimerRunningState implements _TimerRunningState {
 }
 
 abstract class _TimerRunningState implements TimerScreenState {
-  const factory _TimerRunningState(final DurationModel durationModel) =
-      _$_TimerRunningState;
+  const factory _TimerRunningState(
+          final DurationModel durationModel, final bool isGoalReached) =
+      _$TimerRunningStateImpl;
 
   DurationModel get durationModel;
+  bool get isGoalReached;
   @JsonKey(ignore: true)
-  _$$_TimerRunningStateCopyWith<_$_TimerRunningState> get copyWith =>
+  _$$TimerRunningStateImplCopyWith<_$TimerRunningStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TimerRunCompleteCopyWith<$Res> {
-  factory _$$_TimerRunCompleteCopyWith(
-          _$_TimerRunComplete value, $Res Function(_$_TimerRunComplete) then) =
-      __$$_TimerRunCompleteCopyWithImpl<$Res>;
+abstract class _$$TimerRunCompleteImplCopyWith<$Res> {
+  factory _$$TimerRunCompleteImplCopyWith(_$TimerRunCompleteImpl value,
+          $Res Function(_$TimerRunCompleteImpl) then) =
+      __$$TimerRunCompleteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DurationModel durationModel});
 }
 
 /// @nodoc
-class __$$_TimerRunCompleteCopyWithImpl<$Res>
-    extends _$TimerScreenStateCopyWithImpl<$Res, _$_TimerRunComplete>
-    implements _$$_TimerRunCompleteCopyWith<$Res> {
-  __$$_TimerRunCompleteCopyWithImpl(
-      _$_TimerRunComplete _value, $Res Function(_$_TimerRunComplete) _then)
+class __$$TimerRunCompleteImplCopyWithImpl<$Res>
+    extends _$TimerScreenStateCopyWithImpl<$Res, _$TimerRunCompleteImpl>
+    implements _$$TimerRunCompleteImplCopyWith<$Res> {
+  __$$TimerRunCompleteImplCopyWithImpl(_$TimerRunCompleteImpl _value,
+      $Res Function(_$TimerRunCompleteImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -517,7 +540,7 @@ class __$$_TimerRunCompleteCopyWithImpl<$Res>
   $Res call({
     Object? durationModel = null,
   }) {
-    return _then(_$_TimerRunComplete(
+    return _then(_$TimerRunCompleteImpl(
       null == durationModel
           ? _value.durationModel
           : durationModel // ignore: cast_nullable_to_non_nullable
@@ -528,8 +551,8 @@ class __$$_TimerRunCompleteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimerRunComplete implements _TimerRunComplete {
-  const _$_TimerRunComplete(this.durationModel);
+class _$TimerRunCompleteImpl implements _TimerRunComplete {
+  const _$TimerRunCompleteImpl(this.durationModel);
 
   @override
   final DurationModel durationModel;
@@ -540,10 +563,10 @@ class _$_TimerRunComplete implements _TimerRunComplete {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TimerRunComplete &&
+            other is _$TimerRunCompleteImpl &&
             (identical(other.durationModel, durationModel) ||
                 other.durationModel == durationModel));
   }
@@ -554,15 +577,17 @@ class _$_TimerRunComplete implements _TimerRunComplete {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TimerRunCompleteCopyWith<_$_TimerRunComplete> get copyWith =>
-      __$$_TimerRunCompleteCopyWithImpl<_$_TimerRunComplete>(this, _$identity);
+  _$$TimerRunCompleteImplCopyWith<_$TimerRunCompleteImpl> get copyWith =>
+      __$$TimerRunCompleteImplCopyWithImpl<_$TimerRunCompleteImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
     required TResult Function(DurationModel durationModel) TimerRunPauseState,
-    required TResult Function(DurationModel durationModel) TimerRunningState,
+    required TResult Function(DurationModel durationModel, bool isGoalReached)
+        TimerRunningState,
     required TResult Function(DurationModel durationModel) TimerRunComplete,
   }) {
     return TimerRunComplete(durationModel);
@@ -573,7 +598,8 @@ class _$_TimerRunComplete implements _TimerRunComplete {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
     TResult? Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult? Function(DurationModel durationModel)? TimerRunningState,
+    TResult? Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult? Function(DurationModel durationModel)? TimerRunComplete,
   }) {
     return TimerRunComplete?.call(durationModel);
@@ -584,7 +610,8 @@ class _$_TimerRunComplete implements _TimerRunComplete {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
     TResult Function(DurationModel durationModel)? TimerRunPauseState,
-    TResult Function(DurationModel durationModel)? TimerRunningState,
+    TResult Function(DurationModel durationModel, bool isGoalReached)?
+        TimerRunningState,
     TResult Function(DurationModel durationModel)? TimerRunComplete,
     required TResult orElse(),
   }) {
@@ -634,10 +661,10 @@ class _$_TimerRunComplete implements _TimerRunComplete {
 
 abstract class _TimerRunComplete implements TimerScreenState {
   const factory _TimerRunComplete(final DurationModel durationModel) =
-      _$_TimerRunComplete;
+      _$TimerRunCompleteImpl;
 
   DurationModel get durationModel;
   @JsonKey(ignore: true)
-  _$$_TimerRunCompleteCopyWith<_$_TimerRunComplete> get copyWith =>
+  _$$TimerRunCompleteImplCopyWith<_$TimerRunCompleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

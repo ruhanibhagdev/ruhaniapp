@@ -12,7 +12,7 @@ part of 'timer_screen_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TimerScreenEvent {
@@ -93,20 +93,20 @@ class _$TimerScreenEventCopyWithImpl<$Res, $Val extends TimerScreenEvent>
 }
 
 /// @nodoc
-abstract class _$$TimerStartedEventCopyWith<$Res> {
-  factory _$$TimerStartedEventCopyWith(
-          _$TimerStartedEvent value, $Res Function(_$TimerStartedEvent) then) =
-      __$$TimerStartedEventCopyWithImpl<$Res>;
+abstract class _$$TimerStartedEventImplCopyWith<$Res> {
+  factory _$$TimerStartedEventImplCopyWith(_$TimerStartedEventImpl value,
+          $Res Function(_$TimerStartedEventImpl) then) =
+      __$$TimerStartedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DurationModel durationModel});
 }
 
 /// @nodoc
-class __$$TimerStartedEventCopyWithImpl<$Res>
-    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerStartedEvent>
-    implements _$$TimerStartedEventCopyWith<$Res> {
-  __$$TimerStartedEventCopyWithImpl(
-      _$TimerStartedEvent _value, $Res Function(_$TimerStartedEvent) _then)
+class __$$TimerStartedEventImplCopyWithImpl<$Res>
+    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerStartedEventImpl>
+    implements _$$TimerStartedEventImplCopyWith<$Res> {
+  __$$TimerStartedEventImplCopyWithImpl(_$TimerStartedEventImpl _value,
+      $Res Function(_$TimerStartedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$TimerStartedEventCopyWithImpl<$Res>
   $Res call({
     Object? durationModel = null,
   }) {
-    return _then(_$TimerStartedEvent(
+    return _then(_$TimerStartedEventImpl(
       null == durationModel
           ? _value.durationModel
           : durationModel // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class __$$TimerStartedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TimerStartedEvent implements TimerStartedEvent {
-  const _$TimerStartedEvent(this.durationModel);
+class _$TimerStartedEventImpl implements TimerStartedEvent {
+  const _$TimerStartedEventImpl(this.durationModel);
 
   @override
   final DurationModel durationModel;
@@ -137,10 +137,10 @@ class _$TimerStartedEvent implements TimerStartedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TimerStartedEvent &&
+            other is _$TimerStartedEventImpl &&
             (identical(other.durationModel, durationModel) ||
                 other.durationModel == durationModel));
   }
@@ -151,8 +151,9 @@ class _$TimerStartedEvent implements TimerStartedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TimerStartedEventCopyWith<_$TimerStartedEvent> get copyWith =>
-      __$$TimerStartedEventCopyWithImpl<_$TimerStartedEvent>(this, _$identity);
+  _$$TimerStartedEventImplCopyWith<_$TimerStartedEventImpl> get copyWith =>
+      __$$TimerStartedEventImplCopyWithImpl<_$TimerStartedEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -237,34 +238,34 @@ class _$TimerStartedEvent implements TimerStartedEvent {
 
 abstract class TimerStartedEvent implements TimerScreenEvent {
   const factory TimerStartedEvent(final DurationModel durationModel) =
-      _$TimerStartedEvent;
+      _$TimerStartedEventImpl;
 
   DurationModel get durationModel;
   @JsonKey(ignore: true)
-  _$$TimerStartedEventCopyWith<_$TimerStartedEvent> get copyWith =>
+  _$$TimerStartedEventImplCopyWith<_$TimerStartedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TimerPausedEventCopyWith<$Res> {
-  factory _$$TimerPausedEventCopyWith(
-          _$TimerPausedEvent value, $Res Function(_$TimerPausedEvent) then) =
-      __$$TimerPausedEventCopyWithImpl<$Res>;
+abstract class _$$TimerPausedEventImplCopyWith<$Res> {
+  factory _$$TimerPausedEventImplCopyWith(_$TimerPausedEventImpl value,
+          $Res Function(_$TimerPausedEventImpl) then) =
+      __$$TimerPausedEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TimerPausedEventCopyWithImpl<$Res>
-    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerPausedEvent>
-    implements _$$TimerPausedEventCopyWith<$Res> {
-  __$$TimerPausedEventCopyWithImpl(
-      _$TimerPausedEvent _value, $Res Function(_$TimerPausedEvent) _then)
+class __$$TimerPausedEventImplCopyWithImpl<$Res>
+    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerPausedEventImpl>
+    implements _$$TimerPausedEventImplCopyWith<$Res> {
+  __$$TimerPausedEventImplCopyWithImpl(_$TimerPausedEventImpl _value,
+      $Res Function(_$TimerPausedEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TimerPausedEvent implements TimerPausedEvent {
-  const _$TimerPausedEvent();
+class _$TimerPausedEventImpl implements TimerPausedEvent {
+  const _$TimerPausedEventImpl();
 
   @override
   String toString() {
@@ -272,9 +273,9 @@ class _$TimerPausedEvent implements TimerPausedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TimerPausedEvent);
+        (other.runtimeType == runtimeType && other is _$TimerPausedEventImpl);
   }
 
   @override
@@ -362,29 +363,29 @@ class _$TimerPausedEvent implements TimerPausedEvent {
 }
 
 abstract class TimerPausedEvent implements TimerScreenEvent {
-  const factory TimerPausedEvent() = _$TimerPausedEvent;
+  const factory TimerPausedEvent() = _$TimerPausedEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TimerResumedEventCopyWith<$Res> {
-  factory _$$TimerResumedEventCopyWith(
-          _$TimerResumedEvent value, $Res Function(_$TimerResumedEvent) then) =
-      __$$TimerResumedEventCopyWithImpl<$Res>;
+abstract class _$$TimerResumedEventImplCopyWith<$Res> {
+  factory _$$TimerResumedEventImplCopyWith(_$TimerResumedEventImpl value,
+          $Res Function(_$TimerResumedEventImpl) then) =
+      __$$TimerResumedEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TimerResumedEventCopyWithImpl<$Res>
-    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerResumedEvent>
-    implements _$$TimerResumedEventCopyWith<$Res> {
-  __$$TimerResumedEventCopyWithImpl(
-      _$TimerResumedEvent _value, $Res Function(_$TimerResumedEvent) _then)
+class __$$TimerResumedEventImplCopyWithImpl<$Res>
+    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerResumedEventImpl>
+    implements _$$TimerResumedEventImplCopyWith<$Res> {
+  __$$TimerResumedEventImplCopyWithImpl(_$TimerResumedEventImpl _value,
+      $Res Function(_$TimerResumedEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TimerResumedEvent implements TimerResumedEvent {
-  const _$TimerResumedEvent();
+class _$TimerResumedEventImpl implements TimerResumedEvent {
+  const _$TimerResumedEventImpl();
 
   @override
   String toString() {
@@ -392,9 +393,9 @@ class _$TimerResumedEvent implements TimerResumedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TimerResumedEvent);
+        (other.runtimeType == runtimeType && other is _$TimerResumedEventImpl);
   }
 
   @override
@@ -482,29 +483,29 @@ class _$TimerResumedEvent implements TimerResumedEvent {
 }
 
 abstract class TimerResumedEvent implements TimerScreenEvent {
-  const factory TimerResumedEvent() = _$TimerResumedEvent;
+  const factory TimerResumedEvent() = _$TimerResumedEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TimerResetEventCopyWith<$Res> {
-  factory _$$TimerResetEventCopyWith(
-          _$TimerResetEvent value, $Res Function(_$TimerResetEvent) then) =
-      __$$TimerResetEventCopyWithImpl<$Res>;
+abstract class _$$TimerResetEventImplCopyWith<$Res> {
+  factory _$$TimerResetEventImplCopyWith(_$TimerResetEventImpl value,
+          $Res Function(_$TimerResetEventImpl) then) =
+      __$$TimerResetEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TimerResetEventCopyWithImpl<$Res>
-    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerResetEvent>
-    implements _$$TimerResetEventCopyWith<$Res> {
-  __$$TimerResetEventCopyWithImpl(
-      _$TimerResetEvent _value, $Res Function(_$TimerResetEvent) _then)
+class __$$TimerResetEventImplCopyWithImpl<$Res>
+    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerResetEventImpl>
+    implements _$$TimerResetEventImplCopyWith<$Res> {
+  __$$TimerResetEventImplCopyWithImpl(
+      _$TimerResetEventImpl _value, $Res Function(_$TimerResetEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TimerResetEvent implements TimerResetEvent {
-  const _$TimerResetEvent();
+class _$TimerResetEventImpl implements TimerResetEvent {
+  const _$TimerResetEventImpl();
 
   @override
   String toString() {
@@ -512,9 +513,9 @@ class _$TimerResetEvent implements TimerResetEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TimerResetEvent);
+        (other.runtimeType == runtimeType && other is _$TimerResetEventImpl);
   }
 
   @override
@@ -602,24 +603,24 @@ class _$TimerResetEvent implements TimerResetEvent {
 }
 
 abstract class TimerResetEvent implements TimerScreenEvent {
-  const factory TimerResetEvent() = _$TimerResetEvent;
+  const factory TimerResetEvent() = _$TimerResetEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TimerTickedEventCopyWith<$Res> {
-  factory _$$TimerTickedEventCopyWith(
-          _$TimerTickedEvent value, $Res Function(_$TimerTickedEvent) then) =
-      __$$TimerTickedEventCopyWithImpl<$Res>;
+abstract class _$$TimerTickedEventImplCopyWith<$Res> {
+  factory _$$TimerTickedEventImplCopyWith(_$TimerTickedEventImpl value,
+          $Res Function(_$TimerTickedEventImpl) then) =
+      __$$TimerTickedEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DurationModel durationModel});
 }
 
 /// @nodoc
-class __$$TimerTickedEventCopyWithImpl<$Res>
-    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerTickedEvent>
-    implements _$$TimerTickedEventCopyWith<$Res> {
-  __$$TimerTickedEventCopyWithImpl(
-      _$TimerTickedEvent _value, $Res Function(_$TimerTickedEvent) _then)
+class __$$TimerTickedEventImplCopyWithImpl<$Res>
+    extends _$TimerScreenEventCopyWithImpl<$Res, _$TimerTickedEventImpl>
+    implements _$$TimerTickedEventImplCopyWith<$Res> {
+  __$$TimerTickedEventImplCopyWithImpl(_$TimerTickedEventImpl _value,
+      $Res Function(_$TimerTickedEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -627,7 +628,7 @@ class __$$TimerTickedEventCopyWithImpl<$Res>
   $Res call({
     Object? durationModel = null,
   }) {
-    return _then(_$TimerTickedEvent(
+    return _then(_$TimerTickedEventImpl(
       null == durationModel
           ? _value.durationModel
           : durationModel // ignore: cast_nullable_to_non_nullable
@@ -638,8 +639,8 @@ class __$$TimerTickedEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TimerTickedEvent implements TimerTickedEvent {
-  const _$TimerTickedEvent(this.durationModel);
+class _$TimerTickedEventImpl implements TimerTickedEvent {
+  const _$TimerTickedEventImpl(this.durationModel);
 
   @override
   final DurationModel durationModel;
@@ -650,10 +651,10 @@ class _$TimerTickedEvent implements TimerTickedEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TimerTickedEvent &&
+            other is _$TimerTickedEventImpl &&
             (identical(other.durationModel, durationModel) ||
                 other.durationModel == durationModel));
   }
@@ -664,8 +665,9 @@ class _$TimerTickedEvent implements TimerTickedEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TimerTickedEventCopyWith<_$TimerTickedEvent> get copyWith =>
-      __$$TimerTickedEventCopyWithImpl<_$TimerTickedEvent>(this, _$identity);
+  _$$TimerTickedEventImplCopyWith<_$TimerTickedEventImpl> get copyWith =>
+      __$$TimerTickedEventImplCopyWithImpl<_$TimerTickedEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -750,10 +752,10 @@ class _$TimerTickedEvent implements TimerTickedEvent {
 
 abstract class TimerTickedEvent implements TimerScreenEvent {
   const factory TimerTickedEvent(final DurationModel durationModel) =
-      _$TimerTickedEvent;
+      _$TimerTickedEventImpl;
 
   DurationModel get durationModel;
   @JsonKey(ignore: true)
-  _$$TimerTickedEventCopyWith<_$TimerTickedEvent> get copyWith =>
+  _$$TimerTickedEventImplCopyWith<_$TimerTickedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

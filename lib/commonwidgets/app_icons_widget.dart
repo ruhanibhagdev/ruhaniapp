@@ -32,49 +32,53 @@ class _AppIconState extends State<AppIconWidget> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        if(widget.onButtonPress != null){
-          widget.onButtonPress!();
-        }
+      onTap: () async{
         _controller.forward();
-        Future.delayed(Duration(milliseconds: 200), () {
+        await Future.delayed(Duration(milliseconds: 200), () {
           _controller.reverse();
+          if(widget.onButtonPress != null){
+            widget.onButtonPress!();
+          }
         });
       },
-      child: ScaleTransition(
-        scale: Tween<double>(
-          begin: 1.0,
-          end: _shrinkScale,
-        ).animate(_controller),
-        child: Container(
-          padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: ColorConstants.klogoOrangeColor,
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey, //New
-                  blurRadius: 10.0,
-                  offset: Offset(-4, 4))
-            ],
-          ),
-          child: Column(
-            children: [
-              Icon(
-                widget.iconToDisplay,
-                color: ColorConstants.kWhiteColor,
-                size: 33,
-              ),
-              Text(widget.buttonText,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
+      child: SizedBox(
+        height: 76,
+        width: 76,
+        child: ScaleTransition(
+          scale: Tween<double>(
+            begin: 1.0,
+            end: _shrinkScale,
+          ).animate(_controller),
+          child: Container(
+            padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: ColorConstants.klogoOrangeColor,
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey, //New
+                    blurRadius: 10.0,
+                    offset: Offset(-4, 4))
+              ],
+            ),
+            child: Column(
+              children: [
+                Icon(
+                  widget.iconToDisplay,
+                  color: ColorConstants.kWhiteColor,
+                  size: 33,
                 ),
-              ),
-            ],
+                Text(widget.buttonText,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
+      )
     );
   }
 

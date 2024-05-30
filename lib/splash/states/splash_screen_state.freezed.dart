@@ -12,7 +12,7 @@ part of 'splash_screen_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SplashScreenState {
@@ -76,25 +76,25 @@ class _$SplashScreenStateCopyWithImpl<$Res, $Val extends SplashScreenState>
 }
 
 /// @nodoc
-abstract class _$$_SplashInitialStateCopyWith<$Res> {
-  factory _$$_SplashInitialStateCopyWith(_$_SplashInitialState value,
-          $Res Function(_$_SplashInitialState) then) =
-      __$$_SplashInitialStateCopyWithImpl<$Res>;
+abstract class _$$SplashInitialStateImplCopyWith<$Res> {
+  factory _$$SplashInitialStateImplCopyWith(_$SplashInitialStateImpl value,
+          $Res Function(_$SplashInitialStateImpl) then) =
+      __$$SplashInitialStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SplashInitialStateCopyWithImpl<$Res>
-    extends _$SplashScreenStateCopyWithImpl<$Res, _$_SplashInitialState>
-    implements _$$_SplashInitialStateCopyWith<$Res> {
-  __$$_SplashInitialStateCopyWithImpl(
-      _$_SplashInitialState _value, $Res Function(_$_SplashInitialState) _then)
+class __$$SplashInitialStateImplCopyWithImpl<$Res>
+    extends _$SplashScreenStateCopyWithImpl<$Res, _$SplashInitialStateImpl>
+    implements _$$SplashInitialStateImplCopyWith<$Res> {
+  __$$SplashInitialStateImplCopyWithImpl(_$SplashInitialStateImpl _value,
+      $Res Function(_$SplashInitialStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SplashInitialState implements _SplashInitialState {
-  const _$_SplashInitialState();
+class _$SplashInitialStateImpl implements _SplashInitialState {
+  const _$SplashInitialStateImpl();
 
   @override
   String toString() {
@@ -102,9 +102,9 @@ class _$_SplashInitialState implements _SplashInitialState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SplashInitialState);
+        (other.runtimeType == runtimeType && other is _$SplashInitialStateImpl);
   }
 
   @override
@@ -175,29 +175,30 @@ class _$_SplashInitialState implements _SplashInitialState {
 }
 
 abstract class _SplashInitialState implements SplashScreenState {
-  const factory _SplashInitialState() = _$_SplashInitialState;
+  const factory _SplashInitialState() = _$SplashInitialStateImpl;
 }
 
 /// @nodoc
-abstract class _$$_SplashNextScreenStateCopyWith<$Res> {
-  factory _$$_SplashNextScreenStateCopyWith(_$_SplashNextScreenState value,
-          $Res Function(_$_SplashNextScreenState) then) =
-      __$$_SplashNextScreenStateCopyWithImpl<$Res>;
+abstract class _$$SplashNextScreenStateImplCopyWith<$Res> {
+  factory _$$SplashNextScreenStateImplCopyWith(
+          _$SplashNextScreenStateImpl value,
+          $Res Function(_$SplashNextScreenStateImpl) then) =
+      __$$SplashNextScreenStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SplashNextScreenStateCopyWithImpl<$Res>
-    extends _$SplashScreenStateCopyWithImpl<$Res, _$_SplashNextScreenState>
-    implements _$$_SplashNextScreenStateCopyWith<$Res> {
-  __$$_SplashNextScreenStateCopyWithImpl(_$_SplashNextScreenState _value,
-      $Res Function(_$_SplashNextScreenState) _then)
+class __$$SplashNextScreenStateImplCopyWithImpl<$Res>
+    extends _$SplashScreenStateCopyWithImpl<$Res, _$SplashNextScreenStateImpl>
+    implements _$$SplashNextScreenStateImplCopyWith<$Res> {
+  __$$SplashNextScreenStateImplCopyWithImpl(_$SplashNextScreenStateImpl _value,
+      $Res Function(_$SplashNextScreenStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SplashNextScreenState implements _SplashNextScreenState {
-  const _$_SplashNextScreenState();
+class _$SplashNextScreenStateImpl implements _SplashNextScreenState {
+  const _$SplashNextScreenStateImpl();
 
   @override
   String toString() {
@@ -205,9 +206,10 @@ class _$_SplashNextScreenState implements _SplashNextScreenState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SplashNextScreenState);
+        (other.runtimeType == runtimeType &&
+            other is _$SplashNextScreenStateImpl);
   }
 
   @override
@@ -278,5 +280,5 @@ class _$_SplashNextScreenState implements _SplashNextScreenState {
 }
 
 abstract class _SplashNextScreenState implements SplashScreenState {
-  const factory _SplashNextScreenState() = _$_SplashNextScreenState;
+  const factory _SplashNextScreenState() = _$SplashNextScreenStateImpl;
 }

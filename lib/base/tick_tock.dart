@@ -7,11 +7,11 @@ class TickTock {
     final _logger = locator<LoggerUtils>();
     final _TAG = "Ticker";
     return Stream.periodic(
-        const Duration(milliseconds: 10), (int x){
+        const Duration(seconds: 1), (int x){
       int value = ticks + (x + 1);
       //_logger.log(_TAG, "Ticks $value");
       return value;
     }
-    ).take(21212);
+    ).take(99999999);
   }
 }

@@ -12,7 +12,7 @@ part of 'splash_screen_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SplashScreenEvent {
@@ -69,25 +69,25 @@ class _$SplashScreenEventCopyWithImpl<$Res, $Val extends SplashScreenEvent>
 }
 
 /// @nodoc
-abstract class _$$InitSplashViewCopyWith<$Res> {
-  factory _$$InitSplashViewCopyWith(
-          _$InitSplashView value, $Res Function(_$InitSplashView) then) =
-      __$$InitSplashViewCopyWithImpl<$Res>;
+abstract class _$$InitSplashViewImplCopyWith<$Res> {
+  factory _$$InitSplashViewImplCopyWith(_$InitSplashViewImpl value,
+          $Res Function(_$InitSplashViewImpl) then) =
+      __$$InitSplashViewImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitSplashViewCopyWithImpl<$Res>
-    extends _$SplashScreenEventCopyWithImpl<$Res, _$InitSplashView>
-    implements _$$InitSplashViewCopyWith<$Res> {
-  __$$InitSplashViewCopyWithImpl(
-      _$InitSplashView _value, $Res Function(_$InitSplashView) _then)
+class __$$InitSplashViewImplCopyWithImpl<$Res>
+    extends _$SplashScreenEventCopyWithImpl<$Res, _$InitSplashViewImpl>
+    implements _$$InitSplashViewImplCopyWith<$Res> {
+  __$$InitSplashViewImplCopyWithImpl(
+      _$InitSplashViewImpl _value, $Res Function(_$InitSplashViewImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitSplashView implements InitSplashView {
-  const _$InitSplashView();
+class _$InitSplashViewImpl implements InitSplashView {
+  const _$InitSplashViewImpl();
 
   @override
   String toString() {
@@ -95,9 +95,9 @@ class _$InitSplashView implements InitSplashView {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitSplashView);
+        (other.runtimeType == runtimeType && other is _$InitSplashViewImpl);
   }
 
   @override
@@ -161,5 +161,5 @@ class _$InitSplashView implements InitSplashView {
 }
 
 abstract class InitSplashView implements SplashScreenEvent {
-  const factory InitSplashView() = _$InitSplashView;
+  const factory InitSplashView() = _$InitSplashViewImpl;
 }

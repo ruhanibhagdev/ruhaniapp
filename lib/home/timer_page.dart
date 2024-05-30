@@ -55,28 +55,28 @@ class TimerText extends StatelessWidget {
       },
       builder: (BuildContext context, TimerScreenState state){
         return state.when(
-            TimerRunningState: (DurationModel duration){
+            TimerRunningState: (DurationModel duration, bool isGoalReached){
               return Text(
-                '${duration.minutesStr}:${duration.secondsStr}:${duration.milliSecondsStr}',
+                '${duration.hoursStr}:${duration.minutesStr}:${duration.secondsStr}',
                 style: Theme.of(context).textTheme.displayMedium,
               );
             },
             TimerInitialState: (){
               DurationModel duration = DurationCalculator(0).calculateDuration();
               return Text(
-                '${duration.minutesStr}:${duration.secondsStr}:${duration.milliSecondsStr}',
+                '${duration.hoursStr}:${duration.minutesStr}:${duration.secondsStr}',
                 style: Theme.of(context).textTheme.displayMedium,
               );
             },
             TimerRunPauseState: (DurationModel duration){
               return Text(
-                '${duration.minutesStr}:${duration.secondsStr}:${duration.milliSecondsStr}',
+                '${duration.hoursStr}:${duration.minutesStr}:${duration.secondsStr}',
                 style: Theme.of(context).textTheme.displayMedium,
               );
             },
             TimerRunComplete: (DurationModel duration){
               return Text(
-                '${duration.minutesStr}:${duration.secondsStr}:${duration.milliSecondsStr}',
+                '${duration.hoursStr}:${duration.minutesStr}:${duration.secondsStr}',
                 style: Theme.of(context).textTheme.displayMedium,
               );
             }
@@ -96,9 +96,9 @@ class Actions extends StatelessWidget {
         return state.when(
             TimerInitialState: (){
               DurationModel startDuration = DurationModel(
+                  hoursStr: "0",
                   minutesStr: "0",
-                  secondsStr: "0",
-                  milliSecondsStr: "0"
+                  secondsStr: "0"
               );
               return FloatingActionButton(
                   child: const Icon(Icons.play_arrow),
@@ -115,7 +115,7 @@ class Actions extends StatelessWidget {
                       .add(const TimerScreenEvent.TimerResumedEvent())
               );
             },
-            TimerRunningState: (DurationModel durationModel){
+            TimerRunningState: (DurationModel durationModel, bool isGoalReached){
               return FloatingActionButton(
                   child: const Icon(Icons.pause),
                   onPressed: () => context
