@@ -20,7 +20,7 @@ class HomeScreenActionView extends StatelessWidget{
                     minutesStr: "0",
                     secondsStr: "0"
                 );
-                return AppIconWidget(
+                return AppIconsWidget(
                     buttonText: "Start",
                     iconToDisplay: Icons.play_arrow_rounded,
                     onButtonPress: (){
@@ -28,8 +28,8 @@ class HomeScreenActionView extends StatelessWidget{
                     },
                 );
               },
-              TimerRunPauseState: (DurationModel durationModel){
-                return AppIconWidget(
+              TimerPauseState: (DurationModel durationModel){
+                return AppIconsWidget(
                     buttonText: "Replay",
 
                     iconToDisplay: Icons.restart_alt_rounded,
@@ -42,7 +42,7 @@ class HomeScreenActionView extends StatelessWidget{
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    AppIconWidget(
+                    AppIconsWidget(
                       iconToDisplay: Icons.square_rounded,
                       buttonText: "Stop",
                       onButtonPress: (){
@@ -52,7 +52,7 @@ class HomeScreenActionView extends StatelessWidget{
                     SizedBox(
                       width: 20,
                     ),
-                    AppIconWidget(
+                    AppIconsWidget(
                       buttonText: "Pause",
                       iconToDisplay: Icons.pause_rounded,
                       onButtonPress: (){
@@ -62,8 +62,8 @@ class HomeScreenActionView extends StatelessWidget{
                   ],
                 );
               },
-              TimerRunComplete: (DurationModel durationModel){
-                return AppIconWidget(
+              TimerRunCompleteState: (DurationModel durationModel){
+                return AppIconsWidget(
                     buttonText: "Start",
                     iconToDisplay: Icons.play_arrow_rounded
                 );

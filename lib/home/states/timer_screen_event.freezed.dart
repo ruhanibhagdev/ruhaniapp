@@ -23,6 +23,7 @@ mixin _$TimerScreenEvent {
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$TimerScreenEvent {
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$TimerScreenEvent {
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
     TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$TimerScreenEvent {
     required TResult Function(TimerResumedEvent value) TimerResumedEvent,
     required TResult Function(TimerResetEvent value) TimerResetEvent,
     required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$TimerScreenEvent {
     TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult? Function(TimerResetEvent value)? TimerResetEvent,
     TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$TimerScreenEvent {
     TResult Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult Function(TimerResetEvent value)? TimerResetEvent,
     TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -163,6 +169,7 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
   }) {
     return TimerStartedEvent(durationModel);
   }
@@ -175,6 +182,7 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
   }) {
     return TimerStartedEvent?.call(durationModel);
   }
@@ -187,6 +195,7 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
     TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerStartedEvent != null) {
@@ -203,6 +212,7 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
     required TResult Function(TimerResumedEvent value) TimerResumedEvent,
     required TResult Function(TimerResetEvent value) TimerResetEvent,
     required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
   }) {
     return TimerStartedEvent(this);
   }
@@ -215,6 +225,7 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
     TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult? Function(TimerResetEvent value)? TimerResetEvent,
     TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
   }) {
     return TimerStartedEvent?.call(this);
   }
@@ -227,6 +238,7 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
     TResult Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult Function(TimerResetEvent value)? TimerResetEvent,
     TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerStartedEvent != null) {
@@ -289,6 +301,7 @@ class _$TimerPausedEventImpl implements TimerPausedEvent {
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
   }) {
     return TimerPausedEvent();
   }
@@ -301,6 +314,7 @@ class _$TimerPausedEventImpl implements TimerPausedEvent {
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
   }) {
     return TimerPausedEvent?.call();
   }
@@ -313,6 +327,7 @@ class _$TimerPausedEventImpl implements TimerPausedEvent {
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
     TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerPausedEvent != null) {
@@ -329,6 +344,7 @@ class _$TimerPausedEventImpl implements TimerPausedEvent {
     required TResult Function(TimerResumedEvent value) TimerResumedEvent,
     required TResult Function(TimerResetEvent value) TimerResetEvent,
     required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
   }) {
     return TimerPausedEvent(this);
   }
@@ -341,6 +357,7 @@ class _$TimerPausedEventImpl implements TimerPausedEvent {
     TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult? Function(TimerResetEvent value)? TimerResetEvent,
     TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
   }) {
     return TimerPausedEvent?.call(this);
   }
@@ -353,6 +370,7 @@ class _$TimerPausedEventImpl implements TimerPausedEvent {
     TResult Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult Function(TimerResetEvent value)? TimerResetEvent,
     TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerPausedEvent != null) {
@@ -409,6 +427,7 @@ class _$TimerResumedEventImpl implements TimerResumedEvent {
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
   }) {
     return TimerResumedEvent();
   }
@@ -421,6 +440,7 @@ class _$TimerResumedEventImpl implements TimerResumedEvent {
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
   }) {
     return TimerResumedEvent?.call();
   }
@@ -433,6 +453,7 @@ class _$TimerResumedEventImpl implements TimerResumedEvent {
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
     TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerResumedEvent != null) {
@@ -449,6 +470,7 @@ class _$TimerResumedEventImpl implements TimerResumedEvent {
     required TResult Function(TimerResumedEvent value) TimerResumedEvent,
     required TResult Function(TimerResetEvent value) TimerResetEvent,
     required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
   }) {
     return TimerResumedEvent(this);
   }
@@ -461,6 +483,7 @@ class _$TimerResumedEventImpl implements TimerResumedEvent {
     TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult? Function(TimerResetEvent value)? TimerResetEvent,
     TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
   }) {
     return TimerResumedEvent?.call(this);
   }
@@ -473,6 +496,7 @@ class _$TimerResumedEventImpl implements TimerResumedEvent {
     TResult Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult Function(TimerResetEvent value)? TimerResetEvent,
     TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerResumedEvent != null) {
@@ -529,6 +553,7 @@ class _$TimerResetEventImpl implements TimerResetEvent {
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
   }) {
     return TimerResetEvent();
   }
@@ -541,6 +566,7 @@ class _$TimerResetEventImpl implements TimerResetEvent {
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
   }) {
     return TimerResetEvent?.call();
   }
@@ -553,6 +579,7 @@ class _$TimerResetEventImpl implements TimerResetEvent {
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
     TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerResetEvent != null) {
@@ -569,6 +596,7 @@ class _$TimerResetEventImpl implements TimerResetEvent {
     required TResult Function(TimerResumedEvent value) TimerResumedEvent,
     required TResult Function(TimerResetEvent value) TimerResetEvent,
     required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
   }) {
     return TimerResetEvent(this);
   }
@@ -581,6 +609,7 @@ class _$TimerResetEventImpl implements TimerResetEvent {
     TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult? Function(TimerResetEvent value)? TimerResetEvent,
     TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
   }) {
     return TimerResetEvent?.call(this);
   }
@@ -593,6 +622,7 @@ class _$TimerResetEventImpl implements TimerResetEvent {
     TResult Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult Function(TimerResetEvent value)? TimerResetEvent,
     TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerResetEvent != null) {
@@ -677,6 +707,7 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
     required TResult Function() TimerResumedEvent,
     required TResult Function() TimerResetEvent,
     required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
   }) {
     return TimerTickedEvent(durationModel);
   }
@@ -689,6 +720,7 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
     TResult? Function()? TimerResumedEvent,
     TResult? Function()? TimerResetEvent,
     TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
   }) {
     return TimerTickedEvent?.call(durationModel);
   }
@@ -701,6 +733,7 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
     TResult Function()? TimerResumedEvent,
     TResult Function()? TimerResetEvent,
     TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerTickedEvent != null) {
@@ -717,6 +750,7 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
     required TResult Function(TimerResumedEvent value) TimerResumedEvent,
     required TResult Function(TimerResetEvent value) TimerResetEvent,
     required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
   }) {
     return TimerTickedEvent(this);
   }
@@ -729,6 +763,7 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
     TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult? Function(TimerResetEvent value)? TimerResetEvent,
     TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
   }) {
     return TimerTickedEvent?.call(this);
   }
@@ -741,6 +776,7 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
     TResult Function(TimerResumedEvent value)? TimerResumedEvent,
     TResult Function(TimerResetEvent value)? TimerResetEvent,
     TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
     required TResult orElse(),
   }) {
     if (TimerTickedEvent != null) {
@@ -758,4 +794,130 @@ abstract class TimerTickedEvent implements TimerScreenEvent {
   @JsonKey(ignore: true)
   _$$TimerTickedEventImplCopyWith<_$TimerTickedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddLapEventImplCopyWith<$Res> {
+  factory _$$AddLapEventImplCopyWith(
+          _$AddLapEventImpl value, $Res Function(_$AddLapEventImpl) then) =
+      __$$AddLapEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AddLapEventImplCopyWithImpl<$Res>
+    extends _$TimerScreenEventCopyWithImpl<$Res, _$AddLapEventImpl>
+    implements _$$AddLapEventImplCopyWith<$Res> {
+  __$$AddLapEventImplCopyWithImpl(
+      _$AddLapEventImpl _value, $Res Function(_$AddLapEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AddLapEventImpl implements AddLapEvent {
+  const _$AddLapEventImpl();
+
+  @override
+  String toString() {
+    return 'TimerScreenEvent.AddLapEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AddLapEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DurationModel durationModel) TimerStartedEvent,
+    required TResult Function() TimerPausedEvent,
+    required TResult Function() TimerResumedEvent,
+    required TResult Function() TimerResetEvent,
+    required TResult Function(DurationModel durationModel) TimerTickedEvent,
+    required TResult Function() AddLapEvent,
+  }) {
+    return AddLapEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DurationModel durationModel)? TimerStartedEvent,
+    TResult? Function()? TimerPausedEvent,
+    TResult? Function()? TimerResumedEvent,
+    TResult? Function()? TimerResetEvent,
+    TResult? Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult? Function()? AddLapEvent,
+  }) {
+    return AddLapEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DurationModel durationModel)? TimerStartedEvent,
+    TResult Function()? TimerPausedEvent,
+    TResult Function()? TimerResumedEvent,
+    TResult Function()? TimerResetEvent,
+    TResult Function(DurationModel durationModel)? TimerTickedEvent,
+    TResult Function()? AddLapEvent,
+    required TResult orElse(),
+  }) {
+    if (AddLapEvent != null) {
+      return AddLapEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimerStartedEvent value) TimerStartedEvent,
+    required TResult Function(TimerPausedEvent value) TimerPausedEvent,
+    required TResult Function(TimerResumedEvent value) TimerResumedEvent,
+    required TResult Function(TimerResetEvent value) TimerResetEvent,
+    required TResult Function(TimerTickedEvent value) TimerTickedEvent,
+    required TResult Function(AddLapEvent value) AddLapEvent,
+  }) {
+    return AddLapEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimerStartedEvent value)? TimerStartedEvent,
+    TResult? Function(TimerPausedEvent value)? TimerPausedEvent,
+    TResult? Function(TimerResumedEvent value)? TimerResumedEvent,
+    TResult? Function(TimerResetEvent value)? TimerResetEvent,
+    TResult? Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult? Function(AddLapEvent value)? AddLapEvent,
+  }) {
+    return AddLapEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimerStartedEvent value)? TimerStartedEvent,
+    TResult Function(TimerPausedEvent value)? TimerPausedEvent,
+    TResult Function(TimerResumedEvent value)? TimerResumedEvent,
+    TResult Function(TimerResetEvent value)? TimerResetEvent,
+    TResult Function(TimerTickedEvent value)? TimerTickedEvent,
+    TResult Function(AddLapEvent value)? AddLapEvent,
+    required TResult orElse(),
+  }) {
+    if (AddLapEvent != null) {
+      return AddLapEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddLapEvent implements TimerScreenEvent {
+  const factory AddLapEvent() = _$AddLapEventImpl;
 }

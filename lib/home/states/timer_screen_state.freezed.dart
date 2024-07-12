@@ -19,53 +19,54 @@ mixin _$TimerScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
-    required TResult Function(DurationModel durationModel) TimerRunPauseState,
+    required TResult Function(DurationModel durationModel) TimerPauseState,
     required TResult Function(DurationModel durationModel, bool isGoalReached)
         TimerRunningState,
-    required TResult Function(DurationModel durationModel) TimerRunComplete,
+    required TResult Function(DurationModel durationModel)
+        TimerRunCompleteState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
-    TResult? Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult? Function(DurationModel durationModel)? TimerPauseState,
     TResult? Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult? Function(DurationModel durationModel)? TimerRunComplete,
+    TResult? Function(DurationModel durationModel)? TimerRunCompleteState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
-    TResult Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult Function(DurationModel durationModel)? TimerPauseState,
     TResult Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult Function(DurationModel durationModel)? TimerRunComplete,
+    TResult Function(DurationModel durationModel)? TimerRunCompleteState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TimerInitial value) TimerInitialState,
-    required TResult Function(_TimerRunPause value) TimerRunPauseState,
+    required TResult Function(_TimerPause value) TimerPauseState,
     required TResult Function(_TimerRunningState value) TimerRunningState,
-    required TResult Function(_TimerRunComplete value) TimerRunComplete,
+    required TResult Function(_TimerRunComplete value) TimerRunCompleteState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TimerInitial value)? TimerInitialState,
-    TResult? Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult? Function(_TimerPause value)? TimerPauseState,
     TResult? Function(_TimerRunningState value)? TimerRunningState,
-    TResult? Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult? Function(_TimerRunComplete value)? TimerRunCompleteState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TimerInitial value)? TimerInitialState,
-    TResult Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult Function(_TimerPause value)? TimerPauseState,
     TResult Function(_TimerRunningState value)? TimerRunningState,
-    TResult Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult Function(_TimerRunComplete value)? TimerRunCompleteState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,10 +129,11 @@ class _$TimerInitialImpl implements _TimerInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
-    required TResult Function(DurationModel durationModel) TimerRunPauseState,
+    required TResult Function(DurationModel durationModel) TimerPauseState,
     required TResult Function(DurationModel durationModel, bool isGoalReached)
         TimerRunningState,
-    required TResult Function(DurationModel durationModel) TimerRunComplete,
+    required TResult Function(DurationModel durationModel)
+        TimerRunCompleteState,
   }) {
     return TimerInitialState();
   }
@@ -140,10 +142,10 @@ class _$TimerInitialImpl implements _TimerInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
-    TResult? Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult? Function(DurationModel durationModel)? TimerPauseState,
     TResult? Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult? Function(DurationModel durationModel)? TimerRunComplete,
+    TResult? Function(DurationModel durationModel)? TimerRunCompleteState,
   }) {
     return TimerInitialState?.call();
   }
@@ -152,10 +154,10 @@ class _$TimerInitialImpl implements _TimerInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
-    TResult Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult Function(DurationModel durationModel)? TimerPauseState,
     TResult Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult Function(DurationModel durationModel)? TimerRunComplete,
+    TResult Function(DurationModel durationModel)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
     if (TimerInitialState != null) {
@@ -168,9 +170,9 @@ class _$TimerInitialImpl implements _TimerInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TimerInitial value) TimerInitialState,
-    required TResult Function(_TimerRunPause value) TimerRunPauseState,
+    required TResult Function(_TimerPause value) TimerPauseState,
     required TResult Function(_TimerRunningState value) TimerRunningState,
-    required TResult Function(_TimerRunComplete value) TimerRunComplete,
+    required TResult Function(_TimerRunComplete value) TimerRunCompleteState,
   }) {
     return TimerInitialState(this);
   }
@@ -179,9 +181,9 @@ class _$TimerInitialImpl implements _TimerInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TimerInitial value)? TimerInitialState,
-    TResult? Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult? Function(_TimerPause value)? TimerPauseState,
     TResult? Function(_TimerRunningState value)? TimerRunningState,
-    TResult? Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult? Function(_TimerRunComplete value)? TimerRunCompleteState,
   }) {
     return TimerInitialState?.call(this);
   }
@@ -190,9 +192,9 @@ class _$TimerInitialImpl implements _TimerInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TimerInitial value)? TimerInitialState,
-    TResult Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult Function(_TimerPause value)? TimerPauseState,
     TResult Function(_TimerRunningState value)? TimerRunningState,
-    TResult Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult Function(_TimerRunComplete value)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
     if (TimerInitialState != null) {
@@ -207,20 +209,20 @@ abstract class _TimerInitial implements TimerScreenState {
 }
 
 /// @nodoc
-abstract class _$$TimerRunPauseImplCopyWith<$Res> {
-  factory _$$TimerRunPauseImplCopyWith(
-          _$TimerRunPauseImpl value, $Res Function(_$TimerRunPauseImpl) then) =
-      __$$TimerRunPauseImplCopyWithImpl<$Res>;
+abstract class _$$TimerPauseImplCopyWith<$Res> {
+  factory _$$TimerPauseImplCopyWith(
+          _$TimerPauseImpl value, $Res Function(_$TimerPauseImpl) then) =
+      __$$TimerPauseImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DurationModel durationModel});
 }
 
 /// @nodoc
-class __$$TimerRunPauseImplCopyWithImpl<$Res>
-    extends _$TimerScreenStateCopyWithImpl<$Res, _$TimerRunPauseImpl>
-    implements _$$TimerRunPauseImplCopyWith<$Res> {
-  __$$TimerRunPauseImplCopyWithImpl(
-      _$TimerRunPauseImpl _value, $Res Function(_$TimerRunPauseImpl) _then)
+class __$$TimerPauseImplCopyWithImpl<$Res>
+    extends _$TimerScreenStateCopyWithImpl<$Res, _$TimerPauseImpl>
+    implements _$$TimerPauseImplCopyWith<$Res> {
+  __$$TimerPauseImplCopyWithImpl(
+      _$TimerPauseImpl _value, $Res Function(_$TimerPauseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -228,7 +230,7 @@ class __$$TimerRunPauseImplCopyWithImpl<$Res>
   $Res call({
     Object? durationModel = null,
   }) {
-    return _then(_$TimerRunPauseImpl(
+    return _then(_$TimerPauseImpl(
       null == durationModel
           ? _value.durationModel
           : durationModel // ignore: cast_nullable_to_non_nullable
@@ -239,22 +241,22 @@ class __$$TimerRunPauseImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TimerRunPauseImpl implements _TimerRunPause {
-  const _$TimerRunPauseImpl(this.durationModel);
+class _$TimerPauseImpl implements _TimerPause {
+  const _$TimerPauseImpl(this.durationModel);
 
   @override
   final DurationModel durationModel;
 
   @override
   String toString() {
-    return 'TimerScreenState.TimerRunPauseState(durationModel: $durationModel)';
+    return 'TimerScreenState.TimerPauseState(durationModel: $durationModel)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TimerRunPauseImpl &&
+            other is _$TimerPauseImpl &&
             (identical(other.durationModel, durationModel) ||
                 other.durationModel == durationModel));
   }
@@ -265,45 +267,46 @@ class _$TimerRunPauseImpl implements _TimerRunPause {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TimerRunPauseImplCopyWith<_$TimerRunPauseImpl> get copyWith =>
-      __$$TimerRunPauseImplCopyWithImpl<_$TimerRunPauseImpl>(this, _$identity);
+  _$$TimerPauseImplCopyWith<_$TimerPauseImpl> get copyWith =>
+      __$$TimerPauseImplCopyWithImpl<_$TimerPauseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
-    required TResult Function(DurationModel durationModel) TimerRunPauseState,
+    required TResult Function(DurationModel durationModel) TimerPauseState,
     required TResult Function(DurationModel durationModel, bool isGoalReached)
         TimerRunningState,
-    required TResult Function(DurationModel durationModel) TimerRunComplete,
+    required TResult Function(DurationModel durationModel)
+        TimerRunCompleteState,
   }) {
-    return TimerRunPauseState(durationModel);
+    return TimerPauseState(durationModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
-    TResult? Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult? Function(DurationModel durationModel)? TimerPauseState,
     TResult? Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult? Function(DurationModel durationModel)? TimerRunComplete,
+    TResult? Function(DurationModel durationModel)? TimerRunCompleteState,
   }) {
-    return TimerRunPauseState?.call(durationModel);
+    return TimerPauseState?.call(durationModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
-    TResult Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult Function(DurationModel durationModel)? TimerPauseState,
     TResult Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult Function(DurationModel durationModel)? TimerRunComplete,
+    TResult Function(DurationModel durationModel)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
-    if (TimerRunPauseState != null) {
-      return TimerRunPauseState(durationModel);
+    if (TimerPauseState != null) {
+      return TimerPauseState(durationModel);
     }
     return orElse();
   }
@@ -312,47 +315,47 @@ class _$TimerRunPauseImpl implements _TimerRunPause {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TimerInitial value) TimerInitialState,
-    required TResult Function(_TimerRunPause value) TimerRunPauseState,
+    required TResult Function(_TimerPause value) TimerPauseState,
     required TResult Function(_TimerRunningState value) TimerRunningState,
-    required TResult Function(_TimerRunComplete value) TimerRunComplete,
+    required TResult Function(_TimerRunComplete value) TimerRunCompleteState,
   }) {
-    return TimerRunPauseState(this);
+    return TimerPauseState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TimerInitial value)? TimerInitialState,
-    TResult? Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult? Function(_TimerPause value)? TimerPauseState,
     TResult? Function(_TimerRunningState value)? TimerRunningState,
-    TResult? Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult? Function(_TimerRunComplete value)? TimerRunCompleteState,
   }) {
-    return TimerRunPauseState?.call(this);
+    return TimerPauseState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TimerInitial value)? TimerInitialState,
-    TResult Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult Function(_TimerPause value)? TimerPauseState,
     TResult Function(_TimerRunningState value)? TimerRunningState,
-    TResult Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult Function(_TimerRunComplete value)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
-    if (TimerRunPauseState != null) {
-      return TimerRunPauseState(this);
+    if (TimerPauseState != null) {
+      return TimerPauseState(this);
     }
     return orElse();
   }
 }
 
-abstract class _TimerRunPause implements TimerScreenState {
-  const factory _TimerRunPause(final DurationModel durationModel) =
-      _$TimerRunPauseImpl;
+abstract class _TimerPause implements TimerScreenState {
+  const factory _TimerPause(final DurationModel durationModel) =
+      _$TimerPauseImpl;
 
   DurationModel get durationModel;
   @JsonKey(ignore: true)
-  _$$TimerRunPauseImplCopyWith<_$TimerRunPauseImpl> get copyWith =>
+  _$$TimerPauseImplCopyWith<_$TimerPauseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -432,10 +435,11 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
-    required TResult Function(DurationModel durationModel) TimerRunPauseState,
+    required TResult Function(DurationModel durationModel) TimerPauseState,
     required TResult Function(DurationModel durationModel, bool isGoalReached)
         TimerRunningState,
-    required TResult Function(DurationModel durationModel) TimerRunComplete,
+    required TResult Function(DurationModel durationModel)
+        TimerRunCompleteState,
   }) {
     return TimerRunningState(durationModel, isGoalReached);
   }
@@ -444,10 +448,10 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
-    TResult? Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult? Function(DurationModel durationModel)? TimerPauseState,
     TResult? Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult? Function(DurationModel durationModel)? TimerRunComplete,
+    TResult? Function(DurationModel durationModel)? TimerRunCompleteState,
   }) {
     return TimerRunningState?.call(durationModel, isGoalReached);
   }
@@ -456,10 +460,10 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
-    TResult Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult Function(DurationModel durationModel)? TimerPauseState,
     TResult Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult Function(DurationModel durationModel)? TimerRunComplete,
+    TResult Function(DurationModel durationModel)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
     if (TimerRunningState != null) {
@@ -472,9 +476,9 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TimerInitial value) TimerInitialState,
-    required TResult Function(_TimerRunPause value) TimerRunPauseState,
+    required TResult Function(_TimerPause value) TimerPauseState,
     required TResult Function(_TimerRunningState value) TimerRunningState,
-    required TResult Function(_TimerRunComplete value) TimerRunComplete,
+    required TResult Function(_TimerRunComplete value) TimerRunCompleteState,
   }) {
     return TimerRunningState(this);
   }
@@ -483,9 +487,9 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TimerInitial value)? TimerInitialState,
-    TResult? Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult? Function(_TimerPause value)? TimerPauseState,
     TResult? Function(_TimerRunningState value)? TimerRunningState,
-    TResult? Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult? Function(_TimerRunComplete value)? TimerRunCompleteState,
   }) {
     return TimerRunningState?.call(this);
   }
@@ -494,9 +498,9 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TimerInitial value)? TimerInitialState,
-    TResult Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult Function(_TimerPause value)? TimerPauseState,
     TResult Function(_TimerRunningState value)? TimerRunningState,
-    TResult Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult Function(_TimerRunComplete value)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
     if (TimerRunningState != null) {
@@ -559,7 +563,7 @@ class _$TimerRunCompleteImpl implements _TimerRunComplete {
 
   @override
   String toString() {
-    return 'TimerScreenState.TimerRunComplete(durationModel: $durationModel)';
+    return 'TimerScreenState.TimerRunCompleteState(durationModel: $durationModel)';
   }
 
   @override
@@ -585,38 +589,39 @@ class _$TimerRunCompleteImpl implements _TimerRunComplete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() TimerInitialState,
-    required TResult Function(DurationModel durationModel) TimerRunPauseState,
+    required TResult Function(DurationModel durationModel) TimerPauseState,
     required TResult Function(DurationModel durationModel, bool isGoalReached)
         TimerRunningState,
-    required TResult Function(DurationModel durationModel) TimerRunComplete,
+    required TResult Function(DurationModel durationModel)
+        TimerRunCompleteState,
   }) {
-    return TimerRunComplete(durationModel);
+    return TimerRunCompleteState(durationModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? TimerInitialState,
-    TResult? Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult? Function(DurationModel durationModel)? TimerPauseState,
     TResult? Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult? Function(DurationModel durationModel)? TimerRunComplete,
+    TResult? Function(DurationModel durationModel)? TimerRunCompleteState,
   }) {
-    return TimerRunComplete?.call(durationModel);
+    return TimerRunCompleteState?.call(durationModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? TimerInitialState,
-    TResult Function(DurationModel durationModel)? TimerRunPauseState,
+    TResult Function(DurationModel durationModel)? TimerPauseState,
     TResult Function(DurationModel durationModel, bool isGoalReached)?
         TimerRunningState,
-    TResult Function(DurationModel durationModel)? TimerRunComplete,
+    TResult Function(DurationModel durationModel)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
-    if (TimerRunComplete != null) {
-      return TimerRunComplete(durationModel);
+    if (TimerRunCompleteState != null) {
+      return TimerRunCompleteState(durationModel);
     }
     return orElse();
   }
@@ -625,35 +630,35 @@ class _$TimerRunCompleteImpl implements _TimerRunComplete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_TimerInitial value) TimerInitialState,
-    required TResult Function(_TimerRunPause value) TimerRunPauseState,
+    required TResult Function(_TimerPause value) TimerPauseState,
     required TResult Function(_TimerRunningState value) TimerRunningState,
-    required TResult Function(_TimerRunComplete value) TimerRunComplete,
+    required TResult Function(_TimerRunComplete value) TimerRunCompleteState,
   }) {
-    return TimerRunComplete(this);
+    return TimerRunCompleteState(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_TimerInitial value)? TimerInitialState,
-    TResult? Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult? Function(_TimerPause value)? TimerPauseState,
     TResult? Function(_TimerRunningState value)? TimerRunningState,
-    TResult? Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult? Function(_TimerRunComplete value)? TimerRunCompleteState,
   }) {
-    return TimerRunComplete?.call(this);
+    return TimerRunCompleteState?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TimerInitial value)? TimerInitialState,
-    TResult Function(_TimerRunPause value)? TimerRunPauseState,
+    TResult Function(_TimerPause value)? TimerPauseState,
     TResult Function(_TimerRunningState value)? TimerRunningState,
-    TResult Function(_TimerRunComplete value)? TimerRunComplete,
+    TResult Function(_TimerRunComplete value)? TimerRunCompleteState,
     required TResult orElse(),
   }) {
-    if (TimerRunComplete != null) {
-      return TimerRunComplete(this);
+    if (TimerRunCompleteState != null) {
+      return TimerRunCompleteState(this);
     }
     return orElse();
   }

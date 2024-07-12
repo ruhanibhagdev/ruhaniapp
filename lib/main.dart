@@ -34,6 +34,11 @@ class MyApp extends StatelessWidget{
             routerDelegate: _appRouter.delegate(),
             theme: ThemeData(
               primarySwatch: Colors.deepOrange,
+              textTheme: Theme.of(context).textTheme.copyWith(
+                displayMedium: Theme.of(context).textTheme.displayMedium?.apply(
+                  color: Colors.white
+                )
+              )
             ),
             builder: (context,  router) => router!
         )

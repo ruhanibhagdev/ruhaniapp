@@ -10,4 +10,5 @@ class TimerScreenEvent with _$TimerScreenEvent{
   const factory TimerScreenEvent.TimerResumedEvent() = TimerResumedEvent;
   const factory TimerScreenEvent.TimerResetEvent() = TimerResetEvent;
   const factory TimerScreenEvent.TimerTickedEvent(DurationModel durationModel) = TimerTickedEvent;
+  const factory TimerScreenEvent.AddLapEvent() = AddLapEvent;
 }

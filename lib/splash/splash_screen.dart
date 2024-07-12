@@ -27,8 +27,8 @@ class SplashScreen extends StatelessWidget{
                   SplashNextScreenState: (){
                     //context.router.replace(const TimerRoute());
                     //context.router.replace(const SpeechToTextRoute());
-                    //context.router.replace(const HomeRoute());
-                    context.router.replace(const LapInfoRoute());
+                    context.router.replace(const HomeRoute());
+                    //context.router.replace(const LapInfoRoute());
                   }
               );
             },

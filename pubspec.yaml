@@ -49,6 +49,9 @@ dependencies:
   #Dependency injection in app
   injectable: ^2.1.0
 
+  #Playing asset sound "tttdddddrrrrrring"
+  audioplayers: ^6.0.0
+
   #Routing in flutter
   auto_route: ^7.4.0
 
@@ -116,6 +119,7 @@ flutter:
   assets:
     - assets/lottiefiles/
     - assets/images/
+    - assets/sounds/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

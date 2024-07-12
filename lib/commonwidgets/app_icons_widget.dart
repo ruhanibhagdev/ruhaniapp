@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
 
-class AppIconWidget extends StatefulWidget{
+class AppIconsWidget extends StatefulWidget{
   String buttonText;
   IconData iconToDisplay;
 
   VoidCallback? onButtonPress;
 
-  AppIconWidget({required this.buttonText, required this.iconToDisplay, this.onButtonPress});
+  AppIconsWidget({required this.buttonText, required this.iconToDisplay, this.onButtonPress});
 
   @override
   State<StatefulWidget> createState() {
@@ -15,7 +15,7 @@ class AppIconWidget extends StatefulWidget{
   }
 }
 
-class _AppIconState extends State<AppIconWidget> with SingleTickerProviderStateMixin{
+class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderStateMixin{
 
   double _shrinkScale = 0.88;
   late AnimationController _controller;
@@ -42,8 +42,8 @@ class _AppIconState extends State<AppIconWidget> with SingleTickerProviderStateM
         });
       },
       child: SizedBox(
-        height: 76,
-        width: 76,
+        height: 100,
+        width: 100,
         child: ScaleTransition(
           scale: Tween<double>(
             begin: 1.0,
@@ -66,13 +66,14 @@ class _AppIconState extends State<AppIconWidget> with SingleTickerProviderStateM
                 Icon(
                   widget.iconToDisplay,
                   color: ColorConstants.kWhiteColor,
-                  size: 33,
+                  size: 39,
                 ),
                 Text(widget.buttonText,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

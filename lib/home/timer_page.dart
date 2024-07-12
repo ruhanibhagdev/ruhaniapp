@@ -68,13 +68,13 @@ class TimerText extends StatelessWidget {
                 style: Theme.of(context).textTheme.displayMedium,
               );
             },
-            TimerRunPauseState: (DurationModel duration){
+            TimerPauseState: (DurationModel duration){
               return Text(
                 '${duration.hoursStr}:${duration.minutesStr}:${duration.secondsStr}',
                 style: Theme.of(context).textTheme.displayMedium,
               );
             },
-            TimerRunComplete: (DurationModel duration){
+            TimerRunCompleteState: (DurationModel duration){
               return Text(
                 '${duration.hoursStr}:${duration.minutesStr}:${duration.secondsStr}',
                 style: Theme.of(context).textTheme.displayMedium,
@@ -107,7 +107,7 @@ class Actions extends StatelessWidget {
                       .add(TimerScreenEvent.TimerStartedEvent(startDuration))
               );
             },
-            TimerRunPauseState: (DurationModel durationModel){
+            TimerPauseState: (DurationModel durationModel){
               return FloatingActionButton(
                   child: const Icon(Icons.restart_alt_rounded),
                   onPressed: () => context
@@ -123,7 +123,7 @@ class Actions extends StatelessWidget {
                       .add(const TimerScreenEvent.TimerPausedEvent())
               );
             },
-            TimerRunComplete: (DurationModel durationModel){
+            TimerRunCompleteState: (DurationModel durationModel){
               return FloatingActionButton(
                 child: const Icon(Icons.play_arrow),
                 onPressed: (){
