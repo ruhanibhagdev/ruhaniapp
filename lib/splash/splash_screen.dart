@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
+import 'package:ruhaniapp/introduction/intro_screen.dart';
 import 'package:ruhaniapp/router/app_router.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_event.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_state.dart';
@@ -27,14 +28,14 @@ class SplashScreen extends StatelessWidget{
                   SplashNextScreenState: (){
                     //context.router.replace(const TimerRoute());
                     //context.router.replace(const SpeechToTextRoute());
-                    context.router.replace(const HomeRoute());
+                    context.router.replace(const IntroRoute());
                     //context.router.replace(const LapInfoRoute());
                   }
               );
             },
             builder: (BuildContext context, SplashScreenState state){
               return Center(
-                  child: Image.asset("assets/images/logo.png")
+                  child: Image.asset("assets/images/intro_1.gif")
               );
             }
         ),

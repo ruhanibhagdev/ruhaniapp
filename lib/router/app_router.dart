@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ruhaniapp/splash/splash_screen.dart';
 import '../home/home_screen.dart';
 import '../home/timer_page.dart';
+import '../introduction/intro_screen.dart';
 import '../lap_info/lap_info_screen.dart';
 import '../speechToText/speech_to_text_widget.dart';
 
@@ -28,6 +29,10 @@ class AppRouter extends _$AppRouter{
     AutoRoute(
         page: LapInfoRoute.page,
         path: "/lapInfo"
+    ),
+    AutoRoute(
+        page: IntroRoute.page,
+        path: "/intro"
     ),
   ];
 

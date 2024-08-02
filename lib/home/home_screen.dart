@@ -16,6 +16,7 @@ import 'package:ruhaniapp/home/timer_page.dart';
 import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
 import 'package:ruhaniapp/permission/permission_utils.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import '../base/color_constants.dart';
 import '../circularTimer/circular_timer_screen.dart';
 import '../router/app_router.dart';
 import '../speechToText/speech_to_text_widget.dart';
@@ -42,8 +43,14 @@ class HomeScreen extends StatelessWidget{
         builder: (BuildContext context, TimerScreenState state){
           var timerBloc = context.read<TimerBloc>();
           return Scaffold(
+            backgroundColor: ColorConstants.klogoBackgroundColor,
             appBar: AppBar(
               title: Text("Ruhani app"),
+              backgroundColor: ColorConstants.klogoOrangeColor,
+              titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 24
+              ),
             ),
             body: Center(
                 child: Padding(

@@ -80,6 +80,12 @@ dependencies:
   drift: ^2.16.0
   sqlite3_flutter_libs: ^0.5.20
 
+  #adding introduction images!!!
+  introduction_screen: ^3.1.14
+
+  #remember if intro screen was displayed aka auto_rememberer(what a weird name)
+  shared_preferences: ^2.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -18,7 +18,7 @@ class LapInfoItemWidget extends StatelessWidget{
           color: Colors.black
         ),
         borderRadius: BorderRadius.circular(10),
-        color: ColorConstants.klogoBackgroundColor
+        color: Colors.white
       ),
       child: Row(
         children: [
