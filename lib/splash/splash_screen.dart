@@ -8,6 +8,7 @@ import 'package:ruhaniapp/router/app_router.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_event.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_state.dart';
 import 'package:ruhaniapp/splash/viewstate/splash_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../injector/injection.dart';
 
 @RoutePage()
@@ -25,10 +26,18 @@ class SplashScreen extends StatelessWidget{
         child: BlocConsumer<SplashBloc, SplashScreenState>(
             listener: (BuildContext context, SplashScreenState state){
               state.whenOrNull(
-                  SplashNextScreenState: (){
+                  SplashNextScreenState: () async{
                     //context.router.replace(const TimerRoute());
                     //context.router.replace(const SpeechToTextRoute());
-                    context.router.replace(const IntroRoute());
+                    final SharedPreferences autoRememberer = await SharedPreferences.getInstance();
+                    final bool? isIntroSeen = autoRememberer.getBool('hasUserSeenIntro');
+                    _logger.log(_TAG, "Is intro seeing? $isIntroSeen");
+                    if(isIntroSeen != null && isIntroSeen == true){
+                      context.router.replace(const HomeRoute());
+                    }
+                    else{
+                      context.router.replace(const IntroRoute());
+                    }
                     //context.router.replace(const LapInfoRoute());
                   }
               );

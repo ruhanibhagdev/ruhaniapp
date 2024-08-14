@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
 
@@ -19,6 +22,8 @@ class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderState
 
   double _shrinkScale = 0.88;
   late AnimationController _controller;
+  Timer? _timer;
+  ValueNotifier<bool> isButtonActive = ValueNotifier(false);
 
   @override
   void initState() {
@@ -27,6 +32,9 @@ class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderState
         vsync: this,
       duration: Duration(milliseconds: 5)
     );
+    _timer = Timer(Duration(milliseconds: 601), (){
+      isButtonActive.value = true;
+    });
   }
 
   @override
@@ -36,8 +44,14 @@ class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderState
         _controller.forward();
         await Future.delayed(Duration(milliseconds: 200), () {
           _controller.reverse();
-          if(widget.onButtonPress != null){
-            widget.onButtonPress!();
+          if(isButtonActive.value == true){
+            if(widget.onButtonPress != null){
+              widget.onButtonPress!();
+              isButtonActive.value = false;
+              _timer = Timer(Duration(milliseconds: 1001), (){
+                isButtonActive.value = true;
+              });
+            }
           }
         });
       },

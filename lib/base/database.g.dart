@@ -18,6 +18,11 @@ class $LapInformationEntityTable extends LapInformationEntity
       requiredDuringInsert: false,
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('PRIMARY KEY AUTOINCREMENT'));
+  static const VerificationMeta _hoursMeta = const VerificationMeta('hours');
+  @override
+  late final GeneratedColumn<int> hours = GeneratedColumn<int>(
+      'hours', aliasedName, false,
+      type: DriftSqlType.int, requiredDuringInsert: true);
   static const VerificationMeta _minutesMeta =
       const VerificationMeta('minutes');
   @override
@@ -30,14 +35,8 @@ class $LapInformationEntityTable extends LapInformationEntity
   late final GeneratedColumn<int> seconds = GeneratedColumn<int>(
       'seconds', aliasedName, false,
       type: DriftSqlType.int, requiredDuringInsert: true);
-  static const VerificationMeta _millisecondsMeta =
-      const VerificationMeta('milliseconds');
   @override
-  late final GeneratedColumn<int> milliseconds = GeneratedColumn<int>(
-      'milliseconds', aliasedName, false,
-      type: DriftSqlType.int, requiredDuringInsert: true);
-  @override
-  List<GeneratedColumn> get $columns => [id, minutes, seconds, milliseconds];
+  List<GeneratedColumn> get $columns => [id, hours, minutes, seconds];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -52,6 +51,12 @@ class $LapInformationEntityTable extends LapInformationEntity
     if (data.containsKey('id')) {
       context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
     }
+    if (data.containsKey('hours')) {
+      context.handle(
+          _hoursMeta, hours.isAcceptableOrUnknown(data['hours']!, _hoursMeta));
+    } else if (isInserting) {
+      context.missing(_hoursMeta);
+    }
     if (data.containsKey('minutes')) {
       context.handle(_minutesMeta,
           minutes.isAcceptableOrUnknown(data['minutes']!, _minutesMeta));
@@ -63,14 +68,6 @@ class $LapInformationEntityTable extends LapInformationEntity
           seconds.isAcceptableOrUnknown(data['seconds']!, _secondsMeta));
     } else if (isInserting) {
       context.missing(_secondsMeta);
-    }
-    if (data.containsKey('milliseconds')) {
-      context.handle(
-          _millisecondsMeta,
-          milliseconds.isAcceptableOrUnknown(
-              data['milliseconds']!, _millisecondsMeta));
-    } else if (isInserting) {
-      context.missing(_millisecondsMeta);
     }
     return context;
   }
@@ -84,12 +81,12 @@ class $LapInformationEntityTable extends LapInformationEntity
     return LapInformationEntityData(
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
+      hours: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}hours'])!,
       minutes: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}minutes'])!,
       seconds: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}seconds'])!,
-      milliseconds: attachedDatabase.typeMapping
-          .read(DriftSqlType.int, data['${effectivePrefix}milliseconds'])!,
     );
   }
 
@@ -102,30 +99,30 @@ class $LapInformationEntityTable extends LapInformationEntity
 class LapInformationEntityData extends DataClass
     implements Insertable<LapInformationEntityData> {
   final int id;
+  final int hours;
   final int minutes;
   final int seconds;
-  final int milliseconds;
   const LapInformationEntityData(
       {required this.id,
+      required this.hours,
       required this.minutes,
-      required this.seconds,
-      required this.milliseconds});
+      required this.seconds});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
+    map['hours'] = Variable<int>(hours);
     map['minutes'] = Variable<int>(minutes);
     map['seconds'] = Variable<int>(seconds);
-    map['milliseconds'] = Variable<int>(milliseconds);
     return map;
   }
 
   LapInformationEntityCompanion toCompanion(bool nullToAbsent) {
     return LapInformationEntityCompanion(
       id: Value(id),
+      hours: Value(hours),
       minutes: Value(minutes),
       seconds: Value(seconds),
-      milliseconds: Value(milliseconds),
     );
   }
 
@@ -134,9 +131,9 @@ class LapInformationEntityData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return LapInformationEntityData(
       id: serializer.fromJson<int>(json['id']),
+      hours: serializer.fromJson<int>(json['hours']),
       minutes: serializer.fromJson<int>(json['minutes']),
       seconds: serializer.fromJson<int>(json['seconds']),
-      milliseconds: serializer.fromJson<int>(json['milliseconds']),
     );
   }
   @override
@@ -144,87 +141,87 @@ class LapInformationEntityData extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
+      'hours': serializer.toJson<int>(hours),
       'minutes': serializer.toJson<int>(minutes),
       'seconds': serializer.toJson<int>(seconds),
-      'milliseconds': serializer.toJson<int>(milliseconds),
     };
   }
 
   LapInformationEntityData copyWith(
-          {int? id, int? minutes, int? seconds, int? milliseconds}) =>
+          {int? id, int? hours, int? minutes, int? seconds}) =>
       LapInformationEntityData(
         id: id ?? this.id,
+        hours: hours ?? this.hours,
         minutes: minutes ?? this.minutes,
         seconds: seconds ?? this.seconds,
-        milliseconds: milliseconds ?? this.milliseconds,
       );
   @override
   String toString() {
     return (StringBuffer('LapInformationEntityData(')
           ..write('id: $id, ')
+          ..write('hours: $hours, ')
           ..write('minutes: $minutes, ')
-          ..write('seconds: $seconds, ')
-          ..write('milliseconds: $milliseconds')
+          ..write('seconds: $seconds')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, minutes, seconds, milliseconds);
+  int get hashCode => Object.hash(id, hours, minutes, seconds);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is LapInformationEntityData &&
           other.id == this.id &&
+          other.hours == this.hours &&
           other.minutes == this.minutes &&
-          other.seconds == this.seconds &&
-          other.milliseconds == this.milliseconds);
+          other.seconds == this.seconds);
 }
 
 class LapInformationEntityCompanion
     extends UpdateCompanion<LapInformationEntityData> {
   final Value<int> id;
+  final Value<int> hours;
   final Value<int> minutes;
   final Value<int> seconds;
-  final Value<int> milliseconds;
   const LapInformationEntityCompanion({
     this.id = const Value.absent(),
+    this.hours = const Value.absent(),
     this.minutes = const Value.absent(),
     this.seconds = const Value.absent(),
-    this.milliseconds = const Value.absent(),
   });
   LapInformationEntityCompanion.insert({
     this.id = const Value.absent(),
+    required int hours,
     required int minutes,
     required int seconds,
-    required int milliseconds,
-  })  : minutes = Value(minutes),
-        seconds = Value(seconds),
-        milliseconds = Value(milliseconds);
+  })  : hours = Value(hours),
+        minutes = Value(minutes),
+        seconds = Value(seconds);
   static Insertable<LapInformationEntityData> custom({
     Expression<int>? id,
+    Expression<int>? hours,
     Expression<int>? minutes,
     Expression<int>? seconds,
-    Expression<int>? milliseconds,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
+      if (hours != null) 'hours': hours,
       if (minutes != null) 'minutes': minutes,
       if (seconds != null) 'seconds': seconds,
-      if (milliseconds != null) 'milliseconds': milliseconds,
     });
   }
 
   LapInformationEntityCompanion copyWith(
       {Value<int>? id,
+      Value<int>? hours,
       Value<int>? minutes,
-      Value<int>? seconds,
-      Value<int>? milliseconds}) {
+      Value<int>? seconds}) {
     return LapInformationEntityCompanion(
       id: id ?? this.id,
+      hours: hours ?? this.hours,
       minutes: minutes ?? this.minutes,
       seconds: seconds ?? this.seconds,
-      milliseconds: milliseconds ?? this.milliseconds,
     );
   }
 
@@ -234,14 +231,14 @@ class LapInformationEntityCompanion
     if (id.present) {
       map['id'] = Variable<int>(id.value);
     }
+    if (hours.present) {
+      map['hours'] = Variable<int>(hours.value);
+    }
     if (minutes.present) {
       map['minutes'] = Variable<int>(minutes.value);
     }
     if (seconds.present) {
       map['seconds'] = Variable<int>(seconds.value);
-    }
-    if (milliseconds.present) {
-      map['milliseconds'] = Variable<int>(milliseconds.value);
     }
     return map;
   }
@@ -250,9 +247,9 @@ class LapInformationEntityCompanion
   String toString() {
     return (StringBuffer('LapInformationEntityCompanion(')
           ..write('id: $id, ')
+          ..write('hours: $hours, ')
           ..write('minutes: $minutes, ')
-          ..write('seconds: $seconds, ')
-          ..write('milliseconds: $milliseconds')
+          ..write('seconds: $seconds')
           ..write(')'))
         .toString();
   }

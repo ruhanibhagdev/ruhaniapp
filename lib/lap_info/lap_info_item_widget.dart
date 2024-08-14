@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
 import 'package:ruhaniapp/lap_info/lap_info_entity.dart';
 
+import '../base/database.dart';
+
 class LapInfoItemWidget extends StatelessWidget{
 
-  /*LapInformationEntity currentLapInfo;
-  LapInfoItemWidget({required this.currentLapInfo});*/
+  LapInformationEntityData currentLapInfo;
+  LapInfoItemWidget({required this.currentLapInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +31,8 @@ class LapInfoItemWidget extends StatelessWidget{
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("  Lap Number:"),
-              Text("  Time: 8 minutes 4 seconds")
+              Text("  Lap Number: ${currentLapInfo.id}"),
+              Text("  Time: ${currentLapInfo.hours.toString().padLeft(2,"0")}:${currentLapInfo.minutes.toString().padLeft(2,"0")}:${currentLapInfo.seconds.toString().padLeft(2,"0")}")
             ],
           )
         ],

@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/base/database.dart';
 import 'package:ruhaniapp/base/duration_calculator.dart';
 import 'package:ruhaniapp/base/duration_model.dart';
+import 'package:ruhaniapp/injector/injection.dart';
+import '../../base/logger_utils.dart';
 import '../../base/tick_tock.dart';
 import '../states/timer_screen_event.dart';
 import '../states/timer_screen_state.dart';
@@ -32,6 +34,9 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   int currentTimeInSeconds = 0;
   int endTimeInSeconds = 20;
   bool isAudioPlayed = false;
+
+  final _logger = locator<LoggerUtils>();
+  final _TAG = "TimerBloc";
 
   @override
   Future<void> close() {
@@ -87,10 +92,11 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
 
   }
   Future<void> _addLap(AddLapEvent event, Emitter<TimerScreenState> emit) async{
+    _logger.log(_TAG, "Timer Buloco $currentDurationModel");
     var lapInfoEntity = LapInformationEntityCompanion.insert(
+        hours: int.parse(currentDurationModel.hoursStr),
         minutes: int.parse(currentDurationModel.minutesStr),
         seconds: int.parse(currentDurationModel.secondsStr),
-        milliseconds: currentTimeInSeconds
     );
     await database.into(database.lapInformationEntity).insert(lapInfoEntity);
   }

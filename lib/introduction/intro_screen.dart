@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../base/app_constants.dart';
 import '../commonwidgets/empty_widget.dart';
 import '../router/app_router.dart';
@@ -38,6 +39,8 @@ class IntroScreen extends StatelessWidget{
             ),
           ],
           onDone: () async{
+            final SharedPreferences autoRememberer = await SharedPreferences.getInstance();
+            await autoRememberer.setBool('hasUserSeenIntro', true);
             await context.router.replace(const HomeRoute());
           },
           //ClampingScrollPhysics prevent the scroll offset from exceeding the bounds of the content.
@@ -65,6 +68,8 @@ class IntroScreen extends StatelessWidget{
               )
           ),
           onSkip: () async{
+            final SharedPreferences autoRememberer = await SharedPreferences.getInstance();
+            await autoRememberer.setBool('hasUserSeenIntro', true);
             await context.router.replace(const HomeRoute());
           },
           dotsDecorator: getDotsDecorator()

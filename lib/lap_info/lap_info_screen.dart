@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:ruhaniapp/base/app_constants.dart';
 import 'package:ruhaniapp/base/database.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
+import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
 import 'package:ruhaniapp/injector/injection.dart';
 import 'package:ruhaniapp/lap_info/lap_info_item_widget.dart';
 
@@ -32,34 +33,50 @@ class LapInfoScreen extends StatelessWidget{
             fontSize: 24
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
               padding: EdgeInsets.all(10),
-            child: Text(
-              AppConstants.kLapDescription,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black
+              child: Text(
+                AppConstants.kLapDescription,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black
+                ),
               ),
             ),
-          ),
-          StreamBuilder(
-              stream: watchLapStream(),
-              builder: (BuildContext context, AsyncSnapshot<List<LapInformationEntityData>> snapshot){
-                if(snapshot.connectionState == ConnectionState.waiting){
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-                else{
-                  List<LapInformationEntityData> lapInfoList = snapshot.data!;
-                  return ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: lapInfoList.length,
-                      itemBuilder: (BuildContext context, int index){
-                        LapInformationEntityData lapEntityData = lapInfoList[index];
-                        /*return ListTile(
+            Padding(
+              padding: EdgeInsets.only(left: 25),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: AppIconsWidget(
+                  buttonText: "Clear All",
+                  iconToDisplay: Icons.delete_outline_rounded,
+                  onButtonPress: (){
+                    _logger.log(_TAG, "don't delete the eggplant pizza");
+                    feelingLazy();
+                  },
+                ),
+              ),
+            ),
+
+            StreamBuilder(
+                stream: watchLapStream(),
+                builder: (BuildContext context, AsyncSnapshot<List<LapInformationEntityData>> snapshot){
+                  if(snapshot.connectionState == ConnectionState.waiting){
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  else{
+                    List<LapInformationEntityData> lapInfoList = snapshot.data!;
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: lapInfoList.length,
+                        itemBuilder: (BuildContext context, int index){
+                          LapInformationEntityData lapEntityData = lapInfoList[index];
+                          /*return ListTile(
                       title: Column(
                         children: [
                           Text("Lap number - ${lapEntityData.id}"),
@@ -67,15 +84,16 @@ class LapInfoScreen extends StatelessWidget{
                         ],
                       ),
                     );*/
-                        return LapInfoItemWidget(
-                          // currentLapInfo: lapEntityData,
-                        );
-                      }
-                  );
+                          return LapInfoItemWidget(
+                            currentLapInfo: lapEntityData,
+                          );
+                        }
+                    );
+                  }
                 }
-              }
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -95,7 +113,7 @@ class LapInfoScreen extends StatelessWidget{
 
   Future feelingLazy() {
     // delete the oldest nine tasks
-    return (database.delete(database.lapInformationEntity)..where((t) => t.id.isSmallerThanValue(8))).go();
+    return (database.delete(database.lapInformationEntity).go());
   }
 
 }
