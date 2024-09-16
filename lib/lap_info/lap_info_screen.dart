@@ -26,7 +26,7 @@ class LapInfoScreen extends StatelessWidget{
         iconTheme: IconThemeData(
           color: Colors.white
         ),
-        title: Text("Ruhani app"),
+        title: Text("RuFit"),
         backgroundColor: ColorConstants.klogoOrangeColor,
         titleTextStyle: TextStyle(
             color: Colors.white,
@@ -86,6 +86,7 @@ class LapInfoScreen extends StatelessWidget{
                     );*/
                           return LapInfoItemWidget(
                             currentLapInfo: lapEntityData,
+                            index: index,
                           );
                         }
                     );

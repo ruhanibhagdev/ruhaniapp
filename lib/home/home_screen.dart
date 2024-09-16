@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget{
           return Scaffold(
             backgroundColor: ColorConstants.klogoBackgroundColor,
             appBar: AppBar(
-              title: Text("Ruhani app"),
+              title: Text("RuFit"),
               backgroundColor: ColorConstants.klogoOrangeColor,
               titleTextStyle: TextStyle(
                 color: Colors.white,

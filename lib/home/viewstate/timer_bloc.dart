@@ -32,7 +32,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   StreamSubscription<int>? _tickerSubscription;
   final database = AppDb();
   int currentTimeInSeconds = 0;
-  int endTimeInSeconds = 20;
+  int endTimeInSeconds = -1;
   bool isAudioPlayed = false;
 
   final _logger = locator<LoggerUtils>();
@@ -82,7 +82,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
 
   Future<void> _onTicked(TimerTickedEvent event, Emitter<TimerScreenState> emit) async{
 
-    bool isGoalReached = currentTimeInSeconds >= endTimeInSeconds;
+    bool isGoalReached = (currentTimeInSeconds >= endTimeInSeconds) && (endTimeInSeconds != -1);
     if(isGoalReached && !isAudioPlayed){
       isAudioPlayed = true;
       final player = AudioPlayer();

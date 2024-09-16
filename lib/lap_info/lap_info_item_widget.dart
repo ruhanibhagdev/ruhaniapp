@@ -7,7 +7,8 @@ import '../base/database.dart';
 class LapInfoItemWidget extends StatelessWidget{
 
   LapInformationEntityData currentLapInfo;
-  LapInfoItemWidget({required this.currentLapInfo});
+  int index;
+  LapInfoItemWidget({required this.currentLapInfo, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class LapInfoItemWidget extends StatelessWidget{
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("  Lap Number: ${currentLapInfo.id}"),
+              Text("  Lap Number: ${index + 1}"),
               Text("  Time: ${currentLapInfo.hours.toString().padLeft(2,"0")}:${currentLapInfo.minutes.toString().padLeft(2,"0")}:${currentLapInfo.seconds.toString().padLeft(2,"0")}")
             ],
           )
