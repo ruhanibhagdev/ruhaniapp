@@ -96,6 +96,9 @@ class _$TimerScreenEventCopyWithImpl<$Res, $Val extends TimerScreenEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -115,6 +118,8 @@ class __$$TimerStartedEventImplCopyWithImpl<$Res>
       $Res Function(_$TimerStartedEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -154,7 +159,9 @@ class _$TimerStartedEventImpl implements TimerStartedEvent {
   @override
   int get hashCode => Object.hash(runtimeType, durationModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimerStartedEventImplCopyWith<_$TimerStartedEventImpl> get copyWith =>
@@ -253,7 +260,10 @@ abstract class TimerStartedEvent implements TimerScreenEvent {
       _$TimerStartedEventImpl;
 
   DurationModel get durationModel;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimerStartedEventImplCopyWith<_$TimerStartedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -272,6 +282,9 @@ class __$$TimerPausedEventImplCopyWithImpl<$Res>
   __$$TimerPausedEventImplCopyWithImpl(_$TimerPausedEventImpl _value,
       $Res Function(_$TimerPausedEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -398,6 +411,9 @@ class __$$TimerResumedEventImplCopyWithImpl<$Res>
   __$$TimerResumedEventImplCopyWithImpl(_$TimerResumedEventImpl _value,
       $Res Function(_$TimerResumedEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -524,6 +540,9 @@ class __$$TimerResetEventImplCopyWithImpl<$Res>
   __$$TimerResetEventImplCopyWithImpl(
       _$TimerResetEventImpl _value, $Res Function(_$TimerResetEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -653,6 +672,8 @@ class __$$TimerTickedEventImplCopyWithImpl<$Res>
       $Res Function(_$TimerTickedEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -692,7 +713,9 @@ class _$TimerTickedEventImpl implements TimerTickedEvent {
   @override
   int get hashCode => Object.hash(runtimeType, durationModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimerTickedEventImplCopyWith<_$TimerTickedEventImpl> get copyWith =>
@@ -791,7 +814,10 @@ abstract class TimerTickedEvent implements TimerScreenEvent {
       _$TimerTickedEventImpl;
 
   DurationModel get durationModel;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimerTickedEventImplCopyWith<_$TimerTickedEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -810,6 +836,9 @@ class __$$AddLapEventImplCopyWithImpl<$Res>
   __$$AddLapEventImplCopyWithImpl(
       _$AddLapEventImpl _value, $Res Function(_$AddLapEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TimerScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

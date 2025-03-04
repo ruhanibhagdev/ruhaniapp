@@ -66,6 +66,9 @@ class _$SplashScreenEventCopyWithImpl<$Res, $Val extends SplashScreenEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SplashScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -82,6 +85,9 @@ class __$$InitSplashViewImplCopyWithImpl<$Res>
   __$$InitSplashViewImplCopyWithImpl(
       _$InitSplashViewImpl _value, $Res Function(_$InitSplashViewImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SplashScreenEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

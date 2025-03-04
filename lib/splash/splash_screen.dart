@@ -32,13 +32,13 @@ class SplashScreen extends StatelessWidget{
                     final SharedPreferences autoRememberer = await SharedPreferences.getInstance();
                     final bool? isIntroSeen = autoRememberer.getBool('hasUserSeenIntro');
                     _logger.log(_TAG, "Is intro seeing? $isIntroSeen");
-                    if(isIntroSeen != null && isIntroSeen == true){
+                    /*if(isIntroSeen != null && isIntroSeen == true){
                       context.router.replace(const HomeRoute());
                     }
                     else{
                       context.router.replace(const IntroRoute());
-                    }
-                    //context.router.replace(const LapInfoRoute());
+                    }*/
+                    context.router.replace(const PlaygroundRoute());
                   }
               );
             },

@@ -73,6 +73,9 @@ class _$SplashScreenStateCopyWithImpl<$Res, $Val extends SplashScreenState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of SplashScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -89,6 +92,9 @@ class __$$SplashInitialStateImplCopyWithImpl<$Res>
   __$$SplashInitialStateImplCopyWithImpl(_$SplashInitialStateImpl _value,
       $Res Function(_$SplashInitialStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SplashScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -193,6 +199,9 @@ class __$$SplashNextScreenStateImplCopyWithImpl<$Res>
   __$$SplashNextScreenStateImplCopyWithImpl(_$SplashNextScreenStateImpl _value,
       $Res Function(_$SplashNextScreenStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of SplashScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

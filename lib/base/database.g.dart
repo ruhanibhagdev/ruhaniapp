@@ -155,6 +155,16 @@ class LapInformationEntityData extends DataClass
         minutes: minutes ?? this.minutes,
         seconds: seconds ?? this.seconds,
       );
+  LapInformationEntityData copyWithCompanion(
+      LapInformationEntityCompanion data) {
+    return LapInformationEntityData(
+      id: data.id.present ? data.id.value : this.id,
+      hours: data.hours.present ? data.hours.value : this.hours,
+      minutes: data.minutes.present ? data.minutes.value : this.minutes,
+      seconds: data.seconds.present ? data.seconds.value : this.seconds,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('LapInformationEntityData(')
@@ -257,6 +267,7 @@ class LapInformationEntityCompanion
 
 abstract class _$AppDb extends GeneratedDatabase {
   _$AppDb(QueryExecutor e) : super(e);
+  $AppDbManager get managers => $AppDbManager(this);
   late final $LapInformationEntityTable lapInformationEntity =
       $LapInformationEntityTable(this);
   @override
@@ -264,4 +275,170 @@ abstract class _$AppDb extends GeneratedDatabase {
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [lapInformationEntity];
+}
+
+typedef $$LapInformationEntityTableCreateCompanionBuilder
+    = LapInformationEntityCompanion Function({
+  Value<int> id,
+  required int hours,
+  required int minutes,
+  required int seconds,
+});
+typedef $$LapInformationEntityTableUpdateCompanionBuilder
+    = LapInformationEntityCompanion Function({
+  Value<int> id,
+  Value<int> hours,
+  Value<int> minutes,
+  Value<int> seconds,
+});
+
+class $$LapInformationEntityTableFilterComposer
+    extends Composer<_$AppDb, $LapInformationEntityTable> {
+  $$LapInformationEntityTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get hours => $composableBuilder(
+      column: $table.hours, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get minutes => $composableBuilder(
+      column: $table.minutes, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<int> get seconds => $composableBuilder(
+      column: $table.seconds, builder: (column) => ColumnFilters(column));
+}
+
+class $$LapInformationEntityTableOrderingComposer
+    extends Composer<_$AppDb, $LapInformationEntityTable> {
+  $$LapInformationEntityTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+      column: $table.id, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get hours => $composableBuilder(
+      column: $table.hours, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get minutes => $composableBuilder(
+      column: $table.minutes, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<int> get seconds => $composableBuilder(
+      column: $table.seconds, builder: (column) => ColumnOrderings(column));
+}
+
+class $$LapInformationEntityTableAnnotationComposer
+    extends Composer<_$AppDb, $LapInformationEntityTable> {
+  $$LapInformationEntityTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get hours =>
+      $composableBuilder(column: $table.hours, builder: (column) => column);
+
+  GeneratedColumn<int> get minutes =>
+      $composableBuilder(column: $table.minutes, builder: (column) => column);
+
+  GeneratedColumn<int> get seconds =>
+      $composableBuilder(column: $table.seconds, builder: (column) => column);
+}
+
+class $$LapInformationEntityTableTableManager extends RootTableManager<
+    _$AppDb,
+    $LapInformationEntityTable,
+    LapInformationEntityData,
+    $$LapInformationEntityTableFilterComposer,
+    $$LapInformationEntityTableOrderingComposer,
+    $$LapInformationEntityTableAnnotationComposer,
+    $$LapInformationEntityTableCreateCompanionBuilder,
+    $$LapInformationEntityTableUpdateCompanionBuilder,
+    (
+      LapInformationEntityData,
+      BaseReferences<_$AppDb, $LapInformationEntityTable,
+          LapInformationEntityData>
+    ),
+    LapInformationEntityData,
+    PrefetchHooks Function()> {
+  $$LapInformationEntityTableTableManager(
+      _$AppDb db, $LapInformationEntityTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$LapInformationEntityTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$LapInformationEntityTableOrderingComposer(
+                  $db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$LapInformationEntityTableAnnotationComposer(
+                  $db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<int> hours = const Value.absent(),
+            Value<int> minutes = const Value.absent(),
+            Value<int> seconds = const Value.absent(),
+          }) =>
+              LapInformationEntityCompanion(
+            id: id,
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required int hours,
+            required int minutes,
+            required int seconds,
+          }) =>
+              LapInformationEntityCompanion.insert(
+            id: id,
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ));
+}
+
+typedef $$LapInformationEntityTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDb,
+        $LapInformationEntityTable,
+        LapInformationEntityData,
+        $$LapInformationEntityTableFilterComposer,
+        $$LapInformationEntityTableOrderingComposer,
+        $$LapInformationEntityTableAnnotationComposer,
+        $$LapInformationEntityTableCreateCompanionBuilder,
+        $$LapInformationEntityTableUpdateCompanionBuilder,
+        (
+          LapInformationEntityData,
+          BaseReferences<_$AppDb, $LapInformationEntityTable,
+              LapInformationEntityData>
+        ),
+        LapInformationEntityData,
+        PrefetchHooks Function()>;
+
+class $AppDbManager {
+  final _$AppDb _db;
+  $AppDbManager(this._db);
+  $$LapInformationEntityTableTableManager get lapInformationEntity =>
+      $$LapInformationEntityTableTableManager(_db, _db.lapInformationEntity);
 }

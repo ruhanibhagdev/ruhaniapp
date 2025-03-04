@@ -88,6 +88,9 @@ class _$TimerScreenStateCopyWithImpl<$Res, $Val extends TimerScreenState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -104,6 +107,9 @@ class __$$TimerInitialImplCopyWithImpl<$Res>
   __$$TimerInitialImplCopyWithImpl(
       _$TimerInitialImpl _value, $Res Function(_$TimerInitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -225,6 +231,8 @@ class __$$TimerPauseImplCopyWithImpl<$Res>
       _$TimerPauseImpl _value, $Res Function(_$TimerPauseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -264,7 +272,9 @@ class _$TimerPauseImpl implements _TimerPause {
   @override
   int get hashCode => Object.hash(runtimeType, durationModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimerPauseImplCopyWith<_$TimerPauseImpl> get copyWith =>
@@ -354,7 +364,10 @@ abstract class _TimerPause implements TimerScreenState {
       _$TimerPauseImpl;
 
   DurationModel get durationModel;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimerPauseImplCopyWith<_$TimerPauseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -376,6 +389,8 @@ class __$$TimerRunningStateImplCopyWithImpl<$Res>
       $Res Function(_$TimerRunningStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -424,7 +439,9 @@ class _$TimerRunningStateImpl implements _TimerRunningState {
   @override
   int get hashCode => Object.hash(runtimeType, durationModel, isGoalReached);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimerRunningStateImplCopyWith<_$TimerRunningStateImpl> get copyWith =>
@@ -517,7 +534,10 @@ abstract class _TimerRunningState implements TimerScreenState {
 
   DurationModel get durationModel;
   bool get isGoalReached;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimerRunningStateImplCopyWith<_$TimerRunningStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -539,6 +559,8 @@ class __$$TimerRunCompleteImplCopyWithImpl<$Res>
       $Res Function(_$TimerRunCompleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -578,7 +600,9 @@ class _$TimerRunCompleteImpl implements _TimerRunComplete {
   @override
   int get hashCode => Object.hash(runtimeType, durationModel);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TimerRunCompleteImplCopyWith<_$TimerRunCompleteImpl> get copyWith =>
@@ -669,7 +693,10 @@ abstract class _TimerRunComplete implements TimerScreenState {
       _$TimerRunCompleteImpl;
 
   DurationModel get durationModel;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TimerScreenState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TimerRunCompleteImplCopyWith<_$TimerRunCompleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

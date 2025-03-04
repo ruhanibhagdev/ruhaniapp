@@ -33,6 +33,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: LapInfoScreen(),
       );
     },
+    PlaygroundRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PlaygroundScreen(),
+      );
+    },
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -86,6 +92,20 @@ class LapInfoRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LapInfoRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PlaygroundScreen]
+class PlaygroundRoute extends PageRouteInfo<void> {
+  const PlaygroundRoute({List<PageRouteInfo>? children})
+      : super(
+          PlaygroundRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PlaygroundRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
