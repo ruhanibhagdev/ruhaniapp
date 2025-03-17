@@ -47,7 +47,7 @@ class FirebaseUtils {
       }
     }
     catch(exception){
-      _logger.log(_TAG, "Oops! Look's like something went wrong... $exception");
+      _logger.log(_TAG, "Oops! Looks like something went wrong... $exception");
     }
 
   }
