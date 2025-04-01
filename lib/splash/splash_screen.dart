@@ -38,7 +38,8 @@ class SplashScreen extends StatelessWidget{
                     else{
                       context.router.replace(const IntroRoute());
                     }*/
-                    context.router.replace(const PlaygroundRoute());
+                    //context.router.replace(const PlaygroundRoute());
+                    context.router.replace(const OnBoardingRoute());
                   }
               );
             },

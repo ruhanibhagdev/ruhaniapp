@@ -33,6 +33,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: LapInfoScreen(),
       );
     },
+    OnBoardingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: OnBoardingScreen(),
+      );
+    },
     PlaygroundRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -92,6 +98,20 @@ class LapInfoRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LapInfoRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OnBoardingScreen]
+class OnBoardingRoute extends PageRouteInfo<void> {
+  const OnBoardingRoute({List<PageRouteInfo>? children})
+      : super(
+          OnBoardingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OnBoardingRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
