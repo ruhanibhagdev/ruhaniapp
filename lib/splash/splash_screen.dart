@@ -9,6 +9,7 @@ import 'package:ruhaniapp/splash/states/splash_screen_event.dart';
 import 'package:ruhaniapp/splash/states/splash_screen_state.dart';
 import 'package:ruhaniapp/splash/viewstate/splash_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../base/app_constants.dart';
 import '../injector/injection.dart';
 
 @RoutePage()
@@ -30,16 +31,22 @@ class SplashScreen extends StatelessWidget{
                     //context.router.replace(const TimerRoute());
                     //context.router.replace(const SpeechToTextRoute());
                     final SharedPreferences autoRememberer = await SharedPreferences.getInstance();
-                    final bool? isIntroSeen = autoRememberer.getBool('hasUserSeenIntro');
+                    final bool? isIntroSeen = autoRememberer.getBool(AppConstants.kUserIntroKey);
+                    final bool? isUserSignedIn = autoRememberer.getBool(AppConstants.kUserSignInSuccess);
+                    _logger.log(_TAG, "Is user being signed in? $isUserSignedIn");
                     _logger.log(_TAG, "Is intro seeing? $isIntroSeen");
-                    /*if(isIntroSeen != null && isIntroSeen == true){
-                      context.router.replace(const HomeRoute());
+                    if(isUserSignedIn != null && isUserSignedIn == true){
+                      if(isIntroSeen != null && isIntroSeen == true){
+                        context.router.replace(const HomeRoute());
+                      }
+                      else{
+                        context.router.replace(const IntroRoute());
+                      }
                     }
                     else{
-                      context.router.replace(const IntroRoute());
-                    }*/
+                      context.router.replace(const OnBoardingRoute());
+                    }
                     //context.router.replace(const PlaygroundRoute());
-                    context.router.replace(const OnBoardingRoute());
                   }
               );
             },

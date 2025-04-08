@@ -40,6 +40,8 @@ class FirebaseUtils {
         );
         final userCredentials = await auth.signInWithCredential(credential);
         _logger.log(_TAG, "✨ User details found! ✨ ${userCredentials.user}");
+
+        return Future.value(userCredentials.user);
       }
       else{
         _logger.log(_TAG, "No Google Accounts Found");

@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,8 @@ import 'package:lottie/lottie.dart';
 import 'package:ruhaniapp/base/app_constants.dart';
 import 'package:ruhaniapp/base/firebase_utils.dart';
 import 'package:ruhaniapp/commonwidgets/filled_button_widget.dart';
+import 'package:ruhaniapp/router/app_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @RoutePage()
 class OnBoardingScreen extends StatelessWidget{
@@ -55,7 +58,21 @@ class OnBoardingScreen extends StatelessWidget{
                 width: 9,
               ),
               FilledButtonWidget(
-                  buttonText: "Sign in with Google"
+                  buttonText: "Sign in with Google",
+                onButtonPressed: () async{
+                    await firebaseUtils.initializeFirebase().then((User? currentUser) async{
+                      if(currentUser == null){
+                        await firebaseUtils.startGoogleSignIn().then((User? userAfterSignIn) async{
+                          SharedPreferences autoRemember = await SharedPreferences.getInstance();
+                          await autoRemember.setString(AppConstants.kUserUniqueID, userAfterSignIn!.uid);
+                          await autoRemember.setString(AppConstants.kUserName, userAfterSignIn!.displayName!);
+                          await autoRemember.setString(AppConstants.kUserEmail, userAfterSignIn!.email!);
+                          await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
+                          await context.router.navigate(const IntroRoute());
+                        });
+                      }
+                    });
+                },
               ),
             ],
           ),
