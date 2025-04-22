@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ruhaniapp/base/firebase_utils.dart';
+import 'package:ruhaniapp/onboarding/user_registration_details.dart';
 
 @RoutePage()
 class PlaygroundScreen extends StatelessWidget{
@@ -14,13 +15,9 @@ class PlaygroundScreen extends StatelessWidget{
       body: Center(
         child: ElevatedButton(
             onPressed: () async{
-              await _firebaseUtils.initializeFirebase().then((User? currentUser) async{
-                print("Current User Found ?!. $currentUser");
-                await _firebaseUtils.startGoogleSignIn();
-                /*if(currentUser == null){
-                  await _firebaseUtils.startGoogleSignIn();
-                }*/
-              });
+              UserRegistrationDetails kabutarUser = UserRegistrationDetails(userID: "555", name: "Kabutar", emailID: "kohliflower.kabutar@gmail.com");
+              kabutarUser.toJson();
+              print(kabutarUser.toJson());
             },
             child: Text("Log in to App")
         ),

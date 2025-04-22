@@ -68,7 +68,7 @@ class OnBoardingScreen extends StatelessWidget{
                           await autoRemember.setString(AppConstants.kUserName, userAfterSignIn!.displayName!);
                           await autoRemember.setString(AppConstants.kUserEmail, userAfterSignIn!.email!);
                           await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
-                          await context.router.navigate(const IntroRoute());
+                          await context.router.replace(const IntroRoute());
                         });
                       }
                     });

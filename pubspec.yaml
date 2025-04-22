@@ -96,6 +96,12 @@ dependencies:
   #save authentication details on firebase🔥
   firebase_auth: ^5.5.0
 
+  #saving lap details online instead of offline :)
+  firebase_database: ^11.3.5
+
+  #generate json code!!
+  json_serializable: ^6.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

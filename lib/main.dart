@@ -17,7 +17,8 @@ Future<void> init() async{
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    //options: DefaultFirebaseOptions.getFirebaseOptions()
+    name: "dev project",
+    options: DefaultFirebaseOptions.getFirebaseOptions()
   );
   configureDependencies();
 

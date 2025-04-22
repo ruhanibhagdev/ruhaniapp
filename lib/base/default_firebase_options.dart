@@ -12,7 +12,9 @@ class DefaultFirebaseOptions {
       appId: '1:72218545233:android:e63117201f30e407ebfc70',
       messagingSenderId: '72218545233',
       projectId: 'rufit-cadbd',
-      storageBucket: 'rufit-cadbd.appspot.com'
+      storageBucket: 'rufit-cadbd.appspot.com',
+      authDomain: 'rufit-cadbd.firebaseapp.com',
+      databaseURL: 'https://rufit-cadbd-default-rtdb.firebaseio.com/'
   );
 
 
