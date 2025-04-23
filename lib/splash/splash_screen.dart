@@ -35,7 +35,7 @@ class SplashScreen extends StatelessWidget{
                     final bool? isUserSignedIn = autoRememberer.getBool(AppConstants.kUserSignInSuccess);
                     _logger.log(_TAG, "Is user being signed in? $isUserSignedIn");
                     _logger.log(_TAG, "Is intro seeing? $isIntroSeen");
-                    if(isUserSignedIn != null && isUserSignedIn == true){
+                    /*if(isUserSignedIn != null && isUserSignedIn == true){
                       if(isIntroSeen != null && isIntroSeen == true){
                         context.router.replace(const HomeRoute());
                       }
@@ -45,8 +45,8 @@ class SplashScreen extends StatelessWidget{
                     }
                     else{
                       context.router.replace(const OnBoardingRoute());
-                    }
-                    //context.router.replace(const PlaygroundRoute());
+                    }*/
+                    context.router.replace(const PlaygroundRoute());
                   }
               );
             },

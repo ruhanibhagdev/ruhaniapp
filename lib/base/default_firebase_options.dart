@@ -14,7 +14,8 @@ class DefaultFirebaseOptions {
       projectId: 'rufit-cadbd',
       storageBucket: 'rufit-cadbd.appspot.com',
       authDomain: 'rufit-cadbd.firebaseapp.com',
-      databaseURL: 'https://rufit-cadbd-default-rtdb.firebaseio.com/'
+      databaseURL: 'https://rufit-cadbd-default-rtdb.firebaseio.com',
+      measurementId: ''
   );
 
 
