@@ -20,6 +20,8 @@ class PlaygroundScreen extends StatelessWidget{
               kabutarUser.toJson();
               print(kabutarUser.toJson());
               FirebaseRealtimeDb realtimeDb = FirebaseRealtimeDb();
+              User? currentUser = await FirebaseUtils().initializeFirebase();
+              realtimeDb.createAUser(currentUser!);
             },
             child: Text("Log in to App")
         ),

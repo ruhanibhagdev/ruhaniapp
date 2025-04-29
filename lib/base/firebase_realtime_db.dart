@@ -27,4 +27,8 @@ class FirebaseRealtimeDb{
 
   }
 
+  Future<void> saveALap() async{
+
+  }
+
 }
