@@ -7,4 +7,5 @@ class AppConstants{
   static const String kUserName = "UserName";
   static const String kUserEmail = "UserEmail";
   static const String kUserSignInSuccess = "UserSignInSuccess";
+  static const String kRootNode = "allUsers";
 }

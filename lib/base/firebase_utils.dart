@@ -1,12 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:ruhaniapp/base/firebase_realtime_db.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 
 class FirebaseUtils {
 
   final _logger = LoggerUtils();
   final _TAG = "Firebase Utils";
+  final _firebaseRealtimeDb = FirebaseRealtimeDb();
 
   Future<User?> initializeFirebase() async {
 
@@ -40,6 +42,8 @@ class FirebaseUtils {
         );
         final userCredentials = await auth.signInWithCredential(credential);
         _logger.log(_TAG, "✨ User details found! ✨ ${userCredentials.user}");
+
+        await _firebaseRealtimeDb.createAUser(userCredentials.user!);
 
         return Future.value(userCredentials.user);
       }
