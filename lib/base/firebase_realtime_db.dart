@@ -7,6 +7,7 @@ import 'package:ruhaniapp/base/app_constants.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/lap_info/lap_info_entity.dart';
 import 'package:ruhaniapp/onboarding/user_registration_details.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../lap_info/lap_info_list_model.dart';
 import '../lap_info/lap_info_model.dart';
@@ -35,7 +36,10 @@ class FirebaseRealtimeDb{
 
   }
 
-  Future<void> saveALap(LapInfoModel currentLap, String userID) async{
+  Future<void> saveALap(LapInfoModel currentLap) async{
+
+    SharedPreferences autoRemember = await SharedPreferences.getInstance();
+    String? userID = await autoRemember.getString(AppConstants.kUserUniqueID);
 
     final databaseReference = FirebaseDatabase.instance.ref();
     final checkIfUserPresent = await databaseReference.child('${AppConstants.kRootNode}/$userID').get();

@@ -34,7 +34,7 @@ class PlaygroundScreen extends StatelessWidget{
                           seconds: 16,
                           lapDateTime: DateTime.now().toString()
                       );
-                      realtimeDb.saveALap(currentLap, userID);
+                      realtimeDb.saveALap(currentLap);
                     }
                   },
                   child: Text("Save")

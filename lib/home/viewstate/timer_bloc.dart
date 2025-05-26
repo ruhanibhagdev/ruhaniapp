@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/base/database.dart';
 import 'package:ruhaniapp/base/duration_calculator.dart';
 import 'package:ruhaniapp/base/duration_model.dart';
+import 'package:ruhaniapp/base/firebase_realtime_db.dart';
 import 'package:ruhaniapp/injector/injection.dart';
+import 'package:ruhaniapp/lap_info/lap_info_model.dart';
 import '../../base/logger_utils.dart';
 import '../../base/tick_tock.dart';
 import '../states/timer_screen_event.dart';
@@ -34,6 +36,7 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   int currentTimeInSeconds = 0;
   int endTimeInSeconds = -1;
   bool isAudioPlayed = false;
+  final _firebaseRealtimeDb = FirebaseRealtimeDb();
 
   final _logger = locator<LoggerUtils>();
   final _TAG = "TimerBloc";
@@ -99,6 +102,14 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
         seconds: int.parse(currentDurationModel.secondsStr),
     );
     await database.into(database.lapInformationEntity).insert(lapInfoEntity);
+    LapInfoModel currentLapInfo = LapInfoModel(
+        lapNumber: 1,
+        hours: lapInfoEntity.hours.value,
+        minutes: lapInfoEntity.minutes.value,
+        seconds: lapInfoEntity.seconds.value,
+        lapDateTime: DateTime.now().toString()
+    );
+    await _firebaseRealtimeDb.saveALap(currentLapInfo);
   }
 
   void setTime(Duration durationOfTimer){
