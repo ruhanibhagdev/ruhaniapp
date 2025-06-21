@@ -19,6 +19,8 @@ class AppDb extends _$AppDb {
 
   @override
   int get schemaVersion => 1;
+
+
 }
 
 LazyDatabase _openConnection() {
@@ -29,3 +31,4 @@ LazyDatabase _openConnection() {
     return NativeDatabase.createInBackground(file);
   });
 }
+

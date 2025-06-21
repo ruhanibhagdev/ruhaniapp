@@ -13,6 +13,7 @@ import '../base/app_constants.dart';
 class PlaygroundScreen extends StatelessWidget{
 
   final _firebaseUtils = FirebaseUtils();
+  final _firebaseRealtimeDb = FirebaseRealtimeDb();
 
   @override
   Widget build(BuildContext context) {

@@ -3,6 +3,7 @@ import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:ruhaniapp/base/app_constants.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/lap_info/lap_info_entity.dart';
@@ -50,7 +51,7 @@ class FirebaseRealtimeDb{
       String brokohliflower = jsonEncode(checkIfUserPresent.value);
       _loggerUtils.log(_TAG, "Value = $brokohliflower");
 
-      final checkIfLapPresent = await databaseReference.child('${AppConstants.kRootNode}/$userID/LapInfo/').get();
+      final checkIfLapPresent = await databaseReference.child('${AppConstants.kRootNode}/$userID/${AppConstants.kLapInfoNode}/').get();
 
       if(checkIfLapPresent.exists){
 
@@ -73,9 +74,45 @@ class FirebaseRealtimeDb{
       LapInfoListModel allLapsInfo = LapInfoListModel(lapList: lapInfo);
       var allLapsJson = allLapsInfo.toJson();
       var currentLapDetails = currentLap.toJson();
-      var userIDReference = FirebaseDatabase.instance.ref('${AppConstants.kRootNode}/$userID/LapInfo/');
+      var userIDReference = FirebaseDatabase.instance.ref('${AppConstants.kRootNode}/$userID/${AppConstants.kLapInfoNode}/');
       await userIDReference.set(allLapsJson);
 
+    }
+
+  }
+
+  Future<void> practiceSaveALapThatWillBeDeletedLaterOn(LapInfoModel currentLap) async{
+
+    DatabaseReference ref = FirebaseDatabase.instance.ref();
+
+    final SharedPreferences autoRememberer = await SharedPreferences.getInstance();
+    final String? userUniqueID = autoRememberer.getString(AppConstants.kUserUniqueID);
+
+    final snapshot = await ref.child('${AppConstants.kRootNode}/${userUniqueID}').get();
+    if (snapshot.exists) {
+      _loggerUtils.log(_TAG, "Current user data: ${snapshot.value}");
+
+      final isChildThere = await ref.child('${AppConstants.kRootNode}/${userUniqueID}/${AppConstants.kLapInfoNode}').get();
+
+      if(isChildThere.exists){
+        _loggerUtils.log(_TAG, "Update the Lap Info");
+        String existingLaps = jsonEncode(isChildThere.value);
+        _loggerUtils.log(_TAG, "Existing Laps = $existingLaps");
+        LapInfoListModel allLaps = LapInfoListModel.fromJson(json.decode(existingLaps));
+        List<LapInfoModel> allLapsList = allLaps.lapList.toList();
+        allLapsList.add(currentLap);
+        LapInfoListModel newLapInfo = LapInfoListModel(lapList: allLapsList);
+        await ref.child('${AppConstants.kRootNode}/${userUniqueID}/${AppConstants.kLapInfoNode}').set(newLapInfo.toJson());
+      }
+      else{
+        _loggerUtils.log(_TAG, "Create the Lap Info!!!");
+        await ref.child('${AppConstants.kRootNode}/${userUniqueID}/${AppConstants.kLapInfoNode}').set(currentLap.toJson());
+      }
+
+    }
+
+    else {
+      print('No data available.');
     }
 
   }
