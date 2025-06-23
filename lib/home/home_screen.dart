@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (BuildContext context) => TimerBloc(ticker: TickTock()),
+        create: (BuildContext context) => TimerBloc(ticker: const TickTock()),
       child: BlocConsumer<TimerBloc, TimerScreenState>(
         listener: (BuildContext context, TimerScreenState state){
           state.maybeWhen(
