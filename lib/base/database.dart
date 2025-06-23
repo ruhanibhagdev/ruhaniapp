@@ -4,6 +4,7 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
+import 'package:ruhaniapp/base/logger_utils.dart';
 
 import '../lap_info/lap_info_entity.dart';
 
@@ -15,20 +16,48 @@ part 'database.g.dart';
     ]
 )
 class AppDb extends _$AppDb {
-  AppDb() : super(_openConnection());
+  static final AppDb _instance = AppDb._internal();
+  final _logger = LoggerUtils();
+  final _TAG = "AppDb";
+
+  factory AppDb() {
+    return _instance;
+  }
+
+  AppDb._internal() : super(_openConnection());
 
   @override
   int get schemaVersion => 1;
 
-
+  Future<void> closeConnection() async {
+    _logger.log(_TAG, "Is the database connection open $_isConnectionOpen");
+    await close();
+  }
 }
+
+bool _isConnectionOpen = false;
+late LazyDatabase _database;
 
 LazyDatabase _openConnection() {
-  return LazyDatabase(() async {
-    final dbFolder = await getApplicationDocumentsDirectory();
-    final file = File(p.join(dbFolder.path, 'db.sqlite'));
+  final _logger = LoggerUtils();
+  final _TAG = "AppDb";
+  _logger.log(_TAG, "Is the database connection open in open connection $_isConnectionOpen");
+  if( _isConnectionOpen){
+    return _database;
+  }
+  else{
+    _database = LazyDatabase(() async {
+      final dbFolder = await getApplicationDocumentsDirectory();
+      final file = File(p.join(dbFolder.path, 'db.sqlite'));
 
-    return NativeDatabase.createInBackground(file);
-  });
+      return NativeDatabase.createInBackground(file);
+    });
+    _isConnectionOpen = true;
+    return _database ;
+  }
 }
+
+
+
+
 

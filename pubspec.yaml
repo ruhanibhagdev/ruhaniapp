@@ -45,7 +45,7 @@ dependencies:
   lottie: ^2.1.0
 
   #Convert speech
-  speech_to_text: ^6.1.1
+  speech_to_text: ^7.0.0
 
   #Dependency injection in app
   injectable: ^2.1.0
@@ -66,7 +66,7 @@ dependencies:
   intl: ^0.18.0
 
   #Permission asking in app
-  permission_handler: ^10.2.0
+  permission_handler: ^12.0.0+1
 
   #creating states in app
   equatable: ^2.0.5

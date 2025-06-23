@@ -1,0 +1,2 @@
+/Users/soumen/Documents/ruhaniapp/android/app/.cxx/Debug/403c4946/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/soumen/Documents/ruhaniapp/android/app/.cxx/Debug/403c4946/arm64-v8a/CMakeFiles/rebuild_cache.dir
