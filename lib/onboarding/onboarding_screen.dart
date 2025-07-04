@@ -9,6 +9,7 @@ import 'package:ruhaniapp/base/firebase_utils.dart';
 import 'package:ruhaniapp/commonwidgets/filled_button_widget.dart';
 import 'package:ruhaniapp/router/app_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 @RoutePage()
 class OnBoardingScreen extends StatelessWidget{
@@ -74,6 +75,7 @@ class OnBoardingScreen extends StatelessWidget{
                     });
                 },
               ),
+
             ],
           ),
         ),

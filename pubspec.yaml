@@ -94,13 +94,16 @@ dependencies:
   google_sign_in: ^6.2.2
 
   #save authentication details on firebase🔥
-  firebase_auth: ^5.5.0
+  firebase_auth: ^5.6.2
 
   #saving lap details online instead of offline :)
   firebase_database: ^11.3.5
 
   #generate json code!!
   json_serializable: ^6.9.0
+
+  #Apple sign in
+  sign_in_with_apple: ^7.0.1
 
 dev_dependencies:
   flutter_test:
