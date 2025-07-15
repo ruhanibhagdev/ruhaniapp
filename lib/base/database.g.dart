@@ -35,8 +35,13 @@ class $LapInformationEntityTable extends LapInformationEntity
   late final GeneratedColumn<int> seconds = GeneratedColumn<int>(
       'seconds', aliasedName, false,
       type: DriftSqlType.int, requiredDuringInsert: true);
+  static const VerificationMeta _dateMeta = const VerificationMeta('date');
   @override
-  List<GeneratedColumn> get $columns => [id, hours, minutes, seconds];
+  late final GeneratedColumn<String> date = GeneratedColumn<String>(
+      'date', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [id, hours, minutes, seconds, date];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -69,6 +74,12 @@ class $LapInformationEntityTable extends LapInformationEntity
     } else if (isInserting) {
       context.missing(_secondsMeta);
     }
+    if (data.containsKey('date')) {
+      context.handle(
+          _dateMeta, date.isAcceptableOrUnknown(data['date']!, _dateMeta));
+    } else if (isInserting) {
+      context.missing(_dateMeta);
+    }
     return context;
   }
 
@@ -87,6 +98,8 @@ class $LapInformationEntityTable extends LapInformationEntity
           .read(DriftSqlType.int, data['${effectivePrefix}minutes'])!,
       seconds: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}seconds'])!,
+      date: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}date'])!,
     );
   }
 
@@ -102,11 +115,13 @@ class LapInformationEntityData extends DataClass
   final int hours;
   final int minutes;
   final int seconds;
+  final String date;
   const LapInformationEntityData(
       {required this.id,
       required this.hours,
       required this.minutes,
-      required this.seconds});
+      required this.seconds,
+      required this.date});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -114,6 +129,7 @@ class LapInformationEntityData extends DataClass
     map['hours'] = Variable<int>(hours);
     map['minutes'] = Variable<int>(minutes);
     map['seconds'] = Variable<int>(seconds);
+    map['date'] = Variable<String>(date);
     return map;
   }
 
@@ -123,6 +139,7 @@ class LapInformationEntityData extends DataClass
       hours: Value(hours),
       minutes: Value(minutes),
       seconds: Value(seconds),
+      date: Value(date),
     );
   }
 
@@ -134,6 +151,7 @@ class LapInformationEntityData extends DataClass
       hours: serializer.fromJson<int>(json['hours']),
       minutes: serializer.fromJson<int>(json['minutes']),
       seconds: serializer.fromJson<int>(json['seconds']),
+      date: serializer.fromJson<String>(json['date']),
     );
   }
   @override
@@ -144,16 +162,18 @@ class LapInformationEntityData extends DataClass
       'hours': serializer.toJson<int>(hours),
       'minutes': serializer.toJson<int>(minutes),
       'seconds': serializer.toJson<int>(seconds),
+      'date': serializer.toJson<String>(date),
     };
   }
 
   LapInformationEntityData copyWith(
-          {int? id, int? hours, int? minutes, int? seconds}) =>
+          {int? id, int? hours, int? minutes, int? seconds, String? date}) =>
       LapInformationEntityData(
         id: id ?? this.id,
         hours: hours ?? this.hours,
         minutes: minutes ?? this.minutes,
         seconds: seconds ?? this.seconds,
+        date: date ?? this.date,
       );
   LapInformationEntityData copyWithCompanion(
       LapInformationEntityCompanion data) {
@@ -162,6 +182,7 @@ class LapInformationEntityData extends DataClass
       hours: data.hours.present ? data.hours.value : this.hours,
       minutes: data.minutes.present ? data.minutes.value : this.minutes,
       seconds: data.seconds.present ? data.seconds.value : this.seconds,
+      date: data.date.present ? data.date.value : this.date,
     );
   }
 
@@ -171,13 +192,14 @@ class LapInformationEntityData extends DataClass
           ..write('id: $id, ')
           ..write('hours: $hours, ')
           ..write('minutes: $minutes, ')
-          ..write('seconds: $seconds')
+          ..write('seconds: $seconds, ')
+          ..write('date: $date')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, hours, minutes, seconds);
+  int get hashCode => Object.hash(id, hours, minutes, seconds, date);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -185,7 +207,8 @@ class LapInformationEntityData extends DataClass
           other.id == this.id &&
           other.hours == this.hours &&
           other.minutes == this.minutes &&
-          other.seconds == this.seconds);
+          other.seconds == this.seconds &&
+          other.date == this.date);
 }
 
 class LapInformationEntityCompanion
@@ -194,31 +217,37 @@ class LapInformationEntityCompanion
   final Value<int> hours;
   final Value<int> minutes;
   final Value<int> seconds;
+  final Value<String> date;
   const LapInformationEntityCompanion({
     this.id = const Value.absent(),
     this.hours = const Value.absent(),
     this.minutes = const Value.absent(),
     this.seconds = const Value.absent(),
+    this.date = const Value.absent(),
   });
   LapInformationEntityCompanion.insert({
     this.id = const Value.absent(),
     required int hours,
     required int minutes,
     required int seconds,
+    required String date,
   })  : hours = Value(hours),
         minutes = Value(minutes),
-        seconds = Value(seconds);
+        seconds = Value(seconds),
+        date = Value(date);
   static Insertable<LapInformationEntityData> custom({
     Expression<int>? id,
     Expression<int>? hours,
     Expression<int>? minutes,
     Expression<int>? seconds,
+    Expression<String>? date,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (hours != null) 'hours': hours,
       if (minutes != null) 'minutes': minutes,
       if (seconds != null) 'seconds': seconds,
+      if (date != null) 'date': date,
     });
   }
 
@@ -226,12 +255,14 @@ class LapInformationEntityCompanion
       {Value<int>? id,
       Value<int>? hours,
       Value<int>? minutes,
-      Value<int>? seconds}) {
+      Value<int>? seconds,
+      Value<String>? date}) {
     return LapInformationEntityCompanion(
       id: id ?? this.id,
       hours: hours ?? this.hours,
       minutes: minutes ?? this.minutes,
       seconds: seconds ?? this.seconds,
+      date: date ?? this.date,
     );
   }
 
@@ -250,6 +281,9 @@ class LapInformationEntityCompanion
     if (seconds.present) {
       map['seconds'] = Variable<int>(seconds.value);
     }
+    if (date.present) {
+      map['date'] = Variable<String>(date.value);
+    }
     return map;
   }
 
@@ -259,7 +293,8 @@ class LapInformationEntityCompanion
           ..write('id: $id, ')
           ..write('hours: $hours, ')
           ..write('minutes: $minutes, ')
-          ..write('seconds: $seconds')
+          ..write('seconds: $seconds, ')
+          ..write('date: $date')
           ..write(')'))
         .toString();
   }
@@ -283,6 +318,7 @@ typedef $$LapInformationEntityTableCreateCompanionBuilder
   required int hours,
   required int minutes,
   required int seconds,
+  required String date,
 });
 typedef $$LapInformationEntityTableUpdateCompanionBuilder
     = LapInformationEntityCompanion Function({
@@ -290,6 +326,7 @@ typedef $$LapInformationEntityTableUpdateCompanionBuilder
   Value<int> hours,
   Value<int> minutes,
   Value<int> seconds,
+  Value<String> date,
 });
 
 class $$LapInformationEntityTableFilterComposer
@@ -312,6 +349,9 @@ class $$LapInformationEntityTableFilterComposer
 
   ColumnFilters<int> get seconds => $composableBuilder(
       column: $table.seconds, builder: (column) => ColumnFilters(column));
+
+  ColumnFilters<String> get date => $composableBuilder(
+      column: $table.date, builder: (column) => ColumnFilters(column));
 }
 
 class $$LapInformationEntityTableOrderingComposer
@@ -334,6 +374,9 @@ class $$LapInformationEntityTableOrderingComposer
 
   ColumnOrderings<int> get seconds => $composableBuilder(
       column: $table.seconds, builder: (column) => ColumnOrderings(column));
+
+  ColumnOrderings<String> get date => $composableBuilder(
+      column: $table.date, builder: (column) => ColumnOrderings(column));
 }
 
 class $$LapInformationEntityTableAnnotationComposer
@@ -356,6 +399,9 @@ class $$LapInformationEntityTableAnnotationComposer
 
   GeneratedColumn<int> get seconds =>
       $composableBuilder(column: $table.seconds, builder: (column) => column);
+
+  GeneratedColumn<String> get date =>
+      $composableBuilder(column: $table.date, builder: (column) => column);
 }
 
 class $$LapInformationEntityTableTableManager extends RootTableManager<
@@ -392,24 +438,28 @@ class $$LapInformationEntityTableTableManager extends RootTableManager<
             Value<int> hours = const Value.absent(),
             Value<int> minutes = const Value.absent(),
             Value<int> seconds = const Value.absent(),
+            Value<String> date = const Value.absent(),
           }) =>
               LapInformationEntityCompanion(
             id: id,
             hours: hours,
             minutes: minutes,
             seconds: seconds,
+            date: date,
           ),
           createCompanionCallback: ({
             Value<int> id = const Value.absent(),
             required int hours,
             required int minutes,
             required int seconds,
+            required String date,
           }) =>
               LapInformationEntityCompanion.insert(
             id: id,
             hours: hours,
             minutes: minutes,
             seconds: seconds,
+            date: date,
           ),
           withReferenceMapper: (p0) => p0
               .map((e) => (e.readTable(table), BaseReferences(db, table, e)))

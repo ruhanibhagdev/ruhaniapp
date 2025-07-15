@@ -108,8 +108,13 @@ class LapInfoScreen extends StatelessWidget{
   }
 
   Stream<List<LapInformationEntityData>> watchLapStream(){
-    Stream<List<LapInformationEntityData>> abc = database.select(database.lapInformationEntity).watch();
-    return abc;
+    final query = database.select(database.lapInformationEntity)
+      ..orderBy([
+            (t) => drift.OrderingTerm(expression: t.date, mode: drift.OrderingMode.asc)
+      ]);
+    return query.watch();
+
+
   }
 
   Future feelingLazy() {

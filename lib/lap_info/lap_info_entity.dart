@@ -5,4 +5,5 @@ class LapInformationEntity extends Table{
   IntColumn get hours => integer()();
   IntColumn get minutes => integer()();
   IntColumn get seconds => integer()();
+  TextColumn get date => text()();
 }
