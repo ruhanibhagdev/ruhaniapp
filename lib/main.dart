@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,19 +16,25 @@ void main() async{
 }
 
 Future<void> init() async{
-
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    name: "dev project",
-    options: DefaultFirebaseOptions.getFirebaseOptions()
-  );
   configureDependencies();
+  WidgetsFlutterBinding.ensureInitialized();
+  if(Platform.isIOS){
+    await Firebase.initializeApp();
+  }
+  else{
+    await Firebase.initializeApp(
+        name: "dev project",
+        options: DefaultFirebaseOptions.getFirebaseOptions()
+    );
+  }
+
+
 
 }
 
 @injectable
 class MyApp extends StatelessWidget{
-  final _appRouter = locator<AppRouter>();
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
