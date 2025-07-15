@@ -96,10 +96,13 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   }
   Future<void> _addLap(AddLapEvent event, Emitter<TimerScreenState> emit) async{
     _logger.log(_TAG, "Timer Buloco $currentDurationModel");
+    final now = DateTime.now();
+    final formattedDate = "${now.day}/${now.month}/${now.year}";
     var lapInfoEntity = LapInformationEntityCompanion.insert(
         hours: int.parse(currentDurationModel.hoursStr),
         minutes: int.parse(currentDurationModel.minutesStr),
         seconds: int.parse(currentDurationModel.secondsStr),
+        date: formattedDate
     );
     await database.into(database.lapInformationEntity).insert(lapInfoEntity);
     LapInfoModel currentLapInfo = LapInfoModel(

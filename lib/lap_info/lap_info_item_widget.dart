@@ -33,8 +33,9 @@ class LapInfoItemWidget extends StatelessWidget{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("  Lap Number: ${index + 1}"),
-              Text("  Time: ${currentLapInfo.hours.toString().padLeft(2,"0")}:${currentLapInfo.minutes.toString().padLeft(2,"0")}:${currentLapInfo.seconds.toString().padLeft(2,"0")}")
-            ],
+              Text("  Time: ${currentLapInfo.hours.toString().padLeft(2,"0")}:${currentLapInfo.minutes.toString().padLeft(2,"0")}:${currentLapInfo.seconds.toString().padLeft(2,"0")}"),
+              Text("  Date: ${currentLapInfo.date}")
+            ]
           )
         ],
       ),
