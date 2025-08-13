@@ -37,6 +37,25 @@ class FirebaseRealtimeDb{
 
   }
 
+  Future<void> createAppleUser(String userID, String? userName, String? userEmail) async{
+
+    try{
+      UserRegistrationDetails details = UserRegistrationDetails(
+          userID: userID,
+          name: userName??"⚠️ Name Not Found ⚠️",
+          emailID: userEmail??"⚠️ Email Not Found ⚠️"
+      );
+
+      _loggerUtils.log(_TAG, "✨Saving User Details✨ $details");
+      DatabaseReference addUserRef = FirebaseDatabase.instance.ref("${AppConstants.kRootNode}/${userID}");
+      await addUserRef.set(details.toJson());
+    }
+    catch(exception){
+      _loggerUtils.log(_TAG, "An Error Has Occured . . . :( $exception");
+    }
+
+  }
+
   Future<void> saveALap(LapInfoModel currentLap) async{
 
     SharedPreferences autoRemember = await SharedPreferences.getInstance();

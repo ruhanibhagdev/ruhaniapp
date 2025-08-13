@@ -36,7 +36,7 @@ class FirebaseUtils {
   Future<User?> startGoogleSignIn() async{
     _logger.log(_TAG, "starting with signing in");
     User? currentUser;
-    try{
+    /*try{
       final GoogleSignIn googleSignIn = GoogleSignIn();
       final GoogleSignInAccount? allAccountsInDevice = await googleSignIn.signIn();
       if(allAccountsInDevice != null){
@@ -44,7 +44,7 @@ class FirebaseUtils {
 
         final GoogleSignInAuthentication signInAuthentication = await allAccountsInDevice.authentication;
         AuthCredential credential = GoogleAuthProvider.credential(
-            accessToken: signInAuthentication.accessToken,
+            accessToken: signInAuthentication.idToken,
             idToken: signInAuthentication.idToken
         );
         final userCredentials = await auth.signInWithCredential(credential);
@@ -61,7 +61,7 @@ class FirebaseUtils {
     }
     catch(exception){
       _logger.log(_TAG, "Oops! Looks like something went wrong... $exception");
-    }
+    }*/
 
   }
 
@@ -85,6 +85,7 @@ class FirebaseUtils {
       );
 
       await FirebaseAuth.instance.signInWithCredential(oauthCredential);
+      await _firebaseRealtimeDb.createAppleUser(credential.authorizationCode, credential.givenName, credential.email);
       
     }
     catch(exception){
