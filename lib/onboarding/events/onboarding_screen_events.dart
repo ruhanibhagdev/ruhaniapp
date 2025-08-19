@@ -6,5 +6,6 @@ part 'onboarding_screen_events.freezed.dart';
 @freezed
 class OnboardingScreenEvents with _$OnboardingScreenEvents{
   const factory OnboardingScreenEvents.InitializeOnboardingEvent() = InitializeOnboardingEvent;
-  const factory OnboardingScreenEvents.StartOnboardingEvent() = StartOnboardingEvent;
+  const factory OnboardingScreenEvents.StartGoogleSignInEvent() = StartGoogleSignInEvent;
+  const factory OnboardingScreenEvents.StartAppleSignInEvent() = StartAppleSignInEvent;
  }

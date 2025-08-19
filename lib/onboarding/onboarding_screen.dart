@@ -70,26 +70,11 @@ class OnBoardingScreen extends StatelessWidget {
                           .then((User? currentUser) async {
                         if (currentUser == null) {
 
-                          await firebaseUtils.startGoogleSignIn().then((User? userAfterSignIn) async {
-                            if(userAfterSignIn != null){
-
-                              ///Fetch only the google data
-                              var googleUser = userAfterSignIn.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
-                              SharedPreferences autoRemember = await SharedPreferences.getInstance();
-                              await autoRemember.setString(AppConstants.kUserUniqueID, userAfterSignIn.uid);
-                              await autoRemember.setString(AppConstants.kUserName, googleUser.displayName!);
-                              await autoRemember.setString(AppConstants.kUserEmail, googleUser.email!);
-                              await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
-                              await _firebaseRealtimeDb.createAUser(userAfterSignIn);
-                              _logger.log(_TAG, "Storing user details $userAfterSignIn");
-                              await context.router.replace(const IntroRoute());
-                            }
-
-                          });
+                          await firebaseUtils.startGoogleSignIn();
                         } else {
                           _logger.log(_TAG, "Current user details $currentUser");
                           ///Fetch only the google data
-                          var googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
+                          /*var googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
                           SharedPreferences autoRemember = await SharedPreferences.getInstance();
                           await autoRemember.setString(AppConstants.kUserUniqueID, currentUser.uid);
                           await autoRemember.setString(AppConstants.kUserName, googleUser.displayName!);
@@ -97,7 +82,7 @@ class OnBoardingScreen extends StatelessWidget {
                           await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
                           await _firebaseRealtimeDb.createAUser(currentUser);
                           _logger.log(_TAG, "Storing user details $currentUser");
-                          await context.router.replace(const IntroRoute());
+                          await context.router.replace(const IntroRoute());*/
                         }
                       });
                     },

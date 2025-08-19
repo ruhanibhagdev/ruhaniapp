@@ -28,8 +28,8 @@ _i174.GetIt $initGetIt(
     environmentFilter,
   );
   final registerModule = _$RegisterModule();
-  gh.factory<_i985.LoggerUtils>(() => _i985.LoggerUtils());
   gh.factory<_i214.MyApp>(() => _i214.MyApp());
+  gh.factory<_i985.LoggerUtils>(() => _i985.LoggerUtils());
   gh.singleton<_i81.AppRouter>(() => registerModule.appRouter);
   return getIt;
 }

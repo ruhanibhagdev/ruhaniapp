@@ -4,6 +4,7 @@ import 'dart:ffi';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ruhaniapp/base/app_constants.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/lap_info/lap_info_entity.dart';
@@ -18,17 +19,17 @@ class FirebaseRealtimeDb{
   final _loggerUtils = LoggerUtils();
   final _TAG = "FirebaseRealtimeDb";
 
-  Future<void> createAUser(User currentUser) async{
+  Future<void> createAUser(GoogleSignInAccount currentUser) async{
 
     try{
       UserRegistrationDetails details = UserRegistrationDetails(
-          userID: currentUser.uid,
+          userID: currentUser.id,
           name: currentUser.displayName??"⚠️ Name Not Found ⚠️",
           emailID: currentUser.email??"⚠️ Email Not Found ⚠️"
       );
 
       _loggerUtils.log(_TAG, "✨Saving User Details✨ $details");
-      DatabaseReference addUserRef = FirebaseDatabase.instance.ref("${AppConstants.kRootNode}/${currentUser.uid}");
+      DatabaseReference addUserRef = FirebaseDatabase.instance.ref("${AppConstants.kRootNode}/${currentUser.id}");
       await addUserRef.set(details.toJson());
     }
     catch(exception){

@@ -19,19 +19,22 @@ mixin _$OnboardingScreenEvents {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() InitializeOnboardingEvent,
-    required TResult Function() StartOnboardingEvent,
+    required TResult Function() StartGoogleSignInEvent,
+    required TResult Function() StartAppleSignInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? InitializeOnboardingEvent,
-    TResult? Function()? StartOnboardingEvent,
+    TResult? Function()? StartGoogleSignInEvent,
+    TResult? Function()? StartAppleSignInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? InitializeOnboardingEvent,
-    TResult Function()? StartOnboardingEvent,
+    TResult Function()? StartGoogleSignInEvent,
+    TResult Function()? StartAppleSignInEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,21 +42,26 @@ mixin _$OnboardingScreenEvents {
   TResult map<TResult extends Object?>({
     required TResult Function(InitializeOnboardingEvent value)
         InitializeOnboardingEvent,
-    required TResult Function(StartOnboardingEvent value) StartOnboardingEvent,
+    required TResult Function(StartGoogleSignInEvent value)
+        StartGoogleSignInEvent,
+    required TResult Function(StartAppleSignInEvent value)
+        StartAppleSignInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitializeOnboardingEvent value)?
         InitializeOnboardingEvent,
-    TResult? Function(StartOnboardingEvent value)? StartOnboardingEvent,
+    TResult? Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult? Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitializeOnboardingEvent value)?
         InitializeOnboardingEvent,
-    TResult Function(StartOnboardingEvent value)? StartOnboardingEvent,
+    TResult Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +135,8 @@ class _$InitializeOnboardingEventImpl implements InitializeOnboardingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() InitializeOnboardingEvent,
-    required TResult Function() StartOnboardingEvent,
+    required TResult Function() StartGoogleSignInEvent,
+    required TResult Function() StartAppleSignInEvent,
   }) {
     return InitializeOnboardingEvent();
   }
@@ -136,7 +145,8 @@ class _$InitializeOnboardingEventImpl implements InitializeOnboardingEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? InitializeOnboardingEvent,
-    TResult? Function()? StartOnboardingEvent,
+    TResult? Function()? StartGoogleSignInEvent,
+    TResult? Function()? StartAppleSignInEvent,
   }) {
     return InitializeOnboardingEvent?.call();
   }
@@ -145,7 +155,8 @@ class _$InitializeOnboardingEventImpl implements InitializeOnboardingEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? InitializeOnboardingEvent,
-    TResult Function()? StartOnboardingEvent,
+    TResult Function()? StartGoogleSignInEvent,
+    TResult Function()? StartAppleSignInEvent,
     required TResult orElse(),
   }) {
     if (InitializeOnboardingEvent != null) {
@@ -159,7 +170,10 @@ class _$InitializeOnboardingEventImpl implements InitializeOnboardingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitializeOnboardingEvent value)
         InitializeOnboardingEvent,
-    required TResult Function(StartOnboardingEvent value) StartOnboardingEvent,
+    required TResult Function(StartGoogleSignInEvent value)
+        StartGoogleSignInEvent,
+    required TResult Function(StartAppleSignInEvent value)
+        StartAppleSignInEvent,
   }) {
     return InitializeOnboardingEvent(this);
   }
@@ -169,7 +183,8 @@ class _$InitializeOnboardingEventImpl implements InitializeOnboardingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitializeOnboardingEvent value)?
         InitializeOnboardingEvent,
-    TResult? Function(StartOnboardingEvent value)? StartOnboardingEvent,
+    TResult? Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult? Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
   }) {
     return InitializeOnboardingEvent?.call(this);
   }
@@ -179,7 +194,8 @@ class _$InitializeOnboardingEventImpl implements InitializeOnboardingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitializeOnboardingEvent value)?
         InitializeOnboardingEvent,
-    TResult Function(StartOnboardingEvent value)? StartOnboardingEvent,
+    TResult Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
     required TResult orElse(),
   }) {
     if (InitializeOnboardingEvent != null) {
@@ -194,19 +210,21 @@ abstract class InitializeOnboardingEvent implements OnboardingScreenEvents {
 }
 
 /// @nodoc
-abstract class _$$StartOnboardingEventImplCopyWith<$Res> {
-  factory _$$StartOnboardingEventImplCopyWith(_$StartOnboardingEventImpl value,
-          $Res Function(_$StartOnboardingEventImpl) then) =
-      __$$StartOnboardingEventImplCopyWithImpl<$Res>;
+abstract class _$$StartGoogleSignInEventImplCopyWith<$Res> {
+  factory _$$StartGoogleSignInEventImplCopyWith(
+          _$StartGoogleSignInEventImpl value,
+          $Res Function(_$StartGoogleSignInEventImpl) then) =
+      __$$StartGoogleSignInEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartOnboardingEventImplCopyWithImpl<$Res>
+class __$$StartGoogleSignInEventImplCopyWithImpl<$Res>
     extends _$OnboardingScreenEventsCopyWithImpl<$Res,
-        _$StartOnboardingEventImpl>
-    implements _$$StartOnboardingEventImplCopyWith<$Res> {
-  __$$StartOnboardingEventImplCopyWithImpl(_$StartOnboardingEventImpl _value,
-      $Res Function(_$StartOnboardingEventImpl) _then)
+        _$StartGoogleSignInEventImpl>
+    implements _$$StartGoogleSignInEventImplCopyWith<$Res> {
+  __$$StartGoogleSignInEventImplCopyWithImpl(
+      _$StartGoogleSignInEventImpl _value,
+      $Res Function(_$StartGoogleSignInEventImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of OnboardingScreenEvents
@@ -215,19 +233,19 @@ class __$$StartOnboardingEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartOnboardingEventImpl implements StartOnboardingEvent {
-  const _$StartOnboardingEventImpl();
+class _$StartGoogleSignInEventImpl implements StartGoogleSignInEvent {
+  const _$StartGoogleSignInEventImpl();
 
   @override
   String toString() {
-    return 'OnboardingScreenEvents.StartOnboardingEvent()';
+    return 'OnboardingScreenEvents.StartGoogleSignInEvent()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StartOnboardingEventImpl);
+            other is _$StartGoogleSignInEventImpl);
   }
 
   @override
@@ -237,29 +255,32 @@ class _$StartOnboardingEventImpl implements StartOnboardingEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() InitializeOnboardingEvent,
-    required TResult Function() StartOnboardingEvent,
+    required TResult Function() StartGoogleSignInEvent,
+    required TResult Function() StartAppleSignInEvent,
   }) {
-    return StartOnboardingEvent();
+    return StartGoogleSignInEvent();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? InitializeOnboardingEvent,
-    TResult? Function()? StartOnboardingEvent,
+    TResult? Function()? StartGoogleSignInEvent,
+    TResult? Function()? StartAppleSignInEvent,
   }) {
-    return StartOnboardingEvent?.call();
+    return StartGoogleSignInEvent?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? InitializeOnboardingEvent,
-    TResult Function()? StartOnboardingEvent,
+    TResult Function()? StartGoogleSignInEvent,
+    TResult Function()? StartAppleSignInEvent,
     required TResult orElse(),
   }) {
-    if (StartOnboardingEvent != null) {
-      return StartOnboardingEvent();
+    if (StartGoogleSignInEvent != null) {
+      return StartGoogleSignInEvent();
     }
     return orElse();
   }
@@ -269,9 +290,12 @@ class _$StartOnboardingEventImpl implements StartOnboardingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(InitializeOnboardingEvent value)
         InitializeOnboardingEvent,
-    required TResult Function(StartOnboardingEvent value) StartOnboardingEvent,
+    required TResult Function(StartGoogleSignInEvent value)
+        StartGoogleSignInEvent,
+    required TResult Function(StartAppleSignInEvent value)
+        StartAppleSignInEvent,
   }) {
-    return StartOnboardingEvent(this);
+    return StartGoogleSignInEvent(this);
   }
 
   @override
@@ -279,9 +303,10 @@ class _$StartOnboardingEventImpl implements StartOnboardingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InitializeOnboardingEvent value)?
         InitializeOnboardingEvent,
-    TResult? Function(StartOnboardingEvent value)? StartOnboardingEvent,
+    TResult? Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult? Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
   }) {
-    return StartOnboardingEvent?.call(this);
+    return StartGoogleSignInEvent?.call(this);
   }
 
   @override
@@ -289,16 +314,136 @@ class _$StartOnboardingEventImpl implements StartOnboardingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InitializeOnboardingEvent value)?
         InitializeOnboardingEvent,
-    TResult Function(StartOnboardingEvent value)? StartOnboardingEvent,
+    TResult Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
     required TResult orElse(),
   }) {
-    if (StartOnboardingEvent != null) {
-      return StartOnboardingEvent(this);
+    if (StartGoogleSignInEvent != null) {
+      return StartGoogleSignInEvent(this);
     }
     return orElse();
   }
 }
 
-abstract class StartOnboardingEvent implements OnboardingScreenEvents {
-  const factory StartOnboardingEvent() = _$StartOnboardingEventImpl;
+abstract class StartGoogleSignInEvent implements OnboardingScreenEvents {
+  const factory StartGoogleSignInEvent() = _$StartGoogleSignInEventImpl;
+}
+
+/// @nodoc
+abstract class _$$StartAppleSignInEventImplCopyWith<$Res> {
+  factory _$$StartAppleSignInEventImplCopyWith(
+          _$StartAppleSignInEventImpl value,
+          $Res Function(_$StartAppleSignInEventImpl) then) =
+      __$$StartAppleSignInEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StartAppleSignInEventImplCopyWithImpl<$Res>
+    extends _$OnboardingScreenEventsCopyWithImpl<$Res,
+        _$StartAppleSignInEventImpl>
+    implements _$$StartAppleSignInEventImplCopyWith<$Res> {
+  __$$StartAppleSignInEventImplCopyWithImpl(_$StartAppleSignInEventImpl _value,
+      $Res Function(_$StartAppleSignInEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OnboardingScreenEvents
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$StartAppleSignInEventImpl implements StartAppleSignInEvent {
+  const _$StartAppleSignInEventImpl();
+
+  @override
+  String toString() {
+    return 'OnboardingScreenEvents.StartAppleSignInEvent()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StartAppleSignInEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() InitializeOnboardingEvent,
+    required TResult Function() StartGoogleSignInEvent,
+    required TResult Function() StartAppleSignInEvent,
+  }) {
+    return StartAppleSignInEvent();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? InitializeOnboardingEvent,
+    TResult? Function()? StartGoogleSignInEvent,
+    TResult? Function()? StartAppleSignInEvent,
+  }) {
+    return StartAppleSignInEvent?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? InitializeOnboardingEvent,
+    TResult Function()? StartGoogleSignInEvent,
+    TResult Function()? StartAppleSignInEvent,
+    required TResult orElse(),
+  }) {
+    if (StartAppleSignInEvent != null) {
+      return StartAppleSignInEvent();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitializeOnboardingEvent value)
+        InitializeOnboardingEvent,
+    required TResult Function(StartGoogleSignInEvent value)
+        StartGoogleSignInEvent,
+    required TResult Function(StartAppleSignInEvent value)
+        StartAppleSignInEvent,
+  }) {
+    return StartAppleSignInEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InitializeOnboardingEvent value)?
+        InitializeOnboardingEvent,
+    TResult? Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult? Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
+  }) {
+    return StartAppleSignInEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitializeOnboardingEvent value)?
+        InitializeOnboardingEvent,
+    TResult Function(StartGoogleSignInEvent value)? StartGoogleSignInEvent,
+    TResult Function(StartAppleSignInEvent value)? StartAppleSignInEvent,
+    required TResult orElse(),
+  }) {
+    if (StartAppleSignInEvent != null) {
+      return StartAppleSignInEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StartAppleSignInEvent implements OnboardingScreenEvents {
+  const factory StartAppleSignInEvent() = _$StartAppleSignInEventImpl;
 }

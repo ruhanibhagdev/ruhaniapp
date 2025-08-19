@@ -3,13 +3,26 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ruhaniapp/base/firebase_realtime_db.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
+import 'app_constants.dart';
 
 class FirebaseUtils {
 
   final _logger = LoggerUtils();
   final _TAG = "Firebase Utils";
   final _firebaseRealtimeDb = FirebaseRealtimeDb();
+  String? clientId;
+  String? serverClientId;
+  GoogleSignInAccount? _currentUser;
+  bool _isAuthorized = false; // has granted permissions?
+  String _contactText = '';
+  String _errorMessage = '';
+  String _serverAuthCode = '';
+  List<String> scopes = <String>[
+    'https://www.googleapis.com/auth/contacts.readonly',
+  ];
 
   Future<User?> initializeFirebase() async {
     try {
@@ -33,36 +46,75 @@ class FirebaseUtils {
 
   }
 
-  Future<User?> startGoogleSignIn() async{
+  Future<void> startGoogleSignIn() async{
     _logger.log(_TAG, "starting with signing in");
     User? currentUser;
-    /*try{
-      final GoogleSignIn googleSignIn = GoogleSignIn();
-      final GoogleSignInAccount? allAccountsInDevice = await googleSignIn.signIn();
-      if(allAccountsInDevice != null){
-        FirebaseAuth auth = FirebaseAuth.instance;
 
-        final GoogleSignInAuthentication signInAuthentication = await allAccountsInDevice.authentication;
-        AuthCredential credential = GoogleAuthProvider.credential(
-            accessToken: signInAuthentication.idToken,
-            idToken: signInAuthentication.idToken
-        );
-        final userCredentials = await auth.signInWithCredential(credential);
-        _logger.log(_TAG, "✨ User details found! ✨ ${userCredentials.user}");
 
-        await _firebaseRealtimeDb.createAUser(userCredentials.user!);
+    final GoogleSignIn signIn = GoogleSignIn.instance;
+    signIn
+        .initialize(clientId: clientId, serverClientId: serverClientId)
+        .then((_) {
+      signIn.authenticationEvents
+          .listen(_handleAuthenticationEvent)
+          .onError(_handleAuthenticationError);
 
-        return Future.value(userCredentials.user);
-      }
-      else{
-        _logger.log(_TAG, "No Google Accounts Found");
-        return Future.error("No Google Accounts Found");
-      }
+      /// This example always uses the stream-based approach to determining
+      /// which UI state to show, rather than using the future returned here,
+      /// if any, to conditionally skip directly to the signed-in state.
+      signIn.attemptLightweightAuthentication();
+    });
+  }
+
+  Future<void> _handleAuthenticationEvent(GoogleSignInAuthenticationEvent event) async {
+    // #docregion CheckAuthorization
+    final GoogleSignInAccount? user = // ...
+    // #enddocregion CheckAuthorization
+    switch (event) {
+      GoogleSignInAuthenticationEventSignIn() => event.user,
+      GoogleSignInAuthenticationEventSignOut() => null,
+    };
+
+    // Check for existing authorization.
+    // #docregion CheckAuthorization
+    final GoogleSignInClientAuthorization? authorization =
+    await user?.authorizationClient.authorizationForScopes(scopes);
+    // #enddocregion CheckAuthorization
+
+    _currentUser = user;
+    _isAuthorized = authorization != null;
+    _errorMessage = '';
+
+    if(_currentUser != null){
+
+      ///Fetch only the google data
+      SharedPreferences autoRemember = await SharedPreferences.getInstance();
+      await autoRemember.setString(AppConstants.kUserUniqueID, _currentUser?.id ?? '');
+      await autoRemember.setString(AppConstants.kUserName, _currentUser?.displayName ?? '');
+      await autoRemember.setString(AppConstants.kUserEmail, _currentUser?.email ?? '');
+      await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
+      await _firebaseRealtimeDb.createAUser(_currentUser!);
+      _logger.log(_TAG, "Storing user details $_currentUser");
+
     }
-    catch(exception){
-      _logger.log(_TAG, "Oops! Looks like something went wrong... $exception");
-    }*/
+  }
 
+  Future<void> _handleAuthenticationError(Object e) async {
+    _currentUser = null;
+    _isAuthorized = false;
+    _errorMessage = e is GoogleSignInException
+        ? _errorMessageFromSignInException(e)
+        : 'Unknown error: $e';
+  }
+
+  String _errorMessageFromSignInException(GoogleSignInException e) {
+    // In practice, an application should likely have specific handling for most
+    // or all of the, but for simplicity this just handles cancel, and reports
+    // the rest as generic errors.
+    return switch (e.code) {
+      GoogleSignInExceptionCode.canceled => 'Sign in canceled',
+      _ => 'GoogleSignInException ${e.code}: ${e.description}',
+    };
   }
 
   Future<void> startAppleSignIn() async{

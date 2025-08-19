@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/base/color_constants.dart';
+import 'package:ruhaniapp/base/google_auth_service.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/introduction/intro_screen.dart';
 import 'package:ruhaniapp/router/app_router.dart';
@@ -35,7 +36,7 @@ class SplashScreen extends StatelessWidget{
                     final bool? isUserSignedIn = autoRememberer.getBool(AppConstants.kUserSignInSuccess);
                     _logger.log(_TAG, "Is user being signed in? $isUserSignedIn");
                     _logger.log(_TAG, "Is intro seeing? $isIntroSeen");
-                    /*if(isUserSignedIn != null && isUserSignedIn == true){
+                    if(isUserSignedIn != null && isUserSignedIn == true){
                       if(isIntroSeen != null && isIntroSeen == true){
                         context.router.replace(const HomeRoute());
                       }
@@ -45,8 +46,9 @@ class SplashScreen extends StatelessWidget{
                     }
                     else{
                       context.router.replace(const OnBoardingRoute());
-                    }*/
-                    context.router.replace(const PlaygroundRoute());
+                    }
+                    //context.router.replace(const PlaygroundRoute());
+                    //Navigator.push(context, MaterialPageRoute(builder: (context) => GoogleAuthService()));
                   }
               );
             },
