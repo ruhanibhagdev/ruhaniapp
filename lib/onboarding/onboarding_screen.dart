@@ -31,7 +31,7 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (BuildContext context) => OnBoardingBloc()..add(const OnboardingScreenEvents.InitializeOnboardingEvent()),
+      create: (BuildContext context) => OnBoardingBloc()..add(const OnboardingScreenEvents.InitializeOnboardingEvent()),
       child: BlocConsumer<OnBoardingBloc, OnboardingScreenStates>(
           builder: (BuildContext context, OnboardingScreenStates state){
             return state.when(
@@ -120,7 +120,8 @@ class OnBoardingScreen extends StatelessWidget {
               state.whenOrNull(
                 startNextScreen: (){
                   context.router.replace(const IntroRoute());
-                }
+                },
+
               );
           }
       ),

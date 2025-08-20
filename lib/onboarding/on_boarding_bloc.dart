@@ -26,7 +26,7 @@ class OnBoardingBloc extends Bloc<OnboardingScreenEvents, OnboardingScreenStates
     'https://www.googleapis.com/auth/contacts.readonly',
   ];
 
-  OnBoardingBloc() : super(const OnboardingScreenStates.displayOnboardingView()){
+  OnBoardingBloc() : super(const OnboardingScreenStates.loadingView()){
     on<InitializeOnboardingEvent>(_initialize);
     on<StartGoogleSignInEvent>(_startGoogleSignIn);
     on<StartAppleSignInEvent>(_startAppleSignIn);
