@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ruhaniapp/onboarding/states/onboarding_screen_states.dart';
 import '../base/firebase_utils.dart';
@@ -17,9 +18,34 @@ class OnBoardingBloc extends Bloc<OnboardingScreenEvents, OnboardingScreenStates
 
   Future<void> _initialize(InitializeOnboardingEvent event, Emitter<OnboardingScreenStates> emit) async{
 
+    emit(const OnboardingScreenStates.displayOnboardingView());
+
   }
 
   Future<void> _startGoogleSignIn(StartGoogleSignInEvent event, Emitter<OnboardingScreenStates> emit) async{
+
+    emit(const OnboardingScreenStates.loadingView());
+
+    await firebaseUtils
+        .initializeFirebase()
+        .then((User? currentUser) async {
+      if (currentUser == null) {
+
+        await firebaseUtils.startGoogleSignIn();
+      } else {
+        _logger.log(_TAG, "Current user details $currentUser");
+        ///Fetch only the google data
+        /*var googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
+                          SharedPreferences autoRemember = await SharedPreferences.getInstance();
+                          await autoRemember.setString(AppConstants.kUserUniqueID, currentUser.uid);
+                          await autoRemember.setString(AppConstants.kUserName, googleUser.displayName!);
+                          await autoRemember.setString(AppConstants.kUserEmail, googleUser.email!);
+                          await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
+                          await _firebaseRealtimeDb.createAUser(currentUser);
+                          _logger.log(_TAG, "Storing user details $currentUser");
+                          await context.router.replace(const IntroRoute());*/
+      }
+    });
 
   }
 
