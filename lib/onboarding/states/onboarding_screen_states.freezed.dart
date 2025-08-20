@@ -21,6 +21,7 @@ mixin _$OnboardingScreenStates {
     required TResult Function() displayOnboardingView,
     required TResult Function() loadingView,
     required TResult Function(String errorMessage) errorView,
+    required TResult Function() startNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$OnboardingScreenStates {
     TResult? Function()? displayOnboardingView,
     TResult? Function()? loadingView,
     TResult? Function(String errorMessage)? errorView,
+    TResult? Function()? startNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$OnboardingScreenStates {
     TResult Function()? displayOnboardingView,
     TResult Function()? loadingView,
     TResult Function(String errorMessage)? errorView,
+    TResult Function()? startNextScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$OnboardingScreenStates {
         displayOnboardingView,
     required TResult Function(_DisplayLoadingView value) loadingView,
     required TResult Function(_DisplayErrorView value) errorView,
+    required TResult Function(_StartNextScreen value) startNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$OnboardingScreenStates {
     TResult? Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult? Function(_DisplayLoadingView value)? loadingView,
     TResult? Function(_DisplayErrorView value)? errorView,
+    TResult? Function(_StartNextScreen value)? startNextScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$OnboardingScreenStates {
     TResult Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult Function(_DisplayLoadingView value)? loadingView,
     TResult Function(_DisplayErrorView value)? errorView,
+    TResult Function(_StartNextScreen value)? startNextScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,6 +138,7 @@ class _$DisplayOnboardingViewImpl implements _DisplayOnboardingView {
     required TResult Function() displayOnboardingView,
     required TResult Function() loadingView,
     required TResult Function(String errorMessage) errorView,
+    required TResult Function() startNextScreen,
   }) {
     return displayOnboardingView();
   }
@@ -142,6 +149,7 @@ class _$DisplayOnboardingViewImpl implements _DisplayOnboardingView {
     TResult? Function()? displayOnboardingView,
     TResult? Function()? loadingView,
     TResult? Function(String errorMessage)? errorView,
+    TResult? Function()? startNextScreen,
   }) {
     return displayOnboardingView?.call();
   }
@@ -152,6 +160,7 @@ class _$DisplayOnboardingViewImpl implements _DisplayOnboardingView {
     TResult Function()? displayOnboardingView,
     TResult Function()? loadingView,
     TResult Function(String errorMessage)? errorView,
+    TResult Function()? startNextScreen,
     required TResult orElse(),
   }) {
     if (displayOnboardingView != null) {
@@ -167,6 +176,7 @@ class _$DisplayOnboardingViewImpl implements _DisplayOnboardingView {
         displayOnboardingView,
     required TResult Function(_DisplayLoadingView value) loadingView,
     required TResult Function(_DisplayErrorView value) errorView,
+    required TResult Function(_StartNextScreen value) startNextScreen,
   }) {
     return displayOnboardingView(this);
   }
@@ -177,6 +187,7 @@ class _$DisplayOnboardingViewImpl implements _DisplayOnboardingView {
     TResult? Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult? Function(_DisplayLoadingView value)? loadingView,
     TResult? Function(_DisplayErrorView value)? errorView,
+    TResult? Function(_StartNextScreen value)? startNextScreen,
   }) {
     return displayOnboardingView?.call(this);
   }
@@ -187,6 +198,7 @@ class _$DisplayOnboardingViewImpl implements _DisplayOnboardingView {
     TResult Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult Function(_DisplayLoadingView value)? loadingView,
     TResult Function(_DisplayErrorView value)? errorView,
+    TResult Function(_StartNextScreen value)? startNextScreen,
     required TResult orElse(),
   }) {
     if (displayOnboardingView != null) {
@@ -244,6 +256,7 @@ class _$DisplayLoadingViewImpl implements _DisplayLoadingView {
     required TResult Function() displayOnboardingView,
     required TResult Function() loadingView,
     required TResult Function(String errorMessage) errorView,
+    required TResult Function() startNextScreen,
   }) {
     return loadingView();
   }
@@ -254,6 +267,7 @@ class _$DisplayLoadingViewImpl implements _DisplayLoadingView {
     TResult? Function()? displayOnboardingView,
     TResult? Function()? loadingView,
     TResult? Function(String errorMessage)? errorView,
+    TResult? Function()? startNextScreen,
   }) {
     return loadingView?.call();
   }
@@ -264,6 +278,7 @@ class _$DisplayLoadingViewImpl implements _DisplayLoadingView {
     TResult Function()? displayOnboardingView,
     TResult Function()? loadingView,
     TResult Function(String errorMessage)? errorView,
+    TResult Function()? startNextScreen,
     required TResult orElse(),
   }) {
     if (loadingView != null) {
@@ -279,6 +294,7 @@ class _$DisplayLoadingViewImpl implements _DisplayLoadingView {
         displayOnboardingView,
     required TResult Function(_DisplayLoadingView value) loadingView,
     required TResult Function(_DisplayErrorView value) errorView,
+    required TResult Function(_StartNextScreen value) startNextScreen,
   }) {
     return loadingView(this);
   }
@@ -289,6 +305,7 @@ class _$DisplayLoadingViewImpl implements _DisplayLoadingView {
     TResult? Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult? Function(_DisplayLoadingView value)? loadingView,
     TResult? Function(_DisplayErrorView value)? errorView,
+    TResult? Function(_StartNextScreen value)? startNextScreen,
   }) {
     return loadingView?.call(this);
   }
@@ -299,6 +316,7 @@ class _$DisplayLoadingViewImpl implements _DisplayLoadingView {
     TResult Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult Function(_DisplayLoadingView value)? loadingView,
     TResult Function(_DisplayErrorView value)? errorView,
+    TResult Function(_StartNextScreen value)? startNextScreen,
     required TResult orElse(),
   }) {
     if (loadingView != null) {
@@ -385,6 +403,7 @@ class _$DisplayErrorViewImpl implements _DisplayErrorView {
     required TResult Function() displayOnboardingView,
     required TResult Function() loadingView,
     required TResult Function(String errorMessage) errorView,
+    required TResult Function() startNextScreen,
   }) {
     return errorView(errorMessage);
   }
@@ -395,6 +414,7 @@ class _$DisplayErrorViewImpl implements _DisplayErrorView {
     TResult? Function()? displayOnboardingView,
     TResult? Function()? loadingView,
     TResult? Function(String errorMessage)? errorView,
+    TResult? Function()? startNextScreen,
   }) {
     return errorView?.call(errorMessage);
   }
@@ -405,6 +425,7 @@ class _$DisplayErrorViewImpl implements _DisplayErrorView {
     TResult Function()? displayOnboardingView,
     TResult Function()? loadingView,
     TResult Function(String errorMessage)? errorView,
+    TResult Function()? startNextScreen,
     required TResult orElse(),
   }) {
     if (errorView != null) {
@@ -420,6 +441,7 @@ class _$DisplayErrorViewImpl implements _DisplayErrorView {
         displayOnboardingView,
     required TResult Function(_DisplayLoadingView value) loadingView,
     required TResult Function(_DisplayErrorView value) errorView,
+    required TResult Function(_StartNextScreen value) startNextScreen,
   }) {
     return errorView(this);
   }
@@ -430,6 +452,7 @@ class _$DisplayErrorViewImpl implements _DisplayErrorView {
     TResult? Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult? Function(_DisplayLoadingView value)? loadingView,
     TResult? Function(_DisplayErrorView value)? errorView,
+    TResult? Function(_StartNextScreen value)? startNextScreen,
   }) {
     return errorView?.call(this);
   }
@@ -440,6 +463,7 @@ class _$DisplayErrorViewImpl implements _DisplayErrorView {
     TResult Function(_DisplayOnboardingView value)? displayOnboardingView,
     TResult Function(_DisplayLoadingView value)? loadingView,
     TResult Function(_DisplayErrorView value)? errorView,
+    TResult Function(_StartNextScreen value)? startNextScreen,
     required TResult orElse(),
   }) {
     if (errorView != null) {
@@ -460,4 +484,122 @@ abstract class _DisplayErrorView implements OnboardingScreenStates {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DisplayErrorViewImplCopyWith<_$DisplayErrorViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$StartNextScreenImplCopyWith<$Res> {
+  factory _$$StartNextScreenImplCopyWith(_$StartNextScreenImpl value,
+          $Res Function(_$StartNextScreenImpl) then) =
+      __$$StartNextScreenImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StartNextScreenImplCopyWithImpl<$Res>
+    extends _$OnboardingScreenStatesCopyWithImpl<$Res, _$StartNextScreenImpl>
+    implements _$$StartNextScreenImplCopyWith<$Res> {
+  __$$StartNextScreenImplCopyWithImpl(
+      _$StartNextScreenImpl _value, $Res Function(_$StartNextScreenImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OnboardingScreenStates
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$StartNextScreenImpl implements _StartNextScreen {
+  const _$StartNextScreenImpl();
+
+  @override
+  String toString() {
+    return 'OnboardingScreenStates.startNextScreen()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$StartNextScreenImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() displayOnboardingView,
+    required TResult Function() loadingView,
+    required TResult Function(String errorMessage) errorView,
+    required TResult Function() startNextScreen,
+  }) {
+    return startNextScreen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? displayOnboardingView,
+    TResult? Function()? loadingView,
+    TResult? Function(String errorMessage)? errorView,
+    TResult? Function()? startNextScreen,
+  }) {
+    return startNextScreen?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? displayOnboardingView,
+    TResult Function()? loadingView,
+    TResult Function(String errorMessage)? errorView,
+    TResult Function()? startNextScreen,
+    required TResult orElse(),
+  }) {
+    if (startNextScreen != null) {
+      return startNextScreen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DisplayOnboardingView value)
+        displayOnboardingView,
+    required TResult Function(_DisplayLoadingView value) loadingView,
+    required TResult Function(_DisplayErrorView value) errorView,
+    required TResult Function(_StartNextScreen value) startNextScreen,
+  }) {
+    return startNextScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DisplayOnboardingView value)? displayOnboardingView,
+    TResult? Function(_DisplayLoadingView value)? loadingView,
+    TResult? Function(_DisplayErrorView value)? errorView,
+    TResult? Function(_StartNextScreen value)? startNextScreen,
+  }) {
+    return startNextScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DisplayOnboardingView value)? displayOnboardingView,
+    TResult Function(_DisplayLoadingView value)? loadingView,
+    TResult Function(_DisplayErrorView value)? errorView,
+    TResult Function(_StartNextScreen value)? startNextScreen,
+    required TResult orElse(),
+  }) {
+    if (startNextScreen != null) {
+      return startNextScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StartNextScreen implements OnboardingScreenStates {
+  const factory _StartNextScreen() = _$StartNextScreenImpl;
 }

@@ -110,11 +110,18 @@ class OnBoardingScreen extends StatelessWidget {
                 },
                 errorView: (String){
                   return EmptyWidget();
+                },
+                startNextScreen: () {
+                  return DisplayLoadingWidget();
                 }
             );
           },
           listener: (BuildContext context, OnboardingScreenStates state){
-            
+              state.whenOrNull(
+                startNextScreen: (){
+                  context.router.replace(const IntroRoute());
+                }
+              );
           }
       ),
     );
