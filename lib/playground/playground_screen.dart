@@ -35,42 +35,6 @@ class PlaygroundScreen extends StatelessWidget{
             iconToDisplay: Icons.record_voice_over,
             buttonText: "Use Voice",
             onButtonPress: (){
-              showModalBottomSheet<void>(
-                context: context,
-                isScrollControlled: true,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30.0),
-                      topRight: Radius.circular(30.0)),
-                ),
-                builder: (BuildContext context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-
-                      mainAxisSize: MainAxisSize.min,
-
-                      children: [
-                        //name
-                        InputFieldWidget(
-                          displayHintText: "What should we call you?",
-                          displayIcon: Icons.person_2_rounded,
-                        ),
-
-                        SizedBox(
-                            height: 21
-                        ),
-
-                        //email
-                        InputFieldWidget(
-                          displayHintText: "Email",
-                          displayIcon: Icons.email_rounded,
-                        )
-                      ],
-                    ),
-                  );
-                },
-              );
             },
           ),
 

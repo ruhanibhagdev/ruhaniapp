@@ -53,6 +53,7 @@ class OnBoardingBloc extends Bloc<OnboardingScreenEvents, OnboardingScreenStates
         startGoogleSignIn();
       } else {
         _logger.log(_TAG, "Current user details $currentUser");
+        add(const SignInSuccessEvent());
         ///Fetch only the google data
         /*var googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
         SharedPreferences autoRemember = await SharedPreferences.getInstance();

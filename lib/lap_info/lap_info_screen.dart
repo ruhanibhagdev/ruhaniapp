@@ -7,10 +7,13 @@ import 'package:ruhaniapp/base/app_constants.dart';
 import 'package:ruhaniapp/base/database.dart';
 import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
+import 'package:ruhaniapp/commonwidgets/filled_button_widget.dart';
+import 'package:ruhaniapp/commonwidgets/user_info_widget.dart';
 import 'package:ruhaniapp/injector/injection.dart';
 import 'package:ruhaniapp/lap_info/lap_info_item_widget.dart';
 
 import '../base/color_constants.dart';
+import '../commonwidgets/input_field_widget.dart';
 
 @RoutePage()
 class LapInfoScreen extends StatelessWidget{
@@ -94,6 +97,42 @@ class LapInfoScreen extends StatelessWidget{
                 }
             )
           ],
+        ),
+      ),
+      floatingActionButton: Container(
+        width: 80,
+        height: 80,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: (){
+                showModalBottomSheet<void>(
+                  context: context,
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30.0),
+                        topRight: Radius.circular(30.0)),
+                  ),
+                  builder: (BuildContext context) {
+                    return SingleChildScrollView(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                          top: 20,
+                        left: 20,
+                        right: 20
+                      ),
+                      child: UserInfoWidget()
+                    );
+                  },
+                );
+              },
+            backgroundColor: ColorConstants.klogoOrangeColor,
+            child: Icon(
+              Icons.email_outlined,
+              size: 30,
+              color: ColorConstants.kWhiteColor,
+              ),
+          ),
         ),
       ),
     );

@@ -7,12 +7,14 @@ class InputFieldWidget extends StatelessWidget {
 
   final String displayHintText;
   final IconData displayIcon;
+  final TextEditingController inputController;
 
-  const InputFieldWidget({super.key, required this.displayHintText, required this.displayIcon});
+  const InputFieldWidget({super.key, required this.displayHintText, required this.displayIcon, required this.inputController});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: inputController,
       decoration: InputDecoration(
         prefixIcon: Icon(displayIcon),
         hintText: displayHintText,
