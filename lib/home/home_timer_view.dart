@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ruhaniapp/home/states/timer_screen_state.dart';
-import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
+import 'package:rufit/home/states/timer_screen_state.dart';
+import 'package:rufit/home/viewstate/timer_bloc.dart';
 import '../base/app_constants.dart';
 import '../base/color_constants.dart';
 import '../base/duration_calculator.dart';

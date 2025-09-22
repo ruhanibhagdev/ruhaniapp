@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ruhaniapp/base/app_constants.dart';
-import 'package:ruhaniapp/base/color_constants.dart';
+
+import '../base/color_constants.dart';
 
 class FilledButtonWidget extends StatelessWidget {
   String buttonText;

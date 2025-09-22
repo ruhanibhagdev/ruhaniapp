@@ -1,4 +1,4 @@
-package com.ruhani.bhagdev.ruhaniapp
+package com.ruhani.bhagdev.rufit
 
 import io.flutter.embedding.android.FlutterActivity
 

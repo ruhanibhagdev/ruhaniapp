@@ -4,9 +4,9 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
-import 'package:ruhaniapp/base/logger_utils.dart';
 
 import '../lap_info/lap_info_entity.dart';
+import 'logger_utils.dart';
 
 part 'database.g.dart';
 

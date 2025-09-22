@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:ruhaniapp/base/color_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../base/app_constants.dart';
+import '../base/color_constants.dart';
 import '../commonwidgets/empty_widget.dart';
 import '../router/app_router.dart';
 

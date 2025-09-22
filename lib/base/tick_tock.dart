@@ -1,5 +1,5 @@
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/injector/injection.dart';
+import '../injector/injection.dart';
+import 'logger_utils.dart';
 
 class TickTock {
   const TickTock();

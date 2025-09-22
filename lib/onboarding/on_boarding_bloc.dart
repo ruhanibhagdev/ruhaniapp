@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:ruhaniapp/onboarding/states/onboarding_screen_states.dart';
+import 'package:rufit/onboarding/states/onboarding_screen_states.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../base/app_constants.dart';
 import '../base/firebase_realtime_db.dart';

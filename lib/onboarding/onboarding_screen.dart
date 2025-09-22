@@ -5,22 +5,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ruhaniapp/base/app_constants.dart';
-import 'package:ruhaniapp/base/firebase_utils.dart';
-import 'package:ruhaniapp/base/image_constants.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/commonwidgets/display_loading_widget.dart';
-import 'package:ruhaniapp/commonwidgets/empty_widget.dart';
-import 'package:ruhaniapp/commonwidgets/filled_button_widget.dart';
-import 'package:ruhaniapp/injector/injection.dart';
-import 'package:ruhaniapp/onboarding/on_boarding_bloc.dart';
-import 'package:ruhaniapp/onboarding/states/onboarding_screen_states.dart';
-import 'package:ruhaniapp/router/app_router.dart';
+import 'package:rufit/base/color_constants.dart';
+import 'package:rufit/onboarding/states/onboarding_screen_states.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import '../base/app_constants.dart';
 import '../base/firebase_realtime_db.dart';
+import '../base/firebase_utils.dart';
+import '../base/image_constants.dart';
+import '../base/logger_utils.dart';
+import '../commonwidgets/display_loading_widget.dart';
+import '../commonwidgets/empty_widget.dart';
+import '../commonwidgets/filled_button_widget.dart';
+import '../injector/injection.dart';
+import '../router/app_router.dart';
 import 'events/onboarding_screen_events.dart';
+import 'on_boarding_bloc.dart';
 
 @RoutePage()
 class OnBoardingScreen extends StatelessWidget {
@@ -63,32 +64,42 @@ class OnBoardingScreen extends StatelessWidget {
                         padding: EdgeInsets.only(bottom: 15),
                         child: Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  "assets/images/googleLogo.png",
-                                  width: 37,
-                                  height: 37,
+                            GestureDetector(
+                              onTap: (){
+                                _logger.log(_TAG, "Sign in button was pressed");
+                                BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartGoogleSignInEvent());
+                              },
+                              child: Container(
+                                padding: EdgeInsets.all(8),
+                                margin: EdgeInsets.all(18),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(9),
+                                  color: Colors.black
                                 ),
-                                SizedBox(
-                                  width: 9,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/googleLogo.png",
+                                      width: 25,
+                                      height: 25,
+                                    ),
+                                    SizedBox(
+                                      width: 9,
+                                    ),
+                                    Text(
+                                      "Sign in with Google",
+                                      style: TextStyle(
+                                        fontSize: 19,
+                                        color: Colors.white
+                                      ),
+                                    )
+                                  ],
                                 ),
-                                FilledButtonWidget(
-                                  buttonText: "Sign in with Google",
-                                  onButtonPressed: () async {
-                                    _logger.log(_TAG, "Sign in button was pressed");
-                                    BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartGoogleSignInEvent());
-                                  },
-                                ),
-
-                              ],
+                              ),
                             ),
                             SizedBox(
-                              height: 20,
-                            ),
-                            SizedBox(
-                              width: 220,
+                              width: MediaQuery.of(context).size.width - 40,
                               child: SignInWithAppleButton(
                                 onPressed: () async {
                                   BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartAppleSignInEvent());
@@ -98,7 +109,6 @@ class OnBoardingScreen extends StatelessWidget {
                                 },
                               ),
                             ),
-
                           ],
                         ),
                       ),

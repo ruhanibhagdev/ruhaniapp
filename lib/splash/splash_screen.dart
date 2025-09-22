@@ -1,17 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ruhaniapp/base/color_constants.dart';
-import 'package:ruhaniapp/base/google_auth_service.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/introduction/intro_screen.dart';
-import 'package:ruhaniapp/router/app_router.dart';
-import 'package:ruhaniapp/splash/states/splash_screen_event.dart';
-import 'package:ruhaniapp/splash/states/splash_screen_state.dart';
-import 'package:ruhaniapp/splash/viewstate/splash_bloc.dart';
+import 'package:rufit/splash/states/splash_screen_event.dart';
+import 'package:rufit/splash/states/splash_screen_state.dart';
+import 'package:rufit/splash/viewstate/splash_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../base/app_constants.dart';
+import '../base/color_constants.dart';
+import '../base/logger_utils.dart';
 import '../injector/injection.dart';
+import '../router/app_router.dart';
 
 @RoutePage()
 class SplashScreen extends StatelessWidget{

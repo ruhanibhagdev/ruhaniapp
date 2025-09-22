@@ -1,24 +1,25 @@
 {
   "project_info": {
     "project_number": "72218545233",
+    "firebase_url": "https://rufit-cadbd-default-rtdb.firebaseio.com",
     "project_id": "rufit-cadbd",
     "storage_bucket": "rufit-cadbd.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:72218545233:android:e63117201f30e407ebfc70",
+        "mobilesdk_app_id": "1:72218545233:android:55f7759999b29a6febfc70",
         "android_client_info": {
-          "package_name": "com.ruhani.bhagdev.ruhaniapp"
+          "package_name": "com.ruhani.bhagdev.rufit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "72218545233-a2k4nfvnn9dt6ensh9uvmg9du5bbrvrr.apps.googleusercontent.com",
+          "client_id": "72218545233-qg06au4pfspps5esluut2n5vtmjd56qg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ruhani.bhagdev.ruhaniapp",
-            "certificate_hash": "b14e6be848b7eb44a91353cbae08d9429b0877ce"
+            "package_name": "com.ruhani.bhagdev.rufit",
+            "certificate_hash": "9282e59988adf59067f4a6b829f6db232a9d0860"
           }
         },
         {
@@ -37,6 +38,13 @@
             {
               "client_id": "72218545233-3fj3ebm49sucvlhiu6r600m46akniult.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "72218545233-m7jll13kc8m66asltq2b30bkdf1qkhr7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ruhani.bhagdev.ruhaniapp"
+              }
             }
           ]
         }

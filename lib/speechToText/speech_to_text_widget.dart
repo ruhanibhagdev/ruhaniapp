@@ -2,14 +2,12 @@ import 'package:auto_route/annotations.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ruhaniapp/base/app_constants.dart';
-import 'package:ruhaniapp/base/duration_model.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/commonwidgets/filled_button_widget.dart';
-import 'package:ruhaniapp/injector/injection.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import '../base/color_constants.dart';
+import '../base/logger_utils.dart';
+import '../commonwidgets/filled_button_widget.dart';
 import '../home/viewstate/timer_bloc.dart';
+import '../injector/injection.dart';
 
 class SpeechToTextWidget extends StatefulWidget {
   TimerBloc timerBloc;

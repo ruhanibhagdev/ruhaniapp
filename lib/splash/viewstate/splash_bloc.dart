@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ruhaniapp/splash/states/splash_screen_state.dart';
 import '../states/splash_screen_event.dart';
+import '../states/splash_screen_state.dart';
 
 class SplashBloc extends Bloc<SplashScreenEvent, SplashScreenState>{
   SplashBloc():super(const SplashScreenState.SplashInitialState()) {

@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ruhaniapp/base/color_constants.dart';
+
+import '../base/color_constants.dart';
 
 class AppIconsWidget extends StatefulWidget{
   String buttonText;

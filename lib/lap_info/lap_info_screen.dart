@@ -3,17 +3,16 @@ import 'package:drift/drift.dart' as drift;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ruhaniapp/base/app_constants.dart';
-import 'package:ruhaniapp/base/database.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
-import 'package:ruhaniapp/commonwidgets/filled_button_widget.dart';
-import 'package:ruhaniapp/commonwidgets/user_info_widget.dart';
-import 'package:ruhaniapp/injector/injection.dart';
-import 'package:ruhaniapp/lap_info/lap_info_item_widget.dart';
 
+import '../base/app_constants.dart';
 import '../base/color_constants.dart';
+import '../base/database.dart';
+import '../base/logger_utils.dart';
+import '../commonwidgets/app_icons_widget.dart';
 import '../commonwidgets/input_field_widget.dart';
+import '../commonwidgets/user_info_widget.dart';
+import '../injector/injection.dart';
+import 'lap_info_item_widget.dart';
 
 @RoutePage()
 class LapInfoScreen extends StatelessWidget{

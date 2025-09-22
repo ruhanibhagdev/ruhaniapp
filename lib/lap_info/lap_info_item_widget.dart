@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ruhaniapp/base/color_constants.dart';
-import 'package:ruhaniapp/lap_info/lap_info_entity.dart';
 
 import '../base/database.dart';
 

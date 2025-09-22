@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ruhaniapp/base/image_constants.dart';
+import '../base/image_constants.dart';
 
 class DisplayLoadingWidget extends StatefulWidget {
   const DisplayLoadingWidget({super.key});

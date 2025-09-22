@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:ruhaniapp/base/firebase_realtime_db.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import 'app_constants.dart';
+import 'firebase_realtime_db.dart';
+import 'logger_utils.dart';
 
 class FirebaseUtils {
 

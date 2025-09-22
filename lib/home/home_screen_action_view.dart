@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ruhaniapp/base/duration_model.dart';
-import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
-import 'package:ruhaniapp/home/states/timer_screen_event.dart';
-import 'package:ruhaniapp/home/states/timer_screen_state.dart';
-import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
+import 'package:rufit/home/states/timer_screen_event.dart';
+import 'package:rufit/home/states/timer_screen_state.dart';
+import 'package:rufit/home/viewstate/timer_bloc.dart';
+
+import '../base/duration_model.dart';
+import '../commonwidgets/app_icons_widget.dart';
 
 class HomeScreenActionView extends StatelessWidget{
 

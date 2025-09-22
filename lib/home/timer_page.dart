@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ruhaniapp/home/states/timer_screen_event.dart';
-import 'package:ruhaniapp/home/states/timer_screen_state.dart';
-import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
+import 'package:rufit/home/states/timer_screen_event.dart';
+import 'package:rufit/home/states/timer_screen_state.dart';
+import 'package:rufit/home/viewstate/timer_bloc.dart';
 import '../base/duration_calculator.dart';
 import '../base/duration_model.dart';
 import '../base/tick_tock.dart';

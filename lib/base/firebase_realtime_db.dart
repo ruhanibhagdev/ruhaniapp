@@ -5,14 +5,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:ruhaniapp/base/app_constants.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/lap_info/lap_info_entity.dart';
-import 'package:ruhaniapp/onboarding/user_registration_details.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
 import '../lap_info/lap_info_list_model.dart';
 import '../lap_info/lap_info_model.dart';
+import '../onboarding/user_registration_details.dart';
+import 'app_constants.dart';
+import 'logger_utils.dart';
 
 class FirebaseRealtimeDb{
 
@@ -34,6 +34,28 @@ class FirebaseRealtimeDb{
     }
     catch(exception){
       _loggerUtils.log(_TAG, "An Error Has Occured . . . :( $exception");
+    }
+
+  }
+
+  Future<void> createAUserWithoutSignIn(String uniqueID, String username, String useremail) async{
+
+    try{
+
+
+
+      UserRegistrationDetails details = UserRegistrationDetails(
+          userID: uniqueID,
+          name: username,
+          emailID: useremail
+      );
+
+      _loggerUtils.log(_TAG, "✨Saving User Details✨ $details");
+      DatabaseReference addUserRef = FirebaseDatabase.instance.ref("${AppConstants.kRootNode}/${uniqueID}");
+      await addUserRef.set(details.toJson());
+    }
+    catch(exception){
+      _loggerUtils.log(_TAG, "An Error Has Occurred . . . :( $exception");
     }
 
   }

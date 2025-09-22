@@ -5,22 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ruhaniapp/base/logger_utils.dart';
-import 'package:ruhaniapp/base/tick_tock.dart';
-import 'package:ruhaniapp/base/time_regex.dart';
-import 'package:ruhaniapp/commonwidgets/app_icons_widget.dart';
-import 'package:ruhaniapp/home/home_screen_action_view.dart';
-import 'package:ruhaniapp/home/states/timer_screen_event.dart';
-import 'package:ruhaniapp/home/states/timer_screen_state.dart';
-import 'package:ruhaniapp/home/timer_page.dart';
-import 'package:ruhaniapp/home/viewstate/timer_bloc.dart';
-import 'package:ruhaniapp/permission/permission_utils.dart';
+import 'package:rufit/home/states/timer_screen_event.dart';
+import 'package:rufit/home/states/timer_screen_state.dart';
+import 'package:rufit/home/viewstate/timer_bloc.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import '../base/color_constants.dart';
+import '../base/tick_tock.dart';
 import '../circularTimer/circular_timer_screen.dart';
+import '../commonwidgets/app_icons_widget.dart';
 import '../router/app_router.dart';
 import '../speechToText/speech_to_text_widget.dart';
 import '../splash/splash_screen.dart';
+import 'home_screen_action_view.dart';
 import 'home_timer_view.dart';
 
 // Ui link - https://snipboard.io/FTucEO.jpg

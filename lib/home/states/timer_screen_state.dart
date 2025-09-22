@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ruhaniapp/base/duration_model.dart';
+
+import '../../base/duration_model.dart';
 
 part 'timer_screen_state.freezed.dart';
 
