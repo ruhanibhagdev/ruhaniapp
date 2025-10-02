@@ -32,7 +32,7 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => OnBoardingBloc()..add(const OnboardingScreenEvents.InitializeOnboardingEvent()),
+      create: (BuildContext context) => OnBoardingBloc()..add(const OnboardingScreenEvents.InitializeOnboarding()),
       child: BlocConsumer<OnBoardingBloc, OnboardingScreenStates>(
           builder: (BuildContext context, OnboardingScreenStates state){
             return state.when(
@@ -67,7 +67,7 @@ class OnBoardingScreen extends StatelessWidget {
                             GestureDetector(
                               onTap: (){
                                 _logger.log(_TAG, "Sign in button was pressed");
-                                BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartGoogleSignInEvent());
+                                BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartGoogleSignIn());
                               },
                               child: Container(
                                 padding: EdgeInsets.all(8),
@@ -102,7 +102,7 @@ class OnBoardingScreen extends StatelessWidget {
                               width: MediaQuery.of(context).size.width - 40,
                               child: SignInWithAppleButton(
                                 onPressed: () async {
-                                  BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartAppleSignInEvent());
+                                  BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartAppleSignIn());
                                   await firebaseUtils.startAppleSignIn().then((_) async{
                                     await context.router.replace(const IntroRoute());
                                   });

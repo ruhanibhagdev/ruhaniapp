@@ -7,7 +7,7 @@ part 'lap_info_list_model.freezed.dart';
 part 'lap_info_list_model.g.dart';
 
 @freezed
-class LapInfoListModel with _$LapInfoListModel{
+abstract class LapInfoListModel with _$LapInfoListModel{
 
   @JsonSerializable(explicitToJson: true)
   const factory LapInfoListModel({

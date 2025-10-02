@@ -12,7 +12,7 @@ import '../splash/splash_screen.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter{
+class AppRouter extends RootStackRouter{
 
   List<AutoRoute> get routes => [
     AutoRoute(

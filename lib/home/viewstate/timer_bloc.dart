@@ -17,12 +17,12 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
   TimerBloc({required TickTock ticker}): _ticker = ticker, super(const TimerScreenState.TimerInitialState()){
     on<TimerScreenEvent>((event, emit) async{
       await event.map(
-          TimerStartedEvent: (event) async => _onStarted(event, emit),
-          TimerPausedEvent: (event) async => _onPaused(event, emit),
-          TimerResumedEvent: (event) async => _onResumed(event, emit),
-          TimerResetEvent: (event) async => _onReset(event, emit),
-          TimerTickedEvent: (event) async => _onTicked(event, emit),
-          AddLapEvent: (event) async => _addLap(event, emit)
+          TimerStarted: (event) async => _onStarted(event, emit),
+          TimerPaused: (event) async => _onPaused(event, emit),
+          TimerResumed: (event) async => _onResumed(event, emit),
+          TimerReset: (event) async => _onReset(event, emit),
+          TimerTicked: (event) async => _onTicked(event, emit),
+          AddLap: (event) async => _addLap(event, emit)
       );
     });
   }

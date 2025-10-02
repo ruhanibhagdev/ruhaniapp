@@ -25,7 +25,7 @@ class HomeScreenActionView extends StatelessWidget{
                     buttonText: "Start",
                     iconToDisplay: Icons.play_arrow_rounded,
                     onButtonPress: (){
-                      context.read<TimerBloc>().add(TimerScreenEvent.TimerStartedEvent(startDuration));
+                      context.read<TimerBloc>().add(TimerScreenEvent.TimerStarted(startDuration));
                     },
                 );
               },
@@ -35,7 +35,7 @@ class HomeScreenActionView extends StatelessWidget{
 
                     iconToDisplay: Icons.restart_alt_rounded,
                     onButtonPress: (){
-                      context.read<TimerBloc>().add(const TimerScreenEvent.TimerResumedEvent());
+                      context.read<TimerBloc>().add(const TimerScreenEvent.TimerResumed());
                     },
                 );
               },
@@ -47,7 +47,7 @@ class HomeScreenActionView extends StatelessWidget{
                       iconToDisplay: Icons.square_rounded,
                       buttonText: "Stop",
                       onButtonPress: (){
-                        context.read<TimerBloc>().add(const TimerScreenEvent.TimerResetEvent());
+                        context.read<TimerBloc>().add(const TimerScreenEvent.TimerReset());
                       },
                     ),
                     SizedBox(
@@ -57,7 +57,7 @@ class HomeScreenActionView extends StatelessWidget{
                       buttonText: "Pause",
                       iconToDisplay: Icons.pause_rounded,
                       onButtonPress: (){
-                        context.read<TimerBloc>().add(const TimerScreenEvent.TimerPausedEvent());
+                        context.read<TimerBloc>().add(const TimerScreenEvent.TimerPaused());
                       },
                     )
                   ],

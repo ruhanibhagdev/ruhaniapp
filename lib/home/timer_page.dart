@@ -104,7 +104,7 @@ class Actions extends StatelessWidget {
                   child: const Icon(Icons.play_arrow),
                   onPressed: () => context
                       .read<TimerBloc>()
-                      .add(TimerScreenEvent.TimerStartedEvent(startDuration))
+                      .add(TimerScreenEvent.TimerStarted(startDuration))
               );
             },
             TimerPauseState: (DurationModel durationModel){
@@ -112,7 +112,7 @@ class Actions extends StatelessWidget {
                   child: const Icon(Icons.restart_alt_rounded),
                   onPressed: () => context
                       .read<TimerBloc>()
-                      .add(const TimerScreenEvent.TimerResumedEvent())
+                      .add(const TimerScreenEvent.TimerResumed())
               );
             },
             TimerRunningState: (DurationModel durationModel, bool isGoalReached){
@@ -120,14 +120,14 @@ class Actions extends StatelessWidget {
                   child: const Icon(Icons.pause),
                   onPressed: () => context
                       .read<TimerBloc>()
-                      .add(const TimerScreenEvent.TimerPausedEvent())
+                      .add(const TimerScreenEvent.TimerPaused())
               );
             },
             TimerRunCompleteState: (DurationModel durationModel){
               return FloatingActionButton(
                 child: const Icon(Icons.play_arrow),
                 onPressed: (){
-                  context.read<TimerBloc>().add(TimerScreenEvent.TimerStartedEvent(durationModel));
+                  context.read<TimerBloc>().add(TimerScreenEvent.TimerStarted(durationModel));
                 },
               );
             }

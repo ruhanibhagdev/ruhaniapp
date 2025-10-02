@@ -5,7 +5,7 @@ part 'user_registration_details.freezed.dart';
 part 'user_registration_details.g.dart';
 
 @freezed
-class UserRegistrationDetails with _$UserRegistrationDetails{
+abstract class UserRegistrationDetails with _$UserRegistrationDetails{
 
   @JsonSerializable(explicitToJson: true)
   const factory UserRegistrationDetails({

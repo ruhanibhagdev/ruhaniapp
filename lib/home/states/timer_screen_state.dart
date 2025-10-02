@@ -5,7 +5,7 @@ import '../../base/duration_model.dart';
 part 'timer_screen_state.freezed.dart';
 
 @freezed
-class TimerScreenState with _$TimerScreenState{
+sealed class TimerScreenState with _$TimerScreenState{
   const factory TimerScreenState.TimerInitialState() = _TimerInitial;
   const factory TimerScreenState.TimerPauseState(DurationModel durationModel) = _TimerPause;
   const factory TimerScreenState.TimerRunningState(DurationModel durationModel, bool isGoalReached) = _TimerRunningState;

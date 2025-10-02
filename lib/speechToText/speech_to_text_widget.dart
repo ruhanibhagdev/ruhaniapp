@@ -67,13 +67,12 @@ class _SpeechToTextState extends State<SpeechToTextWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children : [
                 AvatarGlow(
-                  endRadius: 75.0,
                   animate: isListening,
                   duration: const Duration(milliseconds: 2000),
                   glowColor: bgColor,
                   repeat: true,
-                  repeatPauseDuration: const Duration(milliseconds: 100),
-                  showTwoGlows: true,
+                  //repeatPauseDuration: const Duration(milliseconds: 100),
+                  //showTwoGlows: true,
                   child: GestureDetector(
                     onTap: () async {
                       if (!isListening) {

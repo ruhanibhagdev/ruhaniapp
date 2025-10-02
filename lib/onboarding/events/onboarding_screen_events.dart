@@ -4,10 +4,10 @@ import '../../../base/duration_model.dart';
 part 'onboarding_screen_events.freezed.dart';
 
 @freezed
-class OnboardingScreenEvents with _$OnboardingScreenEvents{
-  const factory OnboardingScreenEvents.InitializeOnboardingEvent() = InitializeOnboardingEvent;
-  const factory OnboardingScreenEvents.StartGoogleSignInEvent() = StartGoogleSignInEvent;
-  const factory OnboardingScreenEvents.SignInSuccessEvent() = SignInSuccessEvent;
-  const factory OnboardingScreenEvents.SignInFailedEvent() = SignInFailedEvent;
-  const factory OnboardingScreenEvents.StartAppleSignInEvent() = StartAppleSignInEvent;
+sealed class OnboardingScreenEvents with _$OnboardingScreenEvents{
+  const factory OnboardingScreenEvents.InitializeOnboarding() = InitializeOnboardingEvent;
+  const factory OnboardingScreenEvents.StartGoogleSignIn() = StartGoogleSignInEvent;
+  const factory OnboardingScreenEvents.SignInSuccess() = SignInSuccessEvent;
+  const factory OnboardingScreenEvents.SignInFailed() = SignInFailedEvent;
+  const factory OnboardingScreenEvents.StartAppleSignIn() = StartAppleSignInEvent;
  }

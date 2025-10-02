@@ -17,11 +17,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.0+3
+version: 1.0.0+6
 
 environment:
   #sdk: '>=3.3.4 <4.0.0'
-  sdk: ^3.6.1
+  sdk: ^3.9.2
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -39,40 +39,37 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # Circular animation on timer
-  circular_countdown_timer: ^0.2.3
+  circular_countdown_timer: ^0.2.4
 
   #Displaying animations in app
-  lottie: ^2.1.0
+  lottie: ^3.3.2
 
   #Convert speech
-  speech_to_text: ^7.0.0
+  speech_to_text: ^7.3.0
 
   #Dependency injection in app
-  injectable: ^2.1.0
+  injectable: ^2.5.2
 
   #Playing asset sound "tttdddddrrrrrring"
-  audioplayers: ^6.0.0
+  audioplayers: ^6.5.1
 
   #Routing in flutter
-  auto_route: ^7.4.0
+  auto_route: ^10.1.2
 
   #State management library
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^9.1.1
 
   #Generate app state events
-  freezed: ^2.4.2
+  freezed: ^3.2.3
 
   #get date in app
-  intl: ^0.18.0
+  intl: ^0.20.2
 
   #Permission asking in app
-  permission_handler: ^12.0.0+1
-
-  #creating states in app
-  equatable: ^2.0.5
+  permission_handler: ^12.0.1
 
   #glow animation
-  avatar_glow: ^2.0.2
+  avatar_glow: ^3.0.1
 
   #internal directory for app
   path_provider: ^2.1.3
@@ -100,13 +97,20 @@ dependencies:
   firebase_database: ^12.0.0
 
   #generate json code!!
-  json_serializable: ^6.9.0
+  json_serializable: ^6.11.0
 
   #Apple sign in
   sign_in_with_apple: ^7.0.1
 
   #generate uuid !!
   uuid: ^4.5.1
+
+dependency_overrides:
+  source_gen: ^4.0.1
+  build: ^3.0.2
+  analyzer: ^8.1.1
+  lean_builder: ^0.1.2
+  _fe_analyzer_shared: ^89.0.0
 
 dev_dependencies:
   flutter_test:
@@ -123,13 +127,13 @@ dev_dependencies:
   injectable_generator: ^2.1.3
 
   #Route files generator
-  auto_route_generator: ^7.1.1
+  auto_route_generator: ^10.2.4
 
   #Generating files
-  build_runner: ^2.3.3
+  build_runner: ^2.7.0
 
   #Generate freezed files
-  freezed_annotation: ^2.4.1
+  freezed_annotation: ^3.1.0
 
   #code generator (aka grrrr) for drift
   drift_dev: ^2.16.0

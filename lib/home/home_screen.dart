@@ -104,7 +104,7 @@ class HomeScreen extends StatelessWidget{
                 iconToDisplay: Icons.plus_one_rounded,
                 buttonText: "Add Lap",
                 onButtonPress: () async{
-                  BlocProvider.of<TimerBloc>(context).add(const TimerScreenEvent.AddLapEvent());
+                  BlocProvider.of<TimerBloc>(context).add(const TimerScreenEvent.AddLap());
                 },
               ),
             ),
