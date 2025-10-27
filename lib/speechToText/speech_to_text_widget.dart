@@ -2,6 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:rufit/permission/permission_utils.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import '../base/color_constants.dart';
 import '../base/logger_utils.dart';
@@ -30,8 +31,8 @@ class _SpeechToTextState extends State<SpeechToTextWidget> {
 
   @override
   void initState() {
+    askMicrophonePermission();
     super.initState();
-    checkMicrophoneAvailability();
   }
 
   void checkMicrophoneAvailability() async {
@@ -47,6 +48,14 @@ class _SpeechToTextState extends State<SpeechToTextWidget> {
         _logger.log(_TAG, "The user has denied the use of speech recognition.");
       }
     }
+  }
+
+  Future<bool> askMicrophonePermission() async{
+    bool isPermissionAvailable = await PermissionUtils().getMicrophonePermission();
+    if(isPermissionAvailable){
+      checkMicrophoneAvailability();
+    }
+    return Future.value(isPermissionAvailable);
   }
 
   @override

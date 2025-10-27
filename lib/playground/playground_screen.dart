@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rufit/commonwidgets/filled_button_widget.dart';
+import 'package:rufit/permission/permission_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../base/app_constants.dart';
@@ -26,15 +28,12 @@ class PlaygroundScreen extends StatelessWidget{
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child:
-          AppIconsWidget(
-            iconToDisplay: Icons.record_voice_over,
-            buttonText: "Use Voice",
-            onButtonPress: (){
-            },
-          ),
-
-
+          child:FilledButtonWidget(
+              buttonText: "Ask permission",
+              onButtonPressed: (){
+                PermissionUtils().getMicrophonePermission();
+              },
+          )
         ),
       ),
     );
