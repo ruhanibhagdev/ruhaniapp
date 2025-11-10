@@ -28,11 +28,21 @@ class PlaygroundScreen extends StatelessWidget{
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child:FilledButtonWidget(
-              buttonText: "Ask permission",
-              onButtonPressed: (){
-                PermissionUtils().getMicrophonePermission();
-              },
+          child:Column(
+            children: [
+              FilledButtonWidget(
+                  buttonText: "Ask permission",
+                  onButtonPressed: (){
+                    PermissionUtils().getMicrophonePermission();
+                  },
+              ),
+              FilledButtonWidget(
+                  buttonText: "Check Firebase",
+                  onButtonPressed: (){
+                    _firebaseRealtimeDb.createAUserWithoutSignIn("ABCD1235", "acbpqrs", "abcd@gmail.com");
+                  },
+              ),
+            ],
           )
         ),
       ),

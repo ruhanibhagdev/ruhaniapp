@@ -11,7 +11,7 @@
     <!-- Copied from GoogleService-Info.plist key CLIENT_ID -->
     <string>72218545233-m7jll13kc8m66asltq2b30bkdf1qkhr7.apps.googleusercontent.com</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to your microphone so you can set timers using voice commands..</string>
+	<string>We need access to your microphone so you can set timers using voice commands.</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>This app needs local network access for debugging and communication.</string>
 	<key>CFBundleDevelopmentRegion</key>

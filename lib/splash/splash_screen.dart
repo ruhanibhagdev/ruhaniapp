@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget{
     return Scaffold(
       backgroundColor: ColorConstants.klogoBackgroundColor,
       body: BlocProvider<SplashBloc>(
-        create: (BuildContext context)=>SplashBloc()..add(const SplashScreenEvent.InitSplashEvent()),
+        create: (BuildContext context) => SplashBloc()..add(const SplashScreenEvent.InitSplashEvent()),
         child: BlocConsumer<SplashBloc, SplashScreenState>(
             listener: (BuildContext context, SplashScreenState state){
               state.whenOrNull(
