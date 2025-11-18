@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to your microphone so you can set timers using voice commands..</string>
+	<string>We need access to your microphone so you can set timers using voice commands.</string>
 	<key>NSLocalNetworkUsageDescription</key>
     <string>This app needs local network access for debugging and communication.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Ruhaniapp</string>
+	<string>RuFit</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

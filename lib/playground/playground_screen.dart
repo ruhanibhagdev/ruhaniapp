@@ -28,11 +28,16 @@ class PlaygroundScreen extends StatelessWidget{
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child:FilledButtonWidget(
-              buttonText: "Ask permission",
-              onButtonPressed: (){
-                PermissionUtils().getMicrophonePermission();
-              },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FilledButtonWidget(
+                buttonText: "Test Permission",
+                onButtonPressed: (){
+                  PermissionUtils().getMicrophonePermission();
+                },
+              )
+            ],
           )
         ),
       ),
