@@ -57,8 +57,8 @@ class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderState
         });
       },
       child: SizedBox(
-        height: 100,
-        width: 100,
+        height: 105,
+        width: 105,
         child: ScaleTransition(
           scale: Tween<double>(
             begin: 1.0,

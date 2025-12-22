@@ -4,6 +4,8 @@
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need access to your microphone so you can set timers using voice commands.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+    <string>We use speech recognition to make your experience easier by just speak your commands to set times and manage laps.</string>
 	<key>NSLocalNetworkUsageDescription</key>
     <string>This app needs local network access for debugging and communication.</string>
 	<key>CFBundleDevelopmentRegion</key>
