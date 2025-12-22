@@ -13,7 +13,6 @@ import 'events/onboarding_screen_events.dart';
 class OnBoardingBloc extends Bloc<OnboardingScreenEvents, OnboardingScreenStates> {
   final _logger = LoggerUtils();
   final _TAG = "OnBoardingBloc";
-  FirebaseUtils firebaseUtils = FirebaseUtils();
   final _firebaseRealtimeDb = FirebaseRealtimeDb();
   String? clientId;
   String? serverClientId;

@@ -17,9 +17,6 @@ class PlaygroundScreen extends StatelessWidget{
 
   final database = AppDb();
 
-  final _firebaseUtils = FirebaseUtils();
-  final _firebaseRealtimeDb = FirebaseRealtimeDb();
-
   final _logger = LoggerUtils();
   final _TAG = "TAG - playground";
 
