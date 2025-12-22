@@ -57,15 +57,14 @@ class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderState
         });
       },
       child: SizedBox(
-        height: 120,
-        width: 100,
+        height: 105,
+        width: 105,
         child: ScaleTransition(
           scale: Tween<double>(
             begin: 1.0,
             end: _shrinkScale,
           ).animate(_controller),
           child: Container(
-            alignment: Alignment.center,
             padding: EdgeInsets.fromLTRB(12, 12, 12, 12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
@@ -78,7 +77,6 @@ class _AppIconState extends State<AppIconsWidget> with SingleTickerProviderState
               ],
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   widget.iconToDisplay,

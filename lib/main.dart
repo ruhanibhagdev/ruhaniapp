@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget{
             title: AppConstants.kAppName,
             routeInformationParser: _appRouter.defaultRouteParser(),
             routerDelegate: _appRouter.delegate(),
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
               primarySwatch: Colors.deepOrange,
               textTheme: Theme.of(context).textTheme.copyWith(

@@ -63,14 +63,22 @@ class FirebaseRealtimeDb{
   Future<void> createAppleUser(String userID, String? userName, String? userEmail) async{
 
     try{
+      String userTruncated;
+      if(userID.contains(".")){
+        userTruncated = userID.split(".").first;
+      }
+      else{
+        userTruncated = userID;
+      }
+      _loggerUtils.log(_TAG, "✨User ID Truncated✨ $userTruncated");
       UserRegistrationDetails details = UserRegistrationDetails(
-          userID: userID,
+          userID: userTruncated,
           name: userName??"⚠️ Name Not Found ⚠️",
           emailID: userEmail??"⚠️ Email Not Found ⚠️"
       );
 
       _loggerUtils.log(_TAG, "✨Saving User Details✨ $details");
-      DatabaseReference addUserRef = FirebaseDatabase.instance.ref("${AppConstants.kRootNode}/${userID}");
+      DatabaseReference addUserRef = FirebaseDatabase.instance.ref("${AppConstants.kRootNode}/$userTruncated");
       await addUserRef.set(details.toJson());
     }
     catch(exception){
