@@ -104,6 +104,8 @@ class OnBoardingScreen extends StatelessWidget {
                                 onPressed: () async {
                                   BlocProvider.of<OnBoardingBloc>(context).add(OnboardingScreenEvents.StartAppleSignIn());
                                   await firebaseUtils.startAppleSignIn().then((_) async{
+                                    SharedPreferences autoRemember = await SharedPreferences.getInstance();
+                                    await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
                                     await context.router.replace(const IntroRoute());
                                   });
                                 },
