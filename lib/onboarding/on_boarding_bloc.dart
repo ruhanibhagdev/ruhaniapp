@@ -54,15 +54,29 @@ class OnBoardingBloc extends Bloc<OnboardingScreenEvents, OnboardingScreenStates
         _logger.log(_TAG, "Current user details $currentUser");
         add(const SignInSuccessEvent());
         ///Fetch only the google data
-        /*var googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
-        SharedPreferences autoRemember = await SharedPreferences.getInstance();
-        await autoRemember.setString(AppConstants.kUserUniqueID, currentUser.uid);
-        await autoRemember.setString(AppConstants.kUserName, googleUser.displayName!);
-        await autoRemember.setString(AppConstants.kUserEmail, googleUser.email!);
-        await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
-        await _firebaseRealtimeDb.createAUser(currentUser);
-        _logger.log(_TAG, "Storing user details $currentUser");
-        await context.router.replace(const IntroRoute());*/
+        UserInfo googleUser;
+        bool isGoogleUserFound = currentUser.providerData.any((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
+        bool isAppleUserFound = currentUser.providerData.any((UserInfo currentUserInfo) => currentUserInfo.providerId == "apple.com");
+        if(isGoogleUserFound){
+          googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "google.com");
+          SharedPreferences autoRemember = await SharedPreferences.getInstance();
+          await autoRemember.setString(AppConstants.kUserUniqueID, currentUser.uid);
+          await autoRemember.setString(AppConstants.kUserName, googleUser.displayName!);
+          await autoRemember.setString(AppConstants.kUserEmail, googleUser.email!);
+          await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
+          //await _firebaseRealtimeDb.createAUser(googleUser!);
+          _logger.log(_TAG, "Storing user details as google user was found $currentUser");
+          //await context.router.replace(const IntroRoute());
+        }
+        else{
+          googleUser = currentUser.providerData.firstWhere((UserInfo currentUserInfo) => currentUserInfo.providerId == "apple.com");
+          SharedPreferences autoRemember = await SharedPreferences.getInstance();
+          await autoRemember.setString(AppConstants.kUserUniqueID, currentUser.uid);
+          await autoRemember.setString(AppConstants.kUserName, googleUser.displayName ?? '');
+          await autoRemember.setString(AppConstants.kUserEmail, googleUser.email ?? '');
+          await autoRemember.setBool(AppConstants.kUserSignInSuccess, true);
+          _logger.log(_TAG, "Storing user details as apple user was found $currentUser");
+        }
       }
     });
 
@@ -97,6 +111,7 @@ class OnBoardingBloc extends Bloc<OnboardingScreenEvents, OnboardingScreenStates
 
 
     final GoogleSignIn signIn = GoogleSignIn.instance;
+    await signIn.signOut();
     signIn
         .initialize(clientId: clientId, serverClientId: serverClientId)
         .then((_) {

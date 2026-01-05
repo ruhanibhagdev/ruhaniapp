@@ -55,7 +55,7 @@ extension TimerScreenEventPatterns on TimerScreenEvent {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( TimerStartedEvent value)?  TimerStarted,TResult Function( TimerPausedEvent value)?  TimerPaused,TResult Function( TimerResumedEvent value)?  TimerResumed,TResult Function( TimerResetEvent value)?  TimerReset,TResult Function( TimerTickedEvent value)?  TimerTicked,TResult Function( AddLapEvent value)?  AddLap,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( TimerStartedEvent value)?  TimerStarted,TResult Function( TimerPausedEvent value)?  TimerPaused,TResult Function( TimerResumedEvent value)?  TimerResumed,TResult Function( TimerResetEvent value)?  TimerReset,TResult Function( TimerTickedEvent value)?  TimerTicked,TResult Function( AddLapEvent value)?  AddLap,TResult Function( AppLogoutEvent value)?  AppLogout,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case TimerStartedEvent() when TimerStarted != null:
@@ -64,7 +64,8 @@ return TimerPaused(_that);case TimerResumedEvent() when TimerResumed != null:
 return TimerResumed(_that);case TimerResetEvent() when TimerReset != null:
 return TimerReset(_that);case TimerTickedEvent() when TimerTicked != null:
 return TimerTicked(_that);case AddLapEvent() when AddLap != null:
-return AddLap(_that);case _:
+return AddLap(_that);case AppLogoutEvent() when AppLogout != null:
+return AppLogout(_that);case _:
   return orElse();
 
 }
@@ -82,7 +83,7 @@ return AddLap(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( TimerStartedEvent value)  TimerStarted,required TResult Function( TimerPausedEvent value)  TimerPaused,required TResult Function( TimerResumedEvent value)  TimerResumed,required TResult Function( TimerResetEvent value)  TimerReset,required TResult Function( TimerTickedEvent value)  TimerTicked,required TResult Function( AddLapEvent value)  AddLap,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( TimerStartedEvent value)  TimerStarted,required TResult Function( TimerPausedEvent value)  TimerPaused,required TResult Function( TimerResumedEvent value)  TimerResumed,required TResult Function( TimerResetEvent value)  TimerReset,required TResult Function( TimerTickedEvent value)  TimerTicked,required TResult Function( AddLapEvent value)  AddLap,required TResult Function( AppLogoutEvent value)  AppLogout,}){
 final _that = this;
 switch (_that) {
 case TimerStartedEvent():
@@ -91,7 +92,8 @@ return TimerPaused(_that);case TimerResumedEvent():
 return TimerResumed(_that);case TimerResetEvent():
 return TimerReset(_that);case TimerTickedEvent():
 return TimerTicked(_that);case AddLapEvent():
-return AddLap(_that);}
+return AddLap(_that);case AppLogoutEvent():
+return AppLogout(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -105,7 +107,7 @@ return AddLap(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( TimerStartedEvent value)?  TimerStarted,TResult? Function( TimerPausedEvent value)?  TimerPaused,TResult? Function( TimerResumedEvent value)?  TimerResumed,TResult? Function( TimerResetEvent value)?  TimerReset,TResult? Function( TimerTickedEvent value)?  TimerTicked,TResult? Function( AddLapEvent value)?  AddLap,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( TimerStartedEvent value)?  TimerStarted,TResult? Function( TimerPausedEvent value)?  TimerPaused,TResult? Function( TimerResumedEvent value)?  TimerResumed,TResult? Function( TimerResetEvent value)?  TimerReset,TResult? Function( TimerTickedEvent value)?  TimerTicked,TResult? Function( AddLapEvent value)?  AddLap,TResult? Function( AppLogoutEvent value)?  AppLogout,}){
 final _that = this;
 switch (_that) {
 case TimerStartedEvent() when TimerStarted != null:
@@ -114,7 +116,8 @@ return TimerPaused(_that);case TimerResumedEvent() when TimerResumed != null:
 return TimerResumed(_that);case TimerResetEvent() when TimerReset != null:
 return TimerReset(_that);case TimerTickedEvent() when TimerTicked != null:
 return TimerTicked(_that);case AddLapEvent() when AddLap != null:
-return AddLap(_that);case _:
+return AddLap(_that);case AppLogoutEvent() when AppLogout != null:
+return AppLogout(_that);case _:
   return null;
 
 }
@@ -131,7 +134,7 @@ return AddLap(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( DurationModel durationModel)?  TimerStarted,TResult Function()?  TimerPaused,TResult Function()?  TimerResumed,TResult Function()?  TimerReset,TResult Function( DurationModel durationModel)?  TimerTicked,TResult Function()?  AddLap,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( DurationModel durationModel)?  TimerStarted,TResult Function()?  TimerPaused,TResult Function()?  TimerResumed,TResult Function()?  TimerReset,TResult Function( DurationModel durationModel)?  TimerTicked,TResult Function()?  AddLap,TResult Function()?  AppLogout,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case TimerStartedEvent() when TimerStarted != null:
 return TimerStarted(_that.durationModel);case TimerPausedEvent() when TimerPaused != null:
@@ -139,7 +142,8 @@ return TimerPaused();case TimerResumedEvent() when TimerResumed != null:
 return TimerResumed();case TimerResetEvent() when TimerReset != null:
 return TimerReset();case TimerTickedEvent() when TimerTicked != null:
 return TimerTicked(_that.durationModel);case AddLapEvent() when AddLap != null:
-return AddLap();case _:
+return AddLap();case AppLogoutEvent() when AppLogout != null:
+return AppLogout();case _:
   return orElse();
 
 }
@@ -157,7 +161,7 @@ return AddLap();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( DurationModel durationModel)  TimerStarted,required TResult Function()  TimerPaused,required TResult Function()  TimerResumed,required TResult Function()  TimerReset,required TResult Function( DurationModel durationModel)  TimerTicked,required TResult Function()  AddLap,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( DurationModel durationModel)  TimerStarted,required TResult Function()  TimerPaused,required TResult Function()  TimerResumed,required TResult Function()  TimerReset,required TResult Function( DurationModel durationModel)  TimerTicked,required TResult Function()  AddLap,required TResult Function()  AppLogout,}) {final _that = this;
 switch (_that) {
 case TimerStartedEvent():
 return TimerStarted(_that.durationModel);case TimerPausedEvent():
@@ -165,7 +169,8 @@ return TimerPaused();case TimerResumedEvent():
 return TimerResumed();case TimerResetEvent():
 return TimerReset();case TimerTickedEvent():
 return TimerTicked(_that.durationModel);case AddLapEvent():
-return AddLap();}
+return AddLap();case AppLogoutEvent():
+return AppLogout();}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -179,7 +184,7 @@ return AddLap();}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( DurationModel durationModel)?  TimerStarted,TResult? Function()?  TimerPaused,TResult? Function()?  TimerResumed,TResult? Function()?  TimerReset,TResult? Function( DurationModel durationModel)?  TimerTicked,TResult? Function()?  AddLap,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( DurationModel durationModel)?  TimerStarted,TResult? Function()?  TimerPaused,TResult? Function()?  TimerResumed,TResult? Function()?  TimerReset,TResult? Function( DurationModel durationModel)?  TimerTicked,TResult? Function()?  AddLap,TResult? Function()?  AppLogout,}) {final _that = this;
 switch (_that) {
 case TimerStartedEvent() when TimerStarted != null:
 return TimerStarted(_that.durationModel);case TimerPausedEvent() when TimerPaused != null:
@@ -187,7 +192,8 @@ return TimerPaused();case TimerResumedEvent() when TimerResumed != null:
 return TimerResumed();case TimerResetEvent() when TimerReset != null:
 return TimerReset();case TimerTickedEvent() when TimerTicked != null:
 return TimerTicked(_that.durationModel);case AddLapEvent() when AddLap != null:
-return AddLap();case _:
+return AddLap();case AppLogoutEvent() when AppLogout != null:
+return AppLogout();case _:
   return null;
 
 }
@@ -447,6 +453,38 @@ int get hashCode => runtimeType.hashCode;
 @override
 String toString() {
   return 'TimerScreenEvent.AddLap()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class AppLogoutEvent implements TimerScreenEvent {
+  const AppLogoutEvent();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLogoutEvent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'TimerScreenEvent.AppLogout()';
 }
 
 

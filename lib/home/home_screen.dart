@@ -41,12 +41,44 @@ class HomeScreen extends StatelessWidget{
           return Scaffold(
             backgroundColor: ColorConstants.klogoBackgroundColor,
             appBar: AppBar(
-              title: Text("RuFit"),
+              title: const Text("RuFit"),
               backgroundColor: ColorConstants.klogoOrangeColor,
               titleTextStyle: TextStyle(
                 color: Colors.white,
                 fontSize: 24
               ),
+                actions: <Widget>[
+                  IconButton(
+                    icon: const Icon(
+                        Icons.logout,
+                        color: Colors.white,
+                    ),
+                    tooltip: 'Logout',
+                    onPressed: () async{
+                      var result = await showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text("Logout"),
+                            content: Text("Are you sure you want to logout?"),
+                            actions: [
+                              TextButton(onPressed: () {
+                                Navigator.of(context).pop(true);
+                              }, child: Text("Yes")),
+                              TextButton(onPressed: () {
+                                Navigator.of(context).pop(false);
+                              }, child: Text("Cancel")),
+                            ],
+                          );
+                        },
+                      );
+                      if(result == true){
+                        BlocProvider.of<TimerBloc>(context).add(const TimerScreenEvent.AppLogout());
+                        context.router.replace(const OnBoardingRoute());
+                      }
+                    },
+                  ),
+                ]
             ),
             body: Center(
                 child: Padding(

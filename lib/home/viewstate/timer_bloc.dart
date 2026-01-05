@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:drift/drift.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../base/database.dart';
 import '../../base/duration_calculator.dart';
 import '../../base/duration_model.dart';
@@ -22,7 +24,8 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
           TimerResumed: (event) async => _onResumed(event, emit),
           TimerReset: (event) async => _onReset(event, emit),
           TimerTicked: (event) async => _onTicked(event, emit),
-          AddLap: (event) async => _addLap(event, emit)
+          AddLap: (event) async => _addLap(event, emit),
+          AppLogout: (event) async => _logOut(event, emit)
       );
     });
   }
@@ -120,5 +123,13 @@ class TimerBloc extends Bloc<TimerScreenEvent, TimerScreenState> {
     int minutesInSeconds = durationOfTimer.inMinutes * 60;
     endTimeInSeconds = hoursInSeconds + minutesInSeconds + durationOfTimer.inSeconds;
     isAudioPlayed = false;
+  }
+
+  Future<void> _logOut(AppLogoutEvent event, Emitter<TimerScreenState> emit) async{
+    _logger.log(_TAG, "Logging out of the app");
+    final GoogleSignIn signIn = GoogleSignIn.instance;
+    await signIn.signOut();
+    SharedPreferences autoRemember = await SharedPreferences.getInstance();
+    await autoRemember.clear();
   }
 }
